@@ -1,0 +1,173 @@
+
+texture.atlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+derecha
+  rotate: false
+  xy: 1, 35
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+disparo
+  rotate: false
+  xy: 83, 35
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+izquierda
+  rotate: false
+  xy: 165, 35
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+salto
+  rotate: false
+  xy: 247, 35
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+music_off
+  rotate: false
+  xy: 329, 67
+  size: 50, 48
+  orig: 50, 48
+  offset: 0, 0
+  index: -1
+music_on
+  rotate: false
+  xy: 381, 67
+  size: 50, 48
+  orig: 50, 48
+  offset: 0, 0
+  index: -1
+anda3
+  rotate: false
+  xy: 1, 2
+  size: 20, 31
+  orig: 20, 31
+  offset: 0, 0
+  index: -1
+salta1
+  rotate: false
+  xy: 433, 83
+  size: 19, 32
+  orig: 19, 32
+  offset: 0, 0
+  index: -1
+salta2
+  rotate: false
+  xy: 454, 83
+  size: 19, 32
+  orig: 19, 32
+  offset: 0, 0
+  index: -1
+salta3
+  rotate: false
+  xy: 475, 83
+  size: 19, 32
+  orig: 19, 32
+  offset: 0, 0
+  index: -1
+anda6
+  rotate: false
+  xy: 23, 2
+  size: 19, 31
+  orig: 19, 31
+  offset: 0, 0
+  index: -1
+caracol1
+  rotate: false
+  xy: 329, 41
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+anda1
+  rotate: false
+  xy: 44, 1
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+anda4
+  rotate: false
+  xy: 62, 1
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+anda2
+  rotate: false
+  xy: 80, 2
+  size: 16, 31
+  orig: 16, 31
+  offset: 0, 0
+  index: -1
+anda5
+  rotate: false
+  xy: 98, 2
+  size: 16, 31
+  orig: 16, 31
+  offset: 0, 0
+  index: -1
+caracol2
+  rotate: false
+  xy: 355, 49
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+fuego2
+  rotate: false
+  xy: 116, 9
+  size: 16, 24
+  orig: 16, 24
+  offset: 0, 0
+  index: -1
+fuego1
+  rotate: false
+  xy: 134, 12
+  size: 16, 21
+  orig: 16, 21
+  offset: 0, 0
+  index: -1
+martillo1
+  rotate: false
+  xy: 381, 50
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+martillo2
+  rotate: false
+  xy: 152, 18
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+martillo3
+  rotate: false
+  xy: 399, 50
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+martillo4
+  rotate: false
+  xy: 170, 18
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+llave
+  rotate: false
+  xy: 433, 73
+  size: 16, 8
+  orig: 16, 8
+  offset: 0, 0
+  index: -1

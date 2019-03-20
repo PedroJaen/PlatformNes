@@ -11,6 +11,10 @@ public class Constants {
     public static final String TITLE = "PlatformNes";
     public static final float FONT_SCALE = 1f;
     public static final float BUTTON_RADIUS = 32;
+    public static final String MUSICA_INICIO="music/inicio.mp3";
+    public static final String MUSICA_FIN="music/game_over.mp3";
+    public static final String TEXTURE_ATLAS = "images/texture.atlas.pack";
+    public static final String PREFERENCES = "preferences";
 
     //menuscreen
     public static final String MENU_JUGAR="PLAY";
@@ -37,4 +41,14 @@ public class Constants {
     //hud
     public static final String LEVEL = "LEVEL";
     public static final String DIFFICULTY = "DIFFICULTY";
+
+    //sounds
+    public static final String MUSICA_DISPARO1="music/game_over.mp3";
+    public static final String MUSICA_DISPARO2="music/game_over.mp3";
+    public static final String MUSICA_SALTO="music/game_over.mp3";
+    public static final String MUSICA_EXPLOSION="music/game_over.mp3";
+    public static final String MUSICA_OBJETO="music/game_over.mp3";
+
+    //heroe
+    public static final float WALK_LOOP_DURATION = 0.25f;
 }

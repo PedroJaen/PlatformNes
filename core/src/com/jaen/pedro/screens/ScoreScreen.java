@@ -11,12 +11,15 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.utils.Constants;
 
+import java.util.ArrayList;
+
 public class ScoreScreen extends InputAdapter implements Screen {
     PlatformNesGame game;
     SpriteBatch batch;
     FitViewport viewport;
     BitmapFont font;
     BitmapFont lilFont;
+    ArrayList<Long> puntuaciones;
 
     public ScoreScreen(PlatformNesGame game) {
         this.game = game;
@@ -35,6 +38,9 @@ public class ScoreScreen extends InputAdapter implements Screen {
         lilFont=new BitmapFont();
         lilFont = new BitmapFont(Gdx.files.internal(Constants.FONT_FILE));
         lilFont.getData().setScale(Constants.FONT_LIL_SCALE);
+
+        game.getPreferencias().cargaPuntuaciones();
+        puntuaciones=game.getPreferencias().getPuntuaciones();
     }
 
     @Override
@@ -58,7 +64,7 @@ public class ScoreScreen extends InputAdapter implements Screen {
 
         for(float i=(Constants.WORLD_SIZE/2)+40;contador<6;i-=20f, contador++){
             lilFont.draw(batch,
-                    contador+"",
+                    contador+" - "+puntuaciones.get(contador-1),
                     Constants.SCORES_POSITION.x,
                     i,
                     0, Align.center,false);
