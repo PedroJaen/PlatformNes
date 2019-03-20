@@ -59,4 +59,17 @@ public class GameScreen  extends ScreenAdapter {
         hud.dispose();
     }
 
+    public void levelComplete() {
+        game.getPreferencias().addPuntuacion(1);
+        game.getPreferencias().guardarDatos();
+        game.setMenuScreen();
+    }
+
+    public void levelFailed() {
+        game.getPreferencias().addPuntuacion(0);
+        game.getPreferencias().guardarDatos();
+        game.setMenuScreen();
+
+    }
+
 }

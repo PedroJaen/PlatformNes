@@ -12,7 +12,7 @@ public class Preferencias {
     private ArrayList<Long> puntuaciones;
 
     public Preferencias() {
-        prefs = Gdx.app.getPreferences("preferences");
+        prefs = Gdx.app.getPreferences(Constants.PREFERENCES);
         this.puntuaciones=new ArrayList<Long>(6);
 
         if(puntuaciones.size()==0){
@@ -20,7 +20,7 @@ public class Preferencias {
                 puntuaciones.add(i,0l);
             }
         }
-        
+
     }
 
     public void guardarDatos(){

@@ -15,7 +15,8 @@ public class PlatformNesGame extends Game {
     private Preferencias preferencias;
     private boolean mute;
 
-    public PlatformNesGame() {
+    @Override
+	public void create() {
         preferencias=new Preferencias();
 
         preferencias.cargaMute();
@@ -23,12 +24,13 @@ public class PlatformNesGame extends Game {
 
         AssetManager am = new AssetManager();
         Assets.instance.init(am);
-    }
 
-    @Override
-	public void create() {
-		setScreen(new StartScreen(this));
+        setStartScreen();
 	}
+
+	public void setStartScreen(){
+        setScreen(new StartScreen(this));
+    }
 
 	public void setMenuScreen(){
 		setScreen(new MenuScreen(this));
@@ -59,8 +61,15 @@ public class PlatformNesGame extends Game {
     }
 
     @Override
-    public void dispose() {
-        Assets.instance.dispose();
+    public void pause() {
+        super.pause();
         preferencias.guardarDatos();
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        Assets.instance.dispose();
+
     }
 }
