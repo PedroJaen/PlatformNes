@@ -18,6 +18,7 @@ public class Assets implements Disposable, AssetErrorListener {
     public EnemigoAssets enemigoAssets;
     public ItemAssets itemAssets;
     public AtaqueAssets ataqueAssets;
+    public OnscreenControlsAssets onscreenControlsAssets;
 
     @Override
     public void error(AssetDescriptor asset, Throwable throwable) {
@@ -40,6 +41,7 @@ public class Assets implements Disposable, AssetErrorListener {
         enemigoAssets=new EnemigoAssets(atlas);
         itemAssets=new ItemAssets(atlas);
         ataqueAssets=new AtaqueAssets(atlas);
+        onscreenControlsAssets = new OnscreenControlsAssets(atlas);
     }
 
     public class HeroeAssets{
@@ -219,5 +221,25 @@ public class Assets implements Disposable, AssetErrorListener {
             fireball=atlas.findRegion("fireball");
             */
         }
+    }
+
+    public class OnscreenControlsAssets {
+
+        public final TextureAtlas.AtlasRegion moveRight;
+        public final TextureAtlas.AtlasRegion moveLeft;
+        public final TextureAtlas.AtlasRegion shoot;
+        public final TextureAtlas.AtlasRegion jump;
+        public final TextureAtlas.AtlasRegion music_on;
+        public final TextureAtlas.AtlasRegion music_off;
+
+        public OnscreenControlsAssets(TextureAtlas atlas) {
+            moveRight = atlas.findRegion(Constants.MOVE_RIGHT_BUTTON);
+            moveLeft = atlas.findRegion(Constants.MOVE_LEFT_BUTTON);
+            shoot = atlas.findRegion(Constants.SHOOT_BUTTON);
+            jump = atlas.findRegion(Constants.JUMP_BUTTON);
+            music_on = atlas.findRegion(Constants.MUSIC_ON_BUTTON);
+            music_off = atlas.findRegion(Constants.MUSIC_OFF_BUTTON);
+        }
+
     }
 }

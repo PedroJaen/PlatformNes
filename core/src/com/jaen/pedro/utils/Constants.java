@@ -10,11 +10,9 @@ public class Constants {
     public static final String FONT_FILE = "font/header.fnt";
     public static final String TITLE = "PlatformNes";
     public static final float FONT_SCALE = 1f;
-    public static final float BUTTON_RADIUS = 32;
-    public static final String MUSICA_INICIO="music/inicio.mp3";
-    public static final String MUSICA_FIN="music/game_over.mp3";
     public static final String TEXTURE_ATLAS = "images/texture.atlas.pack";
     public static final String PREFERENCES = "preferences";
+    public static final float PPM=100;
 
     //menuscreen
     public static final String MENU_JUGAR="PLAY";
@@ -43,12 +41,34 @@ public class Constants {
     public static final String DIFFICULTY = "DIFFICULTY";
 
     //sounds
+    public static final String MUSICA_INICIO="music/inicio.mp3";
+    public static final String MUSICA_FIN="music/game_over.mp3";
     public static final String MUSICA_DISPARO1="music/game_over.mp3";
     public static final String MUSICA_DISPARO2="music/game_over.mp3";
     public static final String MUSICA_SALTO="music/game_over.mp3";
     public static final String MUSICA_EXPLOSION="music/game_over.mp3";
     public static final String MUSICA_OBJETO="music/game_over.mp3";
 
+    // Onscreen Controls
+    public static final Vector2 BUTTON_CENTER = new Vector2(15, 15);
+    public static final float BUTTON_RADIUS = 32;
+    public static final float ONSCREEN_CONTROLS_VIEWPORT_SIZE = 200;
+    public static final String MOVE_LEFT_BUTTON = "button-move-left";
+    public static final String MOVE_RIGHT_BUTTON = "button-move-right";
+    public static final String SHOOT_BUTTON = "button-shoot";
+    public static final String JUMP_BUTTON = "button-jump";
+    public static final String MUSIC_ON_BUTTON = "music_on";
+    public static final String MUSIC_OFF_BUTTON = "music_off";
+    public static final Vector2 MUSIC_BUTTON_CENTER = new Vector2(WORLD_SIZE-BUTTON_RADIUS, WORLD_SIZE-BUTTON_RADIUS);
+
     //heroe
     public static final float WALK_LOOP_DURATION = 0.25f;
+
+    //lvls
+    public static final String LEVEL1="levels/plat_lvl1.tmx";
+    public static final int LVL_GROUND=3;
+    public static final int LVL_EXIT=4;
+    public static final int LVL_DEATH=5;
+    public static final int LVL_LLAVE=6;
+    public static final int LVL_FRUTA=7;
 }

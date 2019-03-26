@@ -6,11 +6,14 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.jaen.pedro.PlatformNesGame;
+import com.jaen.pedro.utils.Assets;
 import com.jaen.pedro.utils.Constants;
+import com.jaen.pedro.utils.Utils;
 
 public class MenuScreen extends InputAdapter implements Screen {
     PlatformNesGame game;
@@ -57,7 +60,33 @@ public class MenuScreen extends InputAdapter implements Screen {
                 Constants.SCORES_BUTTON.y,
                 0, Align.center,false);
 
+        pintaBotonMusica(batch);
+
         batch.end();
+    }
+
+    private void pintaBotonMusica(SpriteBatch batch) {
+        //pintamos el boton de musica
+        TextureRegion region = Assets.instance.onscreenControlsAssets.music_on;
+        if(game.isMute()){
+            region = Assets.instance.onscreenControlsAssets.music_off;
+        }
+        Utils.drawTextureRegion(batch,
+                region,
+                Constants.MUSIC_BUTTON_CENTER.x-Constants.BUTTON_RADIUS,
+                Constants.MUSIC_BUTTON_CENTER.y-Constants.BUTTON_RADIUS);
+    }
+
+    private void suenaMusica() {
+        if(game.isMute()){//esta muteado
+            if(game.getMusic().isPlaying()){//si suena, paramos
+                game.getMusic().stop();
+            }
+        }else{//puede sonar
+            if(!game.getMusic().isPlaying()){//si no suena, iniciamos
+                game.getMusic().play();
+            }
+        }
     }
 
     @Override
@@ -94,6 +123,9 @@ public class MenuScreen extends InputAdapter implements Screen {
             game.setDifficultyScreen();
         }else if(touch.dst(Constants.SCORES_BUTTON)<Constants.BUTTON_RADIUS){
             game.setScoreScreen();
+        }else if(touch.dst(Constants.MUSIC_BUTTON_CENTER)<Constants.BUTTON_RADIUS){
+            game.setMute(!game.isMute());
+            suenaMusica();
         }
 
         return true;

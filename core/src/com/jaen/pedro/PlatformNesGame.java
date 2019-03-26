@@ -2,6 +2,7 @@ package com.jaen.pedro;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.jaen.pedro.screens.DifficultScreen;
 import com.jaen.pedro.screens.GameScreen;
 import com.jaen.pedro.screens.MenuScreen;
@@ -14,6 +15,7 @@ import com.jaen.pedro.utils.Preferencias;
 public class PlatformNesGame extends Game {
     private Preferencias preferencias;
     private boolean mute;
+    private Music music;
 
     @Override
 	public void create() {
@@ -60,16 +62,24 @@ public class PlatformNesGame extends Game {
         this.mute = mute;
     }
 
+    public Music getMusic() {
+        return music;
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
+    }
+
     @Override
     public void pause() {
         super.pause();
-        preferencias.guardarDatos();
     }
 
     @Override
     public void dispose() {
         super.dispose();
         Assets.instance.dispose();
-
+        music.dispose();
+        preferencias.guardarDatos();
     }
 }

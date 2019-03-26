@@ -3,6 +3,7 @@ package com.jaen.pedro.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,6 +18,7 @@ public class StartScreen extends InputAdapter implements Screen {
     ExtendViewport viewport;
     BitmapFont font;
     PlatformNesGame game;
+    Music music;
 
     public StartScreen(PlatformNesGame game) {
         this.game = game;
@@ -32,6 +34,18 @@ public class StartScreen extends InputAdapter implements Screen {
         font=new BitmapFont();
         font = new BitmapFont(Gdx.files.internal(Constants.FONT_FILE));
         font.getData().setScale(Constants.FONT_SCALE);
+
+        if(!game.isMute()){
+            suenaMusica();
+        }
+    }
+
+    private void suenaMusica() {
+        music=Gdx.audio.newMusic(Gdx.files.internal(Constants.MUSICA_INICIO));
+        music.setLooping(true);
+        music.play();
+
+        game.setMusic(music);
     }
 
     @Override
