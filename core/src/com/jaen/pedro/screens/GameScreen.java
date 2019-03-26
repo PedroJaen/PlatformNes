@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jaen.pedro.PlatformNesGame;
@@ -42,7 +43,7 @@ public class GameScreen  extends ScreenAdapter {
         batch = new SpriteBatch();
         hud=new HudOverlay(batch,difficulty);
         camera=new OrthographicCamera();
-        viewport=new FitViewport(Constants.WORLD_SIZE/Constants.PPM,Constants.WORLD_SIZE/Constants.PPM,camera);
+        viewport=new ExtendViewport(Constants.LVL_SIZE/Constants.PPM,Constants.LVL_SIZE/Constants.PPM,camera);
         camera.position.set(viewport.getScreenWidth(),viewport.getScreenHeight(),0);
 
         //cargamos el nivel
@@ -77,6 +78,7 @@ public class GameScreen  extends ScreenAdapter {
         renderer.setView(camera);
     }
 
+    //metodo para movernos por le mapa y comprobar q va bien
     private void handleInput(float delta) {
         if(Gdx.input.isKeyPressed(Input.Keys.UP)){
             camera.position.y+=delta*10;

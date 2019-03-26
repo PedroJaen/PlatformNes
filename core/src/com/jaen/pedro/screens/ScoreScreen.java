@@ -62,7 +62,7 @@ public class ScoreScreen extends InputAdapter implements Screen {
 
         int contador=1;
 
-        for(float i=(Constants.WORLD_SIZE/2)+40;contador<6;i-=20f, contador++){
+        for(float i=(Constants.WORLD_SIZE/2)+140;contador<6;i-=70f, contador++){
             lilFont.draw(batch,
                     contador+" - "+puntuaciones.get(contador-1),
                     Constants.SCORES_POSITION.x,

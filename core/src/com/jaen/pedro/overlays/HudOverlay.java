@@ -60,14 +60,14 @@ public class HudOverlay implements Disposable {
         marioLabel = new Label(difficulty+" ", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         //add our labels to our table, padding the top, and giving them all equal width with expandX
-        table.add(marioLabel).expandX().padTop(10);
-        table.add(worldLabel).expandX().padTop(10);
-        table.add(timeLabel).expandX().padTop(10);
+        table.add(marioLabel).expandX().padTop(Constants.HUD_MARGIN);
+        table.add(worldLabel).expandX().padTop(Constants.HUD_MARGIN);
+        table.add(timeLabel).expandX().padTop(Constants.HUD_MARGIN);
         //add a second row to our table
         table.row();
-        table.add(scoreLabel).expandX();
-        table.add(levelLabel).expandX();
-        table.add(countdownLabel).expandX();
+        table.add(scoreLabel).expandX().padTop(Constants.HUD_MARGIN/2);
+        table.add(levelLabel).expandX().padTop(Constants.HUD_MARGIN/2);
+        table.add(countdownLabel).expandX().padTop(Constants.HUD_MARGIN/2);
 
         //add our table to the stage
         stage.addActor(table);

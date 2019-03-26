@@ -14,6 +14,11 @@ public class Constants {
     public static final String PREFERENCES = "preferences";
     public static final float PPM=100;
 
+    //hud
+    public static final int HUD_MARGIN=20;
+    public static final String LEVEL = "LEVEL";
+    public static final String DIFFICULTY = "DIFFICULTY";
+
     //menuscreen
     public static final String MENU_JUGAR="PLAY";
     public static final Vector2 JUGAR_BUTTON = new Vector2(WORLD_SIZE*0.25f,WORLD_SIZE/2);
@@ -21,9 +26,9 @@ public class Constants {
     public static final Vector2 SCORES_BUTTON = new Vector2(WORLD_SIZE*0.75f,WORLD_SIZE/2);
 
     //scorescreen
-    public static final float FONT_LIL_SCALE = 0.5f;
+    public static final float FONT_LIL_SCALE = 0.8f;
     public static final String SCORES="HIGH SCORES!";
-    public static final Vector2 SCORES_POSITION = new Vector2(WORLD_SIZE/2,WORLD_SIZE-20);
+    public static final Vector2 SCORES_POSITION = new Vector2(WORLD_SIZE/2,WORLD_SIZE-HUD_MARGIN);
 
     //difficultscreen
     public static final Vector2 FACIL_POSITION=new Vector2(0,WORLD_SIZE/2);
@@ -36,9 +41,7 @@ public class Constants {
     public static final String DIFICIL = "HARD";
     public static final int DIFICIL_INC=3;
 
-    //hud
-    public static final String LEVEL = "LEVEL";
-    public static final String DIFFICULTY = "DIFFICULTY";
+
 
     //sounds
     public static final String MUSICA_INICIO="music/inicio.mp3";
@@ -65,6 +68,7 @@ public class Constants {
     public static final float WALK_LOOP_DURATION = 0.25f;
 
     //lvls
+    public static final float LVL_SIZE = 300;
     public static final String LEVEL1="levels/plat_lvl1.tmx";
     public static final int LVL_GROUND=3;
     public static final int LVL_EXIT=4;
