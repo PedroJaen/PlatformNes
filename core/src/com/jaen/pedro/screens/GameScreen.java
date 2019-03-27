@@ -16,7 +16,6 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jaen.pedro.PlatformNesGame;
-import com.jaen.pedro.objects.Level;
 import com.jaen.pedro.overlays.HudOverlay;
 import com.jaen.pedro.overlays.OnScreensControls;
 import com.jaen.pedro.utils.Constants;
@@ -30,7 +29,6 @@ public class GameScreen  extends ScreenAdapter {
     HudOverlay hud;
     Music music;
     OnScreensControls onScreensControls;
-    Level level;
 
     private TmxMapLoader mapLoader;
     private TiledMap map;
@@ -48,14 +46,12 @@ public class GameScreen  extends ScreenAdapter {
         viewport=new ExtendViewport(Constants.LVL_SIZE/Constants.PPM,Constants.LVL_SIZE/Constants.PPM,camera);
         camera.position.set(viewport.getScreenWidth(),viewport.getScreenHeight(),0);
 
-        //cargamos el fondo del nivel
+        //cargamos el nivel
         mapLoader=new TmxMapLoader();
         map=mapLoader.load(Constants.LEVEL1);
         renderer=new OrthogonalTiledMapRenderer(map,1/Constants.PPM);
 
-        //obtenemos el nivel
-        WorldCreator wc=new WorldCreator(map);
-        level=wc.worldCreator();
+        new WorldCreator(map);
 
         if(game.getMusic().isPlaying()){
             game.getMusic().stop();
@@ -80,7 +76,6 @@ public class GameScreen  extends ScreenAdapter {
 
         camera.update();
         renderer.setView(camera);
-        level.update(delta);
     }
 
     //metodo para movernos por le mapa y comprobar q va bien
@@ -112,7 +107,6 @@ public class GameScreen  extends ScreenAdapter {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
 
-        level.render(batch);
 
         batch.end();
 
