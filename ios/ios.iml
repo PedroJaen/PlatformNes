@@ -34,13 +34,5 @@
     <orderEntry type="library" exported="" name="Gradle: gdx-platform-1.9.9-natives-ios" level="project" />
     <orderEntry type="library" exported="" name="Gradle: robovm-objc-2.3.5" level="project" />
     <orderEntry type="library" exported="" name="Gradle: gdx-1.9.9" level="project" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
   </component>
 </module>

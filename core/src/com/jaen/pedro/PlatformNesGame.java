@@ -80,6 +80,6 @@ public class PlatformNesGame extends Game {
         super.dispose();
         Assets.instance.dispose();
         music.dispose();
-        preferencias.guardarDatos();
+
     }
 }
