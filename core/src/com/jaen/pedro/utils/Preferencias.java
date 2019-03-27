@@ -21,6 +21,9 @@ public class Preferencias {
             }
         }
 
+        cargaPuntuaciones();
+        cargaMute();
+
     }
 
     public void guardarDatos(){

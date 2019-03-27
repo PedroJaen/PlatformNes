@@ -41,8 +41,6 @@ public class Constants {
     public static final String DIFICIL = "HARD";
     public static final int DIFICIL_INC=3;
 
-
-
     //sounds
     public static final String MUSICA_INICIO="music/inicio.mp3";
     public static final String MUSICA_FIN="music/game_over.mp3";
@@ -75,4 +73,34 @@ public class Constants {
     public static final int LVL_DEATH=5;
     public static final int LVL_LLAVE=6;
     public static final int LVL_FRUTA=7;
+    public static final int LVL_HEROE=8;
+    public static final int LVL_AMMO=9;
+
+    //sprites
+    public static final String ANDA1 = "anda1";
+    public static final String ANDA2 = "anda2";
+    public static final String ANDA3 = "anda3";
+    public static final String ANDA4 = "anda4";
+    public static final String ANDA5 = "anda5";
+    public static final String ANDA6 = "anda6";
+    public static final String SALTA1 = "salta1";
+    public static final String SALTA2 = "salta2";
+    public static final String SALTA3 = "salta3";
+
+    public static final String CARACOL1 = "caracol1";
+    public static final String CARACOL2 = "caracol2";
+
+    public static final String FUEGO1 = "fuego1";
+    public static final String FUEGO2 = "fuego2";
+    public static final String LLAVE = "llave";
+    public static final String MANZANA = "manzana";
+    public static final String MELON = "melon";
+    public static final String PINEAPLE = "pineaple";
+    public static final String PLATANO = "platano";
+
+    public static final String MARTILLO1 = "martillo1";
+    public static final String MARTILLO2 = "martillo2";
+    public static final String MARTILLO3 = "martillo3";
+    public static final String MARTILLO4 = "martillo4";
+
 }

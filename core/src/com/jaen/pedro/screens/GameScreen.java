@@ -109,7 +109,7 @@ public class GameScreen  extends ScreenAdapter {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        //pintamos el nivel
+        //pintamos el fondo del nivel
         renderer.render();
 
         batch.setProjectionMatrix(camera.combined);

@@ -87,6 +87,8 @@ public class MenuScreen extends InputAdapter implements Screen {
                 game.getMusic().play();
             }
         }
+        game.getPreferencias().setMute(game.isMute());
+        game.getPreferencias().guardarDatos();
     }
 
     @Override

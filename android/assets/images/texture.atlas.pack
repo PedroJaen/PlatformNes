@@ -5,168 +5,196 @@ filter: Nearest,Nearest
 repeat: none
 derecha
   rotate: false
-  xy: 1, 35
+  xy: 1, 44
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 disparo
   rotate: false
-  xy: 83, 35
+  xy: 83, 44
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 izquierda
   rotate: false
-  xy: 165, 35
+  xy: 165, 44
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 salto
   rotate: false
-  xy: 247, 35
+  xy: 247, 44
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 music_off
   rotate: false
-  xy: 329, 67
+  xy: 329, 76
   size: 50, 48
   orig: 50, 48
   offset: 0, 0
   index: -1
 music_on
   rotate: false
-  xy: 381, 67
+  xy: 381, 76
   size: 50, 48
   orig: 50, 48
   offset: 0, 0
   index: -1
 anda3
   rotate: false
-  xy: 1, 2
+  xy: 1, 11
   size: 20, 31
   orig: 20, 31
   offset: 0, 0
   index: -1
 salta1
   rotate: false
-  xy: 433, 83
+  xy: 433, 92
   size: 19, 32
   orig: 19, 32
   offset: 0, 0
   index: -1
 salta2
   rotate: false
-  xy: 454, 83
+  xy: 454, 92
   size: 19, 32
   orig: 19, 32
   offset: 0, 0
   index: -1
 salta3
   rotate: false
-  xy: 475, 83
+  xy: 475, 92
   size: 19, 32
   orig: 19, 32
   offset: 0, 0
   index: -1
 anda6
   rotate: false
-  xy: 23, 2
+  xy: 23, 11
   size: 19, 31
   orig: 19, 31
   offset: 0, 0
   index: -1
 caracol1
   rotate: false
-  xy: 329, 41
+  xy: 329, 50
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 anda1
   rotate: false
-  xy: 44, 1
+  xy: 44, 10
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: -1
 anda4
   rotate: false
-  xy: 62, 1
+  xy: 62, 10
   size: 16, 32
   orig: 16, 32
   offset: 0, 0
   index: -1
 anda2
   rotate: false
-  xy: 80, 2
+  xy: 80, 11
   size: 16, 31
   orig: 16, 31
   offset: 0, 0
   index: -1
 anda5
   rotate: false
-  xy: 98, 2
+  xy: 98, 11
   size: 16, 31
   orig: 16, 31
   offset: 0, 0
   index: -1
 caracol2
   rotate: false
-  xy: 355, 49
+  xy: 355, 58
   size: 24, 16
   orig: 24, 16
   offset: 0, 0
   index: -1
 fuego2
   rotate: false
-  xy: 116, 9
+  xy: 116, 18
   size: 16, 24
   orig: 16, 24
   offset: 0, 0
   index: -1
 fuego1
   rotate: false
-  xy: 134, 12
+  xy: 134, 21
   size: 16, 21
   orig: 16, 21
   offset: 0, 0
   index: -1
 martillo1
   rotate: false
-  xy: 381, 50
+  xy: 381, 59
   size: 16, 15
   orig: 16, 15
   offset: 0, 0
   index: -1
 martillo2
   rotate: false
-  xy: 152, 18
+  xy: 152, 27
   size: 16, 15
   orig: 16, 15
   offset: 0, 0
   index: -1
 martillo3
   rotate: false
-  xy: 399, 50
+  xy: 399, 59
   size: 16, 15
   orig: 16, 15
   offset: 0, 0
   index: -1
 martillo4
   rotate: false
-  xy: 170, 18
+  xy: 170, 27
   size: 16, 15
   orig: 16, 15
   offset: 0, 0
   index: -1
+platano
+  rotate: false
+  xy: 433, 76
+  size: 16, 14
+  orig: 16, 14
+  offset: 0, 0
+  index: -1
+manzana
+  rotate: false
+  xy: 496, 109
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+melon
+  rotate: false
+  xy: 417, 58
+  size: 12, 16
+  orig: 12, 16
+  offset: 0, 0
+  index: -1
+pineaple
+  rotate: false
+  xy: 431, 58
+  size: 10, 16
+  orig: 10, 16
+  offset: 0, 0
+  index: -1
 llave
   rotate: false
-  xy: 433, 73
+  xy: 1, 1
   size: 16, 8
   orig: 16, 8
   offset: 0, 0

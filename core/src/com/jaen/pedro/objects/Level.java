@@ -6,8 +6,9 @@ import com.badlogic.gdx.utils.DelayedRemovalArray;
 
 public class Level {
     private Hero hero;
-    private Key key;
+    private DelayedRemovalArray<Key> key;
     private DelayedRemovalArray<Fruit> fruits;
+    private DelayedRemovalArray<Ammo> ammunition;
     private Array<Floor> floors;
     private Exit exit;
     private Array<Death> deaths;
@@ -21,6 +22,28 @@ public class Level {
 
     public void render(SpriteBatch batch){
 
+        //pintamos al heroe
+        hero.render(batch);
+
+        //pintamos la llave
+        if(key.size==1){
+            key.get(0).render(batch);
+        }
+
+        //pintamos la fruta
+        if(fruits.size>0){
+            for(Fruit f:fruits){
+                f.render(batch);
+            }
+        }
+
+        //pintamos la municion extra
+        if(ammunition.size>0){
+            for(Ammo a:ammunition){
+                a.render(batch);
+            }
+        }
+
     }
 
     public Hero getHero() {
@@ -29,14 +52,6 @@ public class Level {
 
     public void setHero(Hero hero) {
         this.hero = hero;
-    }
-
-    public Key getKey() {
-        return key;
-    }
-
-    public void setKey(Key key) {
-        this.key = key;
     }
 
     public DelayedRemovalArray<Fruit> getFruits() {
@@ -69,5 +84,21 @@ public class Level {
 
     public void setDeaths(Array<Death> deaths) {
         this.deaths = deaths;
+    }
+
+    public DelayedRemovalArray<Ammo> getAmmunition() {
+        return ammunition;
+    }
+
+    public void setAmmunition(DelayedRemovalArray<Ammo> ammunition) {
+        this.ammunition = ammunition;
+    }
+
+    public DelayedRemovalArray<Key> getKey() {
+        return key;
+    }
+
+    public void setKey(DelayedRemovalArray<Key> key) {
+        this.key = key;
     }
 }

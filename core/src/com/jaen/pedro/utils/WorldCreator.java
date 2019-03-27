@@ -6,10 +6,12 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
+import com.jaen.pedro.objects.Ammo;
 import com.jaen.pedro.objects.Death;
 import com.jaen.pedro.objects.Exit;
 import com.jaen.pedro.objects.Floor;
 import com.jaen.pedro.objects.Fruit;
+import com.jaen.pedro.objects.Hero;
 import com.jaen.pedro.objects.Key;
 import com.jaen.pedro.objects.Level;
 
@@ -24,7 +26,16 @@ public class WorldCreator {
     public Level worldCreator() {
         level= new Level();
 
-        //recorremos el objeto heroe?
+
+        Hero hero=null;
+        //recorremos el objeto heroe
+        for(MapObject object:map.getLayers().get(Constants.LVL_HEROE).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rectangle =((RectangleMapObject)object).getRectangle();
+
+            hero=new Hero(map,rectangle);
+
+        }
+        level.setHero(hero);
 
         Array<Floor> floors=new Array<Floor>();
         //recorremos los objetos suelo
@@ -56,12 +67,12 @@ public class WorldCreator {
         }
         level.setDeaths(deaths);
 
-        Key key=null;
+        DelayedRemovalArray<Key> key=new DelayedRemovalArray<Key>(1);
         //recorremos el objeto llave
         for(MapObject object:map.getLayers().get(Constants.LVL_LLAVE).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rectangle =((RectangleMapObject)object).getRectangle();
 
-            key=new Key(map,rectangle);
+            key.add(new Key(map,rectangle));
         }
         level.setKey(key);
 
@@ -73,6 +84,15 @@ public class WorldCreator {
             fruits.add(new Fruit(map,rectangle));
         }
         level.setFruits(fruits);
+
+        DelayedRemovalArray<Ammo> ammunition=new DelayedRemovalArray<Ammo>();
+        //recorremos el objeto ammo
+        for(MapObject object:map.getLayers().get(Constants.LVL_AMMO).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rectangle =((RectangleMapObject)object).getRectangle();
+
+            ammunition.add(new Ammo(map,rectangle));
+        }
+        level.setAmmunition(ammunition);
 
         return level;
 
