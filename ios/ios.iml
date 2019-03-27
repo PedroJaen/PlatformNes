@@ -23,24 +23,15 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
-      <excludeFolder url="file://$MODULE_DIR$/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="library" exported="" name="Gradle: gdx-backend-robovm-1.9.9" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: robovm-rt-2.3.5" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: robovm-cocoatouch-2.3.5" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: gdx-platform-1.9.9-natives-ios" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: robovm-objc-2.3.5" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: gdx-1.9.9" level="project" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
-    <orderEntry type="module" module-name="core" exported="" />
+    <orderEntry type="library" exported="" name="gdx-backend-robovm-1.9.9" level="project" />
+    <orderEntry type="library" exported="" name="robovm-rt-2.3.5" level="project" />
+    <orderEntry type="library" exported="" name="robovm-cocoatouch-2.3.5" level="project" />
+    <orderEntry type="library" exported="" name="gdx-platform-1.9.9-natives-ios" level="project" />
+    <orderEntry type="library" exported="" name="robovm-objc-2.3.5" level="project" />
+    <orderEntry type="library" exported="" name="gdx-1.9.9" level="project" />
   </component>
 </module>
