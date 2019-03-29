@@ -1,6 +1,7 @@
 package com.jaen.pedro;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.jaen.pedro.screens.DifficultScreen;
@@ -9,6 +10,7 @@ import com.jaen.pedro.screens.MenuScreen;
 import com.jaen.pedro.screens.ScoreScreen;
 import com.jaen.pedro.screens.StartScreen;
 import com.jaen.pedro.utils.Assets;
+import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
 import com.jaen.pedro.utils.Preferencias;
 
@@ -50,6 +52,19 @@ public class PlatformNesGame extends Game {
 		setScreen(new GameScreen(this,difficulty));
 	}
 
+    public void suenaMusica(String musica) {
+        music= Gdx.audio.newMusic(Gdx.files.internal(musica));
+        music.setLooping(true);
+        music.play();
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        Assets.instance.dispose();
+        music.dispose();
+    }
+
     public Preferencias getPreferencias() {
         return preferencias;
     }
@@ -70,16 +85,4 @@ public class PlatformNesGame extends Game {
         this.music = music;
     }
 
-    @Override
-    public void pause() {
-        super.pause();
-    }
-
-    @Override
-    public void dispose() {
-        super.dispose();
-        Assets.instance.dispose();
-        music.dispose();
-
-    }
 }

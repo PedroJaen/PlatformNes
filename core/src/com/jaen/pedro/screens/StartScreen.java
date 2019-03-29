@@ -36,17 +36,11 @@ public class StartScreen extends InputAdapter implements Screen {
         font.getData().setScale(Constants.FONT_SCALE);
 
         if(!game.isMute()){
-            suenaMusica();
+            game.suenaMusica(Constants.MUSICA_INICIO);
         }
     }
 
-    private void suenaMusica() {
-        music=Gdx.audio.newMusic(Gdx.files.internal(Constants.MUSICA_INICIO));
-        music.setLooping(true);
-        music.play();
 
-        game.setMusic(music);
-    }
 
     @Override
     public void render(float delta) {

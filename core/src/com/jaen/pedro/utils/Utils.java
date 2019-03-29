@@ -1,5 +1,6 @@
 package com.jaen.pedro.utils;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
@@ -29,4 +30,5 @@ public class Utils {
                 false,
                 false);
     }
+
 }

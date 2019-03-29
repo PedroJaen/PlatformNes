@@ -12,7 +12,6 @@ public class Constants {
     public static final float FONT_SCALE = 1f;
     public static final String TEXTURE_ATLAS = "images/texture.atlas.pack";
     public static final String PREFERENCES = "preferences";
-    public static final float PPM=100;
 
     //hud
     public static final int HUD_MARGIN=20;

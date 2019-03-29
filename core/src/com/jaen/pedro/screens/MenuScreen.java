@@ -83,7 +83,9 @@ public class MenuScreen extends InputAdapter implements Screen {
                 game.getMusic().stop();
             }
         }else{//puede sonar
-            if(!game.getMusic().isPlaying()){//si no suena, iniciamos
+            if(game.getMusic()==null){
+                game.suenaMusica(Constants.MUSICA_INICIO);
+            }else if(!game.getMusic().isPlaying()){//si no suena, iniciamos
                 game.getMusic().play();
             }
         }

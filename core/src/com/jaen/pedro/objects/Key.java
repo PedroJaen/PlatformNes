@@ -1,5 +1,7 @@
 package com.jaen.pedro.objects;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -7,7 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.jaen.pedro.utils.Assets;
 import com.jaen.pedro.utils.Utils;
 
-public class Key {
+public class Key extends Sprite {
     TiledMap map;
     Rectangle rectangle;
 

@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -19,8 +20,10 @@ import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.objects.Level;
 import com.jaen.pedro.overlays.HudOverlay;
 import com.jaen.pedro.overlays.OnScreensControls;
+import com.jaen.pedro.utils.Assets;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
+import com.jaen.pedro.utils.Utils;
 import com.jaen.pedro.utils.WorldCreator;
 
 public class GameScreen  extends ScreenAdapter {
@@ -41,23 +44,24 @@ public class GameScreen  extends ScreenAdapter {
     public GameScreen(PlatformNesGame game, Enums.Difficulty difficulty) {
         this.game=game;
         this.difficulty = difficulty;
+    }
 
+    @Override
+    public void show() {
         batch = new SpriteBatch();
         hud=new HudOverlay(batch,difficulty);
         camera=new OrthographicCamera();
-        viewport=new ExtendViewport(Constants.LVL_SIZE/Constants.PPM,Constants.LVL_SIZE/Constants.PPM,camera);
+        viewport=new ExtendViewport(Constants.LVL_SIZE,Constants.LVL_SIZE,camera);
         camera.position.set(viewport.getScreenWidth(),viewport.getScreenHeight(),0);
 
         //cargamos el fondo del nivel
         mapLoader=new TmxMapLoader();
         map=mapLoader.load(Constants.LEVEL1);
-        renderer=new OrthogonalTiledMapRenderer(map,1/Constants.PPM);
+        renderer=new OrthogonalTiledMapRenderer(map,1);
 
         //obtenemos el nivel
         WorldCreator wc=new WorldCreator(map);
         level=wc.worldCreator();
-
-        new WorldCreator(map);
 
         if(game.getMusic().isPlaying()){
             game.getMusic().stop();
@@ -67,10 +71,6 @@ public class GameScreen  extends ScreenAdapter {
         if (onMobile()) {
             Gdx.input.setInputProcessor(onScreensControls);
         }
-    }
-
-    @Override
-    public void show() {
     }
 
     private boolean onMobile() {
@@ -89,16 +89,16 @@ public class GameScreen  extends ScreenAdapter {
     //metodo para movernos por le mapa y comprobar q va bien
     private void handleInput(float delta) {
         if(Gdx.input.isKeyPressed(Input.Keys.UP)){
-            camera.position.y+=delta*10;
+            camera.position.y+=delta*100;
         }
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-            camera.position.x+=delta*10;
+            camera.position.x+=delta*100;
         }
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            camera.position.x-=delta*10;
+            camera.position.x-=delta*100;
         }
         if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-            camera.position.y-=delta*10;
+            camera.position.y-=delta*100;
         }
     }
 
@@ -106,13 +106,14 @@ public class GameScreen  extends ScreenAdapter {
     public void render(float delta) {
         update(delta);
 
-        Gdx.gl.glClearColor(1, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         //pintamos el fondo del nivel
         renderer.render();
 
-        batch.setProjectionMatrix(camera.combined);
+        viewport.apply();
+        batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
 
         level.render(batch);
@@ -121,6 +122,7 @@ public class GameScreen  extends ScreenAdapter {
 
         //pintamos el hud
         hud.stage.draw();
+
     }
 
     @Override
