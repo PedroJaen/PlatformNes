@@ -7,23 +7,18 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.objects.Level;
 import com.jaen.pedro.overlays.HudOverlay;
 import com.jaen.pedro.overlays.OnScreensControls;
-import com.jaen.pedro.utils.Assets;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
-import com.jaen.pedro.utils.Utils;
 import com.jaen.pedro.utils.WorldCreator;
 
 public class GameScreen  extends ScreenAdapter {
@@ -34,6 +29,7 @@ public class GameScreen  extends ScreenAdapter {
     Music music;
     OnScreensControls onScreensControls;
     Level level;
+    int currentLevel;
 
     private TmxMapLoader mapLoader;
     private TiledMap map;
@@ -54,23 +50,33 @@ public class GameScreen  extends ScreenAdapter {
         viewport=new ExtendViewport(Constants.LVL_SIZE,Constants.LVL_SIZE,camera);
         camera.position.set(viewport.getScreenWidth(),viewport.getScreenHeight(),0);
 
+        if(game.getMusic().isPlaying()){
+            game.getMusic().stop();
+        }
+
+        //controles de pantalla
+        onScreensControls = new OnScreensControls();
+        if (onMobile()) {
+            Gdx.input.setInputProcessor(onScreensControls);
+        }
+
+        currentLevel=0;
+        startNewLevel(currentLevel);
+    }
+
+    private void startNewLevel(int lvl){
         //cargamos el fondo del nivel
         mapLoader=new TmxMapLoader();
-        map=mapLoader.load(Constants.LEVEL1);
+        map=mapLoader.load(Constants.LEVELS[lvl]);
         renderer=new OrthogonalTiledMapRenderer(map,1);
 
         //obtenemos el nivel
         WorldCreator wc=new WorldCreator(map);
         level=wc.worldCreator();
+        onScreensControls.hero=level.getHero();
 
-        if(game.getMusic().isPlaying()){
-            game.getMusic().stop();
-        }
-
-        onScreensControls = new OnScreensControls();
-        if (onMobile()) {
-            Gdx.input.setInputProcessor(onScreensControls);
-        }
+        //colocamos la musica del nivel
+        game.suenaMusica(Constants.MUSICA_LVLS[lvl]);
     }
 
     private boolean onMobile() {
@@ -106,7 +112,10 @@ public class GameScreen  extends ScreenAdapter {
     public void render(float delta) {
         update(delta);
 
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r,
+                Constants.BACKGROUND_COLOR.g,
+                Constants.BACKGROUND_COLOR.b,
+                Constants.BACKGROUND_COLOR.a);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         //pintamos el fondo del nivel
@@ -123,11 +132,17 @@ public class GameScreen  extends ScreenAdapter {
         //pintamos el hud
         hud.stage.draw();
 
+        if (onMobile()) {
+            onScreensControls.render(batch);
+        }
+
     }
 
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height,true);
+        onScreensControls.viewport.update(width, height,true);
+        onScreensControls.recalculateButtonPositions();
     }
 
     @Override

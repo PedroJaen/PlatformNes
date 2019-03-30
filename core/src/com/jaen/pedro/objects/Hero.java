@@ -11,6 +11,9 @@ import com.jaen.pedro.utils.Utils;
 public class Hero {
     TiledMap map;
     Rectangle rectangle;
+    public boolean jumpButtonPressed;
+    public boolean leftButtonPressed;
+    public boolean rightButtonPressed;
 
     public Hero(TiledMap map, Rectangle rectangle) {
         this.map = map;
@@ -21,4 +24,6 @@ public class Hero {
         TextureRegion region= Assets.instance.heroeAssets.stand;
         Utils.drawTextureRegion(batch,region,rectangle.getX(),rectangle.getY());
     }
+
+    public void shoot(){}
 }

@@ -30,7 +30,7 @@ public class HudOverlay implements Disposable {
     private Label timeLabel;
     private Label levelLabel;
     private Label worldLabel;
-    private Label marioLabel;
+    private Label difficultyLabel;
 
     public HudOverlay(SpriteBatch sb, Enums.Difficulty difficulty) {
         //define our tracking variables
@@ -57,10 +57,10 @@ public class HudOverlay implements Disposable {
         timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         levelLabel = new Label("1", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label(Constants.LEVEL, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        marioLabel = new Label(difficulty+" ", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        difficultyLabel = new Label(difficulty+" ", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         //add our labels to our table, padding the top, and giving them all equal width with expandX
-        table.add(marioLabel).expandX().padTop(Constants.HUD_MARGIN);
+        table.add(difficultyLabel).expandX().padTop(Constants.HUD_MARGIN);
         table.add(worldLabel).expandX().padTop(Constants.HUD_MARGIN);
         table.add(timeLabel).expandX().padTop(Constants.HUD_MARGIN);
         //add a second row to our table

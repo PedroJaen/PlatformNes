@@ -3,10 +3,12 @@ package com.jaen.pedro.utils;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.ArrayList;
+
 public class Constants {
     //common
     public static final float WORLD_SIZE = 460;
-    public static final Color BACKGROUND_COLOR = Color.SKY;
+    public static final Color BACKGROUND_COLOR = Color.BLACK;
     public static final String FONT_FILE = "font/header.fnt";
     public static final String TITLE = "PlatformNes";
     public static final float FONT_SCALE = 1f;
@@ -42,6 +44,8 @@ public class Constants {
 
     //sounds
     public static final String MUSICA_INICIO="music/inicio.mp3";
+    public static final String MUSICA_LVL1="music/lvl1.mp3";
+    public static final String[] MUSICA_LVLS={MUSICA_LVL1};
     public static final String MUSICA_FIN="music/game_over.mp3";
     public static final String MUSICA_DISPARO1="music/game_over.mp3";
     public static final String MUSICA_DISPARO2="music/game_over.mp3";
@@ -53,10 +57,10 @@ public class Constants {
     public static final Vector2 BUTTON_CENTER = new Vector2(15, 15);
     public static final float BUTTON_RADIUS = 32;
     public static final float ONSCREEN_CONTROLS_VIEWPORT_SIZE = 200;
-    public static final String MOVE_LEFT_BUTTON = "button-move-left";
-    public static final String MOVE_RIGHT_BUTTON = "button-move-right";
-    public static final String SHOOT_BUTTON = "button-shoot";
-    public static final String JUMP_BUTTON = "button-jump";
+    public static final String MOVE_LEFT_BUTTON = "izquierda";
+    public static final String MOVE_RIGHT_BUTTON = "derecha";
+    public static final String SHOOT_BUTTON = "disparo";
+    public static final String JUMP_BUTTON = "salto";
     public static final String MUSIC_ON_BUTTON = "music_on";
     public static final String MUSIC_OFF_BUTTON = "music_off";
     public static final Vector2 MUSIC_BUTTON_CENTER = new Vector2(WORLD_SIZE-BUTTON_RADIUS, WORLD_SIZE-BUTTON_RADIUS);
@@ -67,6 +71,7 @@ public class Constants {
     //lvls
     public static final float LVL_SIZE = 300;
     public static final String LEVEL1="levels/plat_lvl1.tmx";
+    public static final String[] LEVELS={LEVEL1};
     public static final int LVL_GROUND=3;
     public static final int LVL_EXIT=4;
     public static final int LVL_DEATH=5;

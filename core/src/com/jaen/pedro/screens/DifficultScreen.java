@@ -39,7 +39,11 @@ public class DifficultScreen extends InputAdapter implements Screen {
     public void render(float delta) {
         viewport.apply();
 
-        Gdx.gl.glClearColor(0,0,0,1);
+        Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r,
+                Constants.BACKGROUND_COLOR.g,
+                Constants.BACKGROUND_COLOR.b,
+                Constants.BACKGROUND_COLOR.a);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         //pintamos las letras
@@ -98,11 +102,11 @@ public class DifficultScreen extends InputAdapter implements Screen {
         Vector2 touch=viewport.unproject(new Vector2(screenX,screenY));
 
         if(touch.dst(Constants.FACIL_POSITION)<Constants.BUTTON_RADIUS){
-            game.setGameScreen(Enums.Difficulty.FACIL);
+            game.setGameScreen(Enums.Difficulty.EASY);
         }else if(touch.dst(Constants.MEDIO_POSITION)<Constants.BUTTON_RADIUS){
-            game.setGameScreen(Enums.Difficulty.MEDIO);
+            game.setGameScreen(Enums.Difficulty.MEDIUM);
         }else if(touch.dst(Constants.DIFICIL_POSITION)<Constants.BUTTON_RADIUS){
-            game.setGameScreen(Enums.Difficulty.DIFICIL);
+            game.setGameScreen(Enums.Difficulty.HARD);
         }
 
         return true;
