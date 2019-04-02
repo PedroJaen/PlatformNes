@@ -1,6 +1,5 @@
 package com.jaen.pedro.objects;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
@@ -13,6 +12,7 @@ public class Level {
     private DelayedRemovalArray<Key> key;
     private DelayedRemovalArray<Fruit> fruits;
     private DelayedRemovalArray<Ammo> ammunition;
+    private DelayedRemovalArray<Enemy> enemies;
     private Array<Floor> floors;
     private Exit exit;
     private Array<Death> deaths;
@@ -58,6 +58,13 @@ public class Level {
         if(ammunition.size>0){
             for(Ammo a:ammunition){
                 a.render(batch);
+            }
+        }
+
+        //pintamos los enemigos
+        if(enemies.size>0){
+            for(Enemy e:enemies){
+                e.render(batch);
             }
         }
 
@@ -141,5 +148,13 @@ public class Level {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public DelayedRemovalArray<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public void setEnemies(DelayedRemovalArray<Enemy> enemies) {
+        this.enemies = enemies;
     }
 }

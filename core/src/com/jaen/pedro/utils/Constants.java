@@ -85,6 +85,7 @@ public class Constants {
     public static final int LVL_FRUTA=7;
     public static final int LVL_HEROE=8;
     public static final int LVL_AMMO=9;
+    public static final int LVL_ENEMIE=10;
 
     //sprites
     public static final String ANDA1 = "anda1";

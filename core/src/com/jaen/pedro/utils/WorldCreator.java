@@ -1,6 +1,9 @@
 package com.jaen.pedro.utils;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.maps.Map;
 import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
@@ -8,12 +11,15 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.jaen.pedro.objects.Ammo;
 import com.jaen.pedro.objects.Death;
+import com.jaen.pedro.objects.Enemy;
 import com.jaen.pedro.objects.Exit;
 import com.jaen.pedro.objects.Floor;
 import com.jaen.pedro.objects.Fruit;
 import com.jaen.pedro.objects.Hero;
 import com.jaen.pedro.objects.Key;
 import com.jaen.pedro.objects.Level;
+
+import java.util.Iterator;
 
 public class WorldCreator {
     TiledMap map;
@@ -45,7 +51,19 @@ public class WorldCreator {
             floors.add(new Floor(map,rectangle));
 
         }
+
+        DelayedRemovalArray<Enemy> enemies=new DelayedRemovalArray<Enemy>();
+        //recorremos los objetos suelo que contienen enemigo
+        for(MapObject object:map.getLayers().get(Constants.LVL_ENEMIE).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rectangle =((RectangleMapObject)object).getRectangle();
+
+            Floor f=new Floor(map,rectangle);
+            floors.add(f);
+            enemies.add(new Enemy(f));
+
+        }
         level.setFloors(floors);
+        level.setEnemies(enemies);
 
         Exit exit=null;
         //recorremos el objeto salida
