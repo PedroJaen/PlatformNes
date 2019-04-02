@@ -30,12 +30,13 @@ public class GameScreen  extends ScreenAdapter {
     OnScreensControls onScreensControls;
     Level level;
     int currentLevel;
-
+    private int score;
     private TmxMapLoader mapLoader;
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     private Viewport viewport;
+
 
     public GameScreen(PlatformNesGame game, Enums.Difficulty difficulty) {
         this.game=game;
@@ -45,12 +46,12 @@ public class GameScreen  extends ScreenAdapter {
     @Override
     public void show() {
         batch = new SpriteBatch();
-        hud=new HudOverlay(batch,difficulty);
+        hud=new HudOverlay(batch,this);
         camera=new OrthographicCamera();
         viewport=new ExtendViewport(Constants.LVL_SIZE,Constants.LVL_SIZE,camera);
-        camera.position.set(viewport.getScreenWidth(),viewport.getScreenHeight(),0);
+        score=0;
 
-        if(game.getMusic().isPlaying()){
+        if(!game.isMute() && game.getMusic().isPlaying()){
             game.getMusic().stop();
         }
 
@@ -76,7 +77,10 @@ public class GameScreen  extends ScreenAdapter {
         onScreensControls.hero=level.getHero();
 
         //colocamos la musica del nivel
-        game.suenaMusica(Constants.MUSICA_LVLS[lvl]);
+        if(!game.isMute()){
+            game.suenaMusica(Constants.MUSICA_LVLS[lvl]);
+        }
+
     }
 
     private boolean onMobile() {
@@ -86,7 +90,7 @@ public class GameScreen  extends ScreenAdapter {
     public void update(float delta){
         handleInput(delta);
 
-        camera.update();
+        camera.position.set(level.getHero().getPosition(),0);
         renderer.setView(camera);
 
         level.update(delta);
@@ -174,4 +178,115 @@ public class GameScreen  extends ScreenAdapter {
 
     }
 
+    public SpriteBatch getBatch() {
+        return batch;
+    }
+
+    public void setBatch(SpriteBatch batch) {
+        this.batch = batch;
+    }
+
+    public Enums.Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Enums.Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public PlatformNesGame getGame() {
+        return game;
+    }
+
+    public void setGame(PlatformNesGame game) {
+        this.game = game;
+    }
+
+    public HudOverlay getHud() {
+        return hud;
+    }
+
+    public void setHud(HudOverlay hud) {
+        this.hud = hud;
+    }
+
+    public Music getMusic() {
+        return music;
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
+    }
+
+    public OnScreensControls getOnScreensControls() {
+        return onScreensControls;
+    }
+
+    public void setOnScreensControls(OnScreensControls onScreensControls) {
+        this.onScreensControls = onScreensControls;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void setLevel(Level level) {
+        this.level = level;
+    }
+
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
+
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
+    }
+
+    public TmxMapLoader getMapLoader() {
+        return mapLoader;
+    }
+
+    public void setMapLoader(TmxMapLoader mapLoader) {
+        this.mapLoader = mapLoader;
+    }
+
+    public TiledMap getMap() {
+        return map;
+    }
+
+    public void setMap(TiledMap map) {
+        this.map = map;
+    }
+
+    public OrthogonalTiledMapRenderer getRenderer() {
+        return renderer;
+    }
+
+    public void setRenderer(OrthogonalTiledMapRenderer renderer) {
+        this.renderer = renderer;
+    }
+
+    public OrthographicCamera getCamera() {
+        return camera;
+    }
+
+    public void setCamera(OrthographicCamera camera) {
+        this.camera = camera;
+    }
+
+    public Viewport getViewport() {
+        return viewport;
+    }
+
+    public void setViewport(Viewport viewport) {
+        this.viewport = viewport;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 }

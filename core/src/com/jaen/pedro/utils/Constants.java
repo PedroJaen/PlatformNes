@@ -14,6 +14,7 @@ public class Constants {
     public static final float FONT_SCALE = 1f;
     public static final String TEXTURE_ATLAS = "images/texture.atlas.pack";
     public static final String PREFERENCES = "preferences";
+    public static final float GRAVITY = 10;
 
     //hud
     public static final int HUD_MARGIN=20;
@@ -67,6 +68,11 @@ public class Constants {
 
     //heroe
     public static final float WALK_LOOP_DURATION = 0.25f;
+    public static final float HERO_MOVE_SPEED = 100;
+    public static final int INITIAL_LIVES=3;
+    public static final int INITIAL_AMMO=5;
+    public static final float MAX_JUMP_DURATION = .15f;
+    public static final float JUMP_SPEED = 200;
 
     //lvls
     public static final float LVL_SIZE = 300;

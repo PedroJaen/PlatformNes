@@ -6,6 +6,9 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
 
 public class Level {
+    public boolean gameOver;
+    public boolean victory;
+    public int score;
     private Hero hero;
     private DelayedRemovalArray<Key> key;
     private DelayedRemovalArray<Fruit> fruits;
@@ -14,12 +17,24 @@ public class Level {
     private Exit exit;
     private Array<Death> deaths;
 
-    public Level() {
 
+
+    public Level() {
+        gameOver=false;
+        victory=false;
+        score=0;
     }
 
     public void update(float delta){
+        if(hero.getLives()<0){
+            gameOver=true;
+        }else if(hero.getRectangle().overlaps(exit.getRectangle())){
+            victory=true;
+        }
 
+        if(!gameOver && !victory){
+            hero.update(delta,floors);
+        }
     }
 
     public void render(SpriteBatch batch){
@@ -102,5 +117,29 @@ public class Level {
 
     public void setKey(DelayedRemovalArray<Key> key) {
         this.key = key;
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+
+    public boolean isVictory() {
+        return victory;
+    }
+
+    public void setVictory(boolean victory) {
+        this.victory = victory;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

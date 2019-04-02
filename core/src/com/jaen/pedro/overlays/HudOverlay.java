@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.jaen.pedro.screens.GameScreen;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
 
@@ -18,11 +19,13 @@ public class HudOverlay implements Disposable {
     public Stage stage;
     private Viewport viewport;
 
-    //Mario score/time Tracking Variables
+    //score/time Tracking Variables
     private Integer worldTimer;
     private boolean timeUp; // true when the world timer reaches 0
     private float timeCount;
-    private static Integer score;
+    private int score;
+    private Enums.Difficulty difficulty;
+    private GameScreen gameScreen;
 
     //Scene2D widgets
     private Label countdownLabel;
@@ -32,11 +35,12 @@ public class HudOverlay implements Disposable {
     private Label worldLabel;
     private Label difficultyLabel;
 
-    public HudOverlay(SpriteBatch sb, Enums.Difficulty difficulty) {
+    public HudOverlay(SpriteBatch sb, GameScreen gameScreen) {
         //define our tracking variables
         worldTimer = 300;
         timeCount = 0;
-        score = 0;
+        score = gameScreen.getScore();
+        difficulty=gameScreen.getDifficulty();
 
 
         //setup the HUD viewport using a new camera seperate from our gamecam
@@ -55,7 +59,7 @@ public class HudOverlay implements Disposable {
         countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         scoreLabel =new Label(String.format("%06d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        levelLabel = new Label("1", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        levelLabel = new Label(gameScreen.getCurrentLevel()+1+"", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label(Constants.LEVEL, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         difficultyLabel = new Label(difficulty+" ", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
@@ -72,6 +76,8 @@ public class HudOverlay implements Disposable {
         //add our table to the stage
         stage.addActor(table);
     }
+
+
 
     @Override
     public void dispose() {

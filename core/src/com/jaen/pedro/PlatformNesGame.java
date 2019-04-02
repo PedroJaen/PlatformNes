@@ -62,7 +62,10 @@ public class PlatformNesGame extends Game {
     public void dispose() {
         super.dispose();
         Assets.instance.dispose();
-        music.dispose();
+        if(!mute){
+            music.dispose();
+        }
+
     }
 
     public Preferencias getPreferencias() {
