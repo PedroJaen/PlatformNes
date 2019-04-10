@@ -75,6 +75,7 @@ public class GameScreen  extends ScreenAdapter {
         WorldCreator wc=new WorldCreator(map);
         level=wc.worldCreator();
         onScreensControls.hero=level.getHero();
+        level.setHud(hud);
 
         //colocamos la musica del nivel
         if(!game.isMute()){
@@ -94,6 +95,8 @@ public class GameScreen  extends ScreenAdapter {
         renderer.setView(camera);
 
         level.update(delta);
+        score=level.getScore();
+        hud.update(delta,score,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey());
     }
 
     //metodo para movernos por le mapa y comprobar q va bien
@@ -140,6 +143,8 @@ public class GameScreen  extends ScreenAdapter {
             onScreensControls.render(batch);
         }
 
+        renderLevelEndOverlays(batch);
+
     }
 
     @Override
@@ -157,22 +162,38 @@ public class GameScreen  extends ScreenAdapter {
         map.dispose();
     }
 
+    private void renderLevelEndOverlays(SpriteBatch batch) {
+        if (level.gameOver) {
+
+            levelFailed();
+
+        } else if (level.victory) {
+
+            levelComplete();
+
+        }
+    }
+
     public void levelComplete() {
         if(!game.isMute()){
-            game.getMusic().play();
+            game.getMusic().stop();
+            game.suenaMusica(Constants.MUSICA_INICIO);
         }
 
-        game.getPreferencias().addPuntuacion(1);
+        score+=(Constants.SCORE_KILL*level.getHero().getLives())+level.getHero().getAmmo();
+
+        game.getPreferencias().addPuntuacion(score);
         game.getPreferencias().guardarDatos();
         game.setMenuScreen();
     }
 
     public void levelFailed() {
         if(!game.isMute()){
-            game.getMusic().play();
+            game.getMusic().stop();
+            game.suenaMusica(Constants.MUSICA_INICIO);
         }
 
-        game.getPreferencias().addPuntuacion(0);
+        game.getPreferencias().addPuntuacion(score);
         game.getPreferencias().guardarDatos();
         game.setMenuScreen();
 

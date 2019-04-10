@@ -11,4 +11,20 @@ public class Death {
         this.map = map;
         this.rectangle = rectangle;
     }
+
+    public TiledMap getMap() {
+        return map;
+    }
+
+    public void setMap(TiledMap map) {
+        this.map = map;
+    }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+
+    public void setRectangle(Rectangle rectangle) {
+        this.rectangle = rectangle;
+    }
 }

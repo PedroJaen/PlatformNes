@@ -12,6 +12,8 @@ import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.utils.Constants;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class ScoreScreen extends InputAdapter implements Screen {
     PlatformNesGame game;
@@ -19,7 +21,7 @@ public class ScoreScreen extends InputAdapter implements Screen {
     FitViewport viewport;
     BitmapFont font;
     BitmapFont lilFont;
-    ArrayList<Long> puntuaciones;
+    TreeSet<Long> puntuaciones;
 
     public ScoreScreen(PlatformNesGame game) {
         this.game = game;
@@ -65,10 +67,16 @@ public class ScoreScreen extends InputAdapter implements Screen {
                 0, Align.center,false);
 
         int contador=1;
-
+        Iterator<Long> it=puntuaciones.descendingIterator();
         for(float i=(Constants.WORLD_SIZE/2)+140;contador<6;i-=70f, contador++){
+
+            long score=0;
+            if(it.hasNext()){
+                score=it.next();
+            }
+
             lilFont.draw(batch,
-                    contador+" - "+puntuaciones.get(contador-1),
+                    contador+" - "+score,
                     Constants.SCORES_POSITION.x,
                     i,
                     0, Align.center,false);

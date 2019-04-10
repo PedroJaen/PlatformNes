@@ -5,31 +5,34 @@ import com.badlogic.gdx.Preferences;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class Preferencias {
     private Preferences prefs;
     private boolean mute;
-    private ArrayList<Long> puntuaciones;
+    private TreeSet<Long> puntuaciones;
 
     public Preferencias() {
         prefs = Gdx.app.getPreferences(Constants.PREFERENCES);
-        this.puntuaciones=new ArrayList<Long>(6);
-
-        if(puntuaciones.size()==0){
-            for(int i=0;i<puntuaciones.size();i++){
-                puntuaciones.add(i,0l);
-            }
-        }
+        this.puntuaciones=new TreeSet<Long>();
 
         cargaPuntuaciones();
         cargaMute();
-
     }
 
     public void guardarDatos(){
-        for(int i=0;i<5;i++){
-            prefs.putLong("puntuacion"+i,puntuaciones.get(i));
+        int contador=0;
+        Iterator<Long> it=puntuaciones.iterator();
+        while(contador<5){
+            if(it.hasNext()){
+                prefs.putLong("puntuacion"+contador, it.next());
+            }else{
+                prefs.putLong("puntuacion"+contador, 0);
+            }
+            contador++;
         }
+
         prefs.putBoolean("mute",mute);
         prefs.flush();
     }
@@ -43,20 +46,16 @@ public class Preferencias {
     }
 
     public void addPuntuacion(long score){
-        Collections.sort(puntuaciones);
-        Collections.reverse(puntuaciones);
-        puntuaciones.add(5,score);
-        Collections.sort(puntuaciones);
-        Collections.reverse(puntuaciones);
+        puntuaciones.add(score);
     }
 
-    public ArrayList<Long> getPuntuaciones() {
+    public TreeSet<Long> getPuntuaciones() {
         return puntuaciones;
     }
 
     public void cargaPuntuaciones(){
         for(int i=0;i<5;i++){
-            puntuaciones.add(i,prefs.getLong("puntuacion"+i));
+            puntuaciones.add(prefs.getLong("puntuacion"+i));
         }
     }
 

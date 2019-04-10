@@ -33,4 +33,12 @@ public class Fruit {
     public void render(SpriteBatch batch){
         Utils.drawTextureRegion(batch,region,rectangle.getX(),rectangle.getY());
     }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+
+    public void setRectangle(Rectangle rectangle) {
+        this.rectangle = rectangle;
+    }
 }

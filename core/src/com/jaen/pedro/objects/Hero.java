@@ -33,6 +33,7 @@ public class Hero {
     private TextureRegion region;
     private long walkStartTime;
     private long jumpStartTime;
+    private Array<Death> deaths;
 
 
     public Hero(TiledMap map, Rectangle rectangle) {
@@ -68,6 +69,16 @@ public class Hero {
         lastFramePosition.set(position);
         velocity.y -= Constants.GRAVITY;
         position.mulAdd(velocity,delta);
+        rectangle.setPosition(position);
+
+        for(Death d:deaths){
+            if (rectangle.overlaps(d.getRectangle())) {
+                lives--;
+                if (lives > 0) {
+                    respawn();
+                }
+            }
+        }
 
         // Land on/fall off platforms
         if (jumpState != Enums.JumpState.JUMPING) {
@@ -116,7 +127,14 @@ public class Hero {
     }
 
     public void render(SpriteBatch batch){
-        Utils.drawTextureRegion(batch,region,position.x,position.y);
+        switch (facing){
+            case RIGHT:
+                Utils.drawTextureRegion(batch,region,position.x,position.y);
+                break;
+            case LEFT:
+                Utils.drawTextureRegionflipedX(batch,region,position.x,position.y);
+                break;
+        }
     }
 
     public void shoot(){}
@@ -313,5 +331,13 @@ public class Hero {
 
     public void setJumpStartTime(long jumpStartTime) {
         this.jumpStartTime = jumpStartTime;
+    }
+
+    public Array<Death> getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(Array<Death> deaths) {
+        this.deaths = deaths;
     }
 }

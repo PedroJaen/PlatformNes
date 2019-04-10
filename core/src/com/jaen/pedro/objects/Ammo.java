@@ -20,4 +20,12 @@ public class Ammo {
         TextureRegion region= Assets.instance.ataqueAssets.hacha;
         Utils.drawTextureRegion(batch,region,rectangle.getX(),rectangle.getY());
     }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+
+    public void setRectangle(Rectangle rectangle) {
+        this.rectangle = rectangle;
+    }
 }

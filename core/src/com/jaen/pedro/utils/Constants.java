@@ -3,8 +3,6 @@ package com.jaen.pedro.utils;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 
-import java.util.ArrayList;
-
 public class Constants {
     //common
     public static final float WORLD_SIZE = 460;
@@ -20,6 +18,14 @@ public class Constants {
     public static final int HUD_MARGIN=20;
     public static final String LEVEL = "LEVEL";
     public static final String DIFFICULTY = "DIFFICULTY";
+    public static final String LIVES = "LIVES X ";
+    public static final String AMMO = "AMMO X ";
+    public static final String KEY = "KEY";
+    public static final int LEVEL_TIMER=300;
+
+    //startscreen
+    public static final String TOUCH = "TOUCH THE SCREEN";
+    public static final String KEYBOARD = "PRESS ANY KEY";
 
     //menuscreen
     public static final String MENU_JUGAR="PLAY";
@@ -42,6 +48,12 @@ public class Constants {
     public static final Vector2 DIFICIL_POSITION=new Vector2(WORLD_SIZE,WORLD_SIZE/2);
     public static final String DIFICIL = "HARD";
     public static final int DIFICIL_INC=3;
+
+    //points
+    public static final int SCORE_KILL=100;
+    public static final int SCORE_FRUIT=50;
+    public static final int SCORE_PICK_KEY=200;
+    public static final int SCORE_EXIT=300;
 
     //sounds
     public static final String MUSICA_INICIO="music/inicio.mp3";
@@ -73,6 +85,10 @@ public class Constants {
     public static final int INITIAL_AMMO=5;
     public static final float MAX_JUMP_DURATION = .15f;
     public static final float JUMP_SPEED = 200;
+
+    //enemy
+    public static final int ENEMY_LIVES=5;
+    public static final float ENEMY_MOVEMENT_SPEED = 20;
 
     //lvls
     public static final float LVL_SIZE = 300;

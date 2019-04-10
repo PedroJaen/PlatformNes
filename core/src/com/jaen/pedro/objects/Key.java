@@ -22,4 +22,12 @@ public class Key extends Sprite {
         TextureRegion region= Assets.instance.itemAssets.llave;
         Utils.drawTextureRegion(batch,region,rectangle.getX(),rectangle.getY());
     }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+
+    public void setRectangle(Rectangle rectangle) {
+        this.rectangle = rectangle;
+    }
 }

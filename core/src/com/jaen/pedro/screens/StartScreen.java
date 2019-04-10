@@ -1,5 +1,6 @@
 package com.jaen.pedro.screens;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
@@ -19,6 +20,9 @@ public class StartScreen extends InputAdapter implements Screen {
     BitmapFont font;
     PlatformNesGame game;
     Music music;
+    private float timeCount;
+    private boolean showed;
+    private String start;
 
     public StartScreen(PlatformNesGame game) {
         this.game = game;
@@ -29,6 +33,9 @@ public class StartScreen extends InputAdapter implements Screen {
         viewport=new ExtendViewport(Constants.WORLD_SIZE,Constants.WORLD_SIZE);
         batch=new SpriteBatch();
 
+        timeCount = 0;
+        showed=false;
+
         Gdx.input.setInputProcessor(this);
 
         font=new BitmapFont();
@@ -38,10 +45,26 @@ public class StartScreen extends InputAdapter implements Screen {
         if(!game.isMute()){
             game.suenaMusica(Constants.MUSICA_INICIO);
         }
+
+        if(onMobile()){
+            start=Constants.TOUCH;
+        }else{
+            start=Constants.KEYBOARD;
+        }
+    }
+
+    private void update(float delta){
+        timeCount+=delta;
+
+        if(timeCount>=1){
+            showed=!showed;
+            timeCount=0;
+        }
     }
 
     @Override
     public void render(float delta) {
+        update(delta);
         viewport.apply();
 
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r,
@@ -60,6 +83,14 @@ public class StartScreen extends InputAdapter implements Screen {
                 viewport.getWorldWidth()/2,
                 viewport.getWorldHeight()/2,
                 0, Align.center,false);
+
+        if(showed){
+            font.draw(batch,
+                    start,
+                    viewport.getWorldWidth()/2,
+                    viewport.getWorldHeight()/3,
+                    0, Align.center,false);
+        }
 
         batch.end();
     }
@@ -100,5 +131,9 @@ public class StartScreen extends InputAdapter implements Screen {
     public boolean keyDown(int keycode) {
         game.setMenuScreen();
         return true;
+    }
+
+    private boolean onMobile() {
+        return Gdx.app.getType() == Application.ApplicationType.Android || Gdx.app.getType() == Application.ApplicationType.iOS;
     }
 }

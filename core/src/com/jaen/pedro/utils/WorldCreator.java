@@ -32,17 +32,6 @@ public class WorldCreator {
     public Level worldCreator() {
         level= new Level();
 
-
-        Hero hero=null;
-        //recorremos el objeto heroe
-        for(MapObject object:map.getLayers().get(Constants.LVL_HEROE).getObjects().getByType(RectangleMapObject.class)){
-            Rectangle rectangle =((RectangleMapObject)object).getRectangle();
-
-            hero=new Hero(map,rectangle);
-
-        }
-        level.setHero(hero);
-
         Array<Floor> floors=new Array<Floor>();
         //recorremos los objetos suelo
         for(MapObject object:map.getLayers().get(Constants.LVL_GROUND).getObjects().getByType(RectangleMapObject.class)){
@@ -75,6 +64,15 @@ public class WorldCreator {
         }
         level.setExit(exit);
 
+        Hero hero=null;
+        //recorremos el objeto heroe
+        for(MapObject object:map.getLayers().get(Constants.LVL_HEROE).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rectangle =((RectangleMapObject)object).getRectangle();
+
+            hero=new Hero(map,rectangle);
+
+        }
+
         Array<Death> deaths=new Array<Death>();
         //recorremos el objeto muerte
         for(MapObject object:map.getLayers().get(Constants.LVL_DEATH).getObjects().getByType(RectangleMapObject.class)){
@@ -83,7 +81,8 @@ public class WorldCreator {
             deaths.add(new Death(map,rectangle));
 
         }
-        level.setDeaths(deaths);
+        hero.setDeaths(deaths);
+        level.setHero(hero);
 
         DelayedRemovalArray<Key> key=new DelayedRemovalArray<Key>(1);
         //recorremos el objeto llave

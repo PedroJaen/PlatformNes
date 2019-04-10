@@ -3,37 +3,71 @@ package com.jaen.pedro.objects;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
+import com.jaen.pedro.overlays.HudOverlay;
+import com.jaen.pedro.utils.Constants;
 
 public class Level {
     public boolean gameOver;
     public boolean victory;
     public int score;
     private Hero hero;
-    private DelayedRemovalArray<Key> key;
+    private DelayedRemovalArray<Key> keys;
     private DelayedRemovalArray<Fruit> fruits;
     private DelayedRemovalArray<Ammo> ammunition;
     private DelayedRemovalArray<Enemy> enemies;
     private Array<Floor> floors;
     private Exit exit;
-    private Array<Death> deaths;
-
-
+    private boolean getKey;
+    private HudOverlay hud;
 
     public Level() {
         gameOver=false;
         victory=false;
         score=0;
+        getKey=false;
     }
 
     public void update(float delta){
-        if(hero.getLives()<0){
+        if(hero.getLives()<=0 || hud.getWorldTimer()<=0){
             gameOver=true;
-        }else if(hero.getRectangle().overlaps(exit.getRectangle())){
+        }else if(hero.getRectangle().overlaps(exit.getRectangle()) && getKey){
+            score+=Constants.SCORE_EXIT;
             victory=true;
         }
 
         if(!gameOver && !victory){
             hero.update(delta,floors);
+
+            //si obtenemos fruta
+            for(Fruit f:fruits){
+                if(hero.getRectangle().overlaps(f.getRectangle())){
+                    score+= Constants.SCORE_FRUIT;
+                    fruits.removeValue(f,false);
+                }
+            }
+
+            //si obtenemos ammo
+            for(Ammo a:ammunition){
+                if(hero.getRectangle().overlaps(a.getRectangle())){
+                    score+= Constants.SCORE_FRUIT;
+                    ammunition.removeValue(a,false);
+                    hero.setAmmo(hero.getAmmo()+Constants.INITIAL_AMMO);
+                }
+            }
+
+            //si obtenemos la llave
+            for(Key k:keys){
+                if(hero.getRectangle().overlaps(k.getRectangle())){
+                    score+= Constants.SCORE_PICK_KEY;
+                    keys.removeValue(k,false);
+                    getKey=true;
+                }
+            }
+
+            //enemigos
+            for(Enemy e:enemies){
+                e.update(delta);
+            }
         }
     }
 
@@ -43,8 +77,8 @@ public class Level {
         hero.render(batch);
 
         //pintamos la llave
-        if(key.size==1){
-            key.get(0).render(batch);
+        if(keys.size==1){
+            keys.get(0).render(batch);
         }
 
         //pintamos la fruta
@@ -102,14 +136,6 @@ public class Level {
         this.exit = exit;
     }
 
-    public Array<Death> getDeaths() {
-        return deaths;
-    }
-
-    public void setDeaths(Array<Death> deaths) {
-        this.deaths = deaths;
-    }
-
     public DelayedRemovalArray<Ammo> getAmmunition() {
         return ammunition;
     }
@@ -119,11 +145,11 @@ public class Level {
     }
 
     public DelayedRemovalArray<Key> getKey() {
-        return key;
+        return keys;
     }
 
     public void setKey(DelayedRemovalArray<Key> key) {
-        this.key = key;
+        this.keys = key;
     }
 
     public boolean isGameOver() {
@@ -156,5 +182,21 @@ public class Level {
 
     public void setEnemies(DelayedRemovalArray<Enemy> enemies) {
         this.enemies = enemies;
+    }
+
+    public boolean isGetKey() {
+        return getKey;
+    }
+
+    public void setGetKey(boolean getKey) {
+        this.getKey = getKey;
+    }
+
+    public HudOverlay getHud() {
+        return hud;
+    }
+
+    public void setHud(HudOverlay hud) {
+        this.hud = hud;
     }
 }
