@@ -22,15 +22,17 @@ import com.jaen.pedro.objects.Level;
 import java.util.Iterator;
 
 public class WorldCreator {
-    TiledMap map;
-    Level level;
+    private TiledMap map;
+    private Level level;
+    private Enums.Difficulty difficulty;
 
-    public WorldCreator(TiledMap map) {
+    public WorldCreator(TiledMap map, Enums.Difficulty difficulty) {
         this.map = map;
+        this.difficulty=difficulty;
     }
 
     public Level worldCreator() {
-        level= new Level();
+        level= new Level(difficulty);
 
         Array<Floor> floors=new Array<Floor>();
         //recorremos los objetos suelo
@@ -48,7 +50,7 @@ public class WorldCreator {
 
             Floor f=new Floor(map,rectangle);
             floors.add(f);
-            enemies.add(new Enemy(f));
+            enemies.add(new Enemy(f,difficulty));
 
         }
         level.setFloors(floors);

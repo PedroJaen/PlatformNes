@@ -72,7 +72,7 @@ public class GameScreen  extends ScreenAdapter {
         renderer=new OrthogonalTiledMapRenderer(map,1);
 
         //obtenemos el nivel
-        WorldCreator wc=new WorldCreator(map);
+        WorldCreator wc=new WorldCreator(map,difficulty);
         level=wc.worldCreator();
         onScreensControls.hero=level.getHero();
         level.setHud(hud);
@@ -182,6 +182,7 @@ public class GameScreen  extends ScreenAdapter {
         }
 
         score+=(Constants.SCORE_KILL*level.getHero().getLives())+level.getHero().getAmmo();
+        Gdx.app.error("puntuacion",""+score);
 
         game.getPreferencias().addPuntuacion(score);
         game.getPreferencias().guardarDatos();
@@ -194,8 +195,6 @@ public class GameScreen  extends ScreenAdapter {
             game.suenaMusica(Constants.MUSICA_INICIO);
         }
 
-        game.getPreferencias().addPuntuacion(score);
-        game.getPreferencias().guardarDatos();
         game.setMenuScreen();
 
     }

@@ -12,6 +12,7 @@ import com.jaen.pedro.utils.Utils;
 
 public class Enemy {
     private Floor floor;
+    private Enums.Difficulty difficulty;
     private TextureRegion region;
     private Vector2 position;
     private long startTime;
@@ -20,9 +21,22 @@ public class Enemy {
     private Enums.Facing facing;
     private Rectangle rectangle;
 
-    public Enemy(Floor floor) {
+    public Enemy(Floor floor, Enums.Difficulty difficulty) {
         this.floor = floor;
-        lives= Constants.ENEMY_LIVES;
+        this.difficulty=difficulty;
+
+        switch(difficulty){
+            case EASY:
+                lives= Constants.ENEMY_LIVES*Constants.FACIL_INC;
+                break;
+            case MEDIUM:
+                lives= Constants.ENEMY_LIVES*Constants.MEDIO_INC;
+                break;
+            case HARD:
+                lives= Constants.ENEMY_LIVES*Constants.DIFICIL_INC;
+                break;
+        }
+
         facing= Enums.Facing.RIGHT;
 
         position=new Vector2(floor.getLeft(),floor.getTop());

@@ -1,6 +1,5 @@
 package com.jaen.pedro.objects;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -14,6 +13,7 @@ public class Level {
     public boolean gameOver;
     public boolean victory;
     public int score;
+    private Enums.Difficulty difficulty;
     private Hero hero;
     private DelayedRemovalArray<Key> keys;
     private DelayedRemovalArray<Fruit> fruits;
@@ -26,7 +26,8 @@ public class Level {
     private HudOverlay hud;
     private Viewport viewport;
 
-    public Level() {
+    public Level(Enums.Difficulty difficulty) {
+        this.difficulty=difficulty;
         gameOver=false;
         victory=false;
         score=0;
@@ -39,7 +40,7 @@ public class Level {
         if(hero.getLives()<=0 || hud.getWorldTimer()<=0){
             gameOver=true;
         }else if(hero.getRectangle().overlaps(exit.getRectangle()) && getKey){
-            score+=Constants.SCORE_EXIT;
+            increaseScore(Constants.SCORE_EXIT);
             victory=true;
         }
 
@@ -50,7 +51,7 @@ public class Level {
             fruits.begin();
             for(Fruit f:fruits){
                 if(hero.getRectangle().overlaps(f.getRectangle())){
-                    score+= Constants.SCORE_FRUIT;
+                    increaseScore(Constants.SCORE_FRUIT);
                     fruits.removeValue(f,false);
                 }
             }
@@ -60,7 +61,7 @@ public class Level {
             ammunition.begin();
             for(Ammo a:ammunition){
                 if(hero.getRectangle().overlaps(a.getRectangle())){
-                    score+= Constants.SCORE_FRUIT;
+                    increaseScore(Constants.SCORE_FRUIT);
                     ammunition.removeValue(a,false);
                     hero.setAmmo(hero.getAmmo()+Constants.INITIAL_AMMO);
                 }
@@ -81,7 +82,7 @@ public class Level {
             keys.begin();
             for(Key k:keys){
                 if(hero.getRectangle().overlaps(k.getRectangle())){
-                    score+= Constants.SCORE_PICK_KEY;
+                    increaseScore(Constants.SCORE_PICK_KEY);
                     keys.removeValue(k,false);
                     getKey=true;
                 }
@@ -93,6 +94,7 @@ public class Level {
             for(Enemy e:enemies){
                 e.update(delta);
                 if(e.getLives()==0){
+                    increaseScore(Constants.SCORE_KILL);
                     enemies.removeValue(e,false);
                 }
             }
@@ -142,6 +144,20 @@ public class Level {
 
     public void spawnBullet(Vector2 position, Enums.Facing facing){
         bullets.add(new Bullet(position,facing,this));
+    }
+
+    private void increaseScore(int sumar){
+        switch(difficulty){
+            case EASY:
+                score+=sumar+Constants.FACIL_INC;
+                break;
+            case MEDIUM:
+                score+=sumar+Constants.MEDIO_INC;
+                break;
+            case HARD:
+                score+=sumar+Constants.DIFICIL_INC;
+                break;
+        }
     }
 
     public Hero getHero() {
