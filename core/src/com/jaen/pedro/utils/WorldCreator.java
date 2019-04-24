@@ -69,7 +69,7 @@ public class WorldCreator {
         for(MapObject object:map.getLayers().get(Constants.LVL_HEROE).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rectangle =((RectangleMapObject)object).getRectangle();
 
-            hero=new Hero(map,rectangle);
+            hero=new Hero(map,rectangle,level);
 
         }
 

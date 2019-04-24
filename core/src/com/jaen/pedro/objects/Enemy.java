@@ -2,6 +2,7 @@ package com.jaen.pedro.objects;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.jaen.pedro.utils.Assets;
@@ -17,6 +18,7 @@ public class Enemy {
     private int lives;
     private float width;
     private Enums.Facing facing;
+    private Rectangle rectangle;
 
     public Enemy(Floor floor) {
         this.floor = floor;
@@ -26,6 +28,9 @@ public class Enemy {
         position=new Vector2(floor.getLeft(),floor.getTop());
         startTime = TimeUtils.nanoTime();
         width=0;
+
+        region= (TextureRegion) Assets.instance.enemigoAssets.caracol.getKeyFrame(0f);
+        rectangle=new Rectangle(position.x,position.y,region.getRegionWidth(),region.getRegionHeight());
     }
 
     public void update(float delta){
@@ -37,6 +42,7 @@ public class Enemy {
                 position.x += Constants.ENEMY_MOVEMENT_SPEED * delta;
                 break;
         }
+        rectangle.setPosition(position);
 
         if(floor.getRectangle().getWidth()>width){
             if (position.x < floor.getLeft()) {
@@ -65,6 +71,22 @@ public class Enemy {
                 Utils.drawTextureRegion(batch,region,position.x,position.y);
                 break;
         }
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public void setWidth(float width) {
+        this.width = width;
+    }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+
+    public void setRectangle(Rectangle rectangle) {
+        this.rectangle = rectangle;
     }
 
     public Floor getFloor() {

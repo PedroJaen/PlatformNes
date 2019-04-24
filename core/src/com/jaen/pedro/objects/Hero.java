@@ -23,6 +23,7 @@ public class Hero {
     public boolean jumpButtonPressed;
     public boolean leftButtonPressed;
     public boolean rightButtonPressed;
+    private Level level;
     private Vector2 position;
     private Vector2 spawnPosition;
     private Vector2 lastFramePosition;
@@ -36,9 +37,10 @@ public class Hero {
     private Array<Death> deaths;
 
 
-    public Hero(TiledMap map, Rectangle rectangle) {
+    public Hero(TiledMap map, Rectangle rectangle,Level level) {
         this.map = map;
         this.rectangle = rectangle;
+        this.level=level;
         this.spawnPosition=new Vector2(rectangle.getX(),rectangle.getY());
         this.position=new Vector2();
         this.lastFramePosition=new Vector2();
@@ -127,6 +129,16 @@ public class Hero {
     }
 
     public void render(SpriteBatch batch){
+        if(jumpState!=JumpState.GROUNDED){
+            float jumpTimeSeconds=Utils.secondsSince(jumpStartTime);
+            region= (TextureRegion) Assets.instance.heroeAssets.salta.getKeyFrame(jumpTimeSeconds);
+        }else if(walkState==WalkState.STANDING){
+            region=Assets.instance.heroeAssets.stand;
+        }else if(walkState==WalkState.WALKING){
+            float walkTimeSeconds = Utils.secondsSince(walkStartTime);
+            region=(TextureRegion) Assets.instance.heroeAssets.andar.getKeyFrame(walkTimeSeconds);
+        }
+
         switch (facing){
             case RIGHT:
                 Utils.drawTextureRegion(batch,region,position.x,position.y);
@@ -137,7 +149,25 @@ public class Hero {
         }
     }
 
-    public void shoot(){}
+    public void shoot(){
+        if(ammo>0){
+            ammo--;
+            Vector2 bulletPosition;
+
+            if(facing==Facing.RIGHT){
+                bulletPosition=new Vector2(
+                        position.x+rectangle.getWidth(),
+                        position.y+(rectangle.getHeight()/2)
+                );
+            }else{
+                bulletPosition=new Vector2(
+                        position.x,
+                        position.y+(rectangle.getHeight()/2)
+                );
+            }
+            level.spawnBullet(bulletPosition,facing);
+        }
+    }
 
     boolean landedOnPlatform(Floor floor) {
         boolean leftFootIn = false;

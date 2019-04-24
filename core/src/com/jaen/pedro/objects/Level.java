@@ -1,10 +1,14 @@
 package com.jaen.pedro.objects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jaen.pedro.overlays.HudOverlay;
 import com.jaen.pedro.utils.Constants;
+import com.jaen.pedro.utils.Enums;
 
 public class Level {
     public boolean gameOver;
@@ -14,17 +18,21 @@ public class Level {
     private DelayedRemovalArray<Key> keys;
     private DelayedRemovalArray<Fruit> fruits;
     private DelayedRemovalArray<Ammo> ammunition;
+    private DelayedRemovalArray<Bullet> bullets;
     private DelayedRemovalArray<Enemy> enemies;
     private Array<Floor> floors;
     private Exit exit;
     private boolean getKey;
     private HudOverlay hud;
+    private Viewport viewport;
 
     public Level() {
         gameOver=false;
         victory=false;
         score=0;
         getKey=false;
+
+        bullets=new DelayedRemovalArray<Bullet>();
     }
 
     public void update(float delta){
@@ -39,14 +47,17 @@ public class Level {
             hero.update(delta,floors);
 
             //si obtenemos fruta
+            fruits.begin();
             for(Fruit f:fruits){
                 if(hero.getRectangle().overlaps(f.getRectangle())){
                     score+= Constants.SCORE_FRUIT;
                     fruits.removeValue(f,false);
                 }
             }
+            fruits.end();
 
             //si obtenemos ammo
+            ammunition.begin();
             for(Ammo a:ammunition){
                 if(hero.getRectangle().overlaps(a.getRectangle())){
                     score+= Constants.SCORE_FRUIT;
@@ -54,8 +65,20 @@ public class Level {
                     hero.setAmmo(hero.getAmmo()+Constants.INITIAL_AMMO);
                 }
             }
+            ammunition.end();
+
+            //si disparamos
+            bullets.begin();
+            for(Bullet b:bullets){
+                b.update(delta);
+                if(!b.isActive()){
+                    bullets.removeValue(b,false);
+                }
+            }
+            bullets.end();
 
             //si obtenemos la llave
+            keys.begin();
             for(Key k:keys){
                 if(hero.getRectangle().overlaps(k.getRectangle())){
                     score+= Constants.SCORE_PICK_KEY;
@@ -63,11 +86,17 @@ public class Level {
                     getKey=true;
                 }
             }
+            keys.end();
 
             //enemigos
+            enemies.begin();
             for(Enemy e:enemies){
                 e.update(delta);
+                if(e.getLives()==0){
+                    enemies.removeValue(e,false);
+                }
             }
+            enemies.end();
         }
     }
 
@@ -102,6 +131,17 @@ public class Level {
             }
         }
 
+        //pintamos las balas disparadas
+        if(bullets.size>0){
+            for(Bullet b:bullets){
+                b.render(batch);
+            }
+        }
+
+    }
+
+    public void spawnBullet(Vector2 position, Enums.Facing facing){
+        bullets.add(new Bullet(position,facing,this));
     }
 
     public Hero getHero() {
@@ -110,6 +150,14 @@ public class Level {
 
     public void setHero(Hero hero) {
         this.hero = hero;
+    }
+
+    public Viewport getViewport() {
+        return viewport;
+    }
+
+    public void setViewport(Viewport viewport) {
+        this.viewport = viewport;
     }
 
     public DelayedRemovalArray<Fruit> getFruits() {
@@ -199,4 +247,22 @@ public class Level {
     public void setHud(HudOverlay hud) {
         this.hud = hud;
     }
+
+    public DelayedRemovalArray<Key> getKeys() {
+        return keys;
+    }
+
+    public void setKeys(DelayedRemovalArray<Key> keys) {
+        this.keys = keys;
+    }
+
+    public DelayedRemovalArray<Bullet> getBullets() {
+        return bullets;
+    }
+
+    public void setBullets(DelayedRemovalArray<Bullet> bullets) {
+        this.bullets = bullets;
+    }
+
+
 }

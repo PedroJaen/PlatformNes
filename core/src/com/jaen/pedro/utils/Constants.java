@@ -82,13 +82,16 @@ public class Constants {
     public static final float WALK_LOOP_DURATION = 0.25f;
     public static final float HERO_MOVE_SPEED = 100;
     public static final int INITIAL_LIVES=3;
-    public static final int INITIAL_AMMO=5;
+    public static final int INITIAL_AMMO=10;
     public static final float MAX_JUMP_DURATION = .15f;
     public static final float JUMP_SPEED = 200;
 
     //enemy
     public static final int ENEMY_LIVES=5;
     public static final float ENEMY_MOVEMENT_SPEED = 20;
+
+    //bullet
+    public static final float BULLET_MOVEMENT_SPEED = 80;
 
     //lvls
     public static final float LVL_SIZE = 300;

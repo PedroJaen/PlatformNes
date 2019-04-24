@@ -58,11 +58,15 @@ public class Assets implements Disposable, AssetErrorListener {
         public HeroeAssets(TextureAtlas atlas){
             Array<TextureAtlas.AtlasRegion> andarFrames = new Array<TextureAtlas.AtlasRegion>();
             andarFrames.add(atlas.findRegion(Constants.ANDA1));
+            andarFrames.add(atlas.findRegion(Constants.ANDA5));
+            andarFrames.add(atlas.findRegion(Constants.ANDA2));
+            andarFrames.add(atlas.findRegion(Constants.ANDA4));
+            /*andarFrames.add(atlas.findRegion(Constants.ANDA1));
             andarFrames.add(atlas.findRegion(Constants.ANDA2));
             andarFrames.add(atlas.findRegion(Constants.ANDA3));
             andarFrames.add(atlas.findRegion(Constants.ANDA4));
             andarFrames.add(atlas.findRegion(Constants.ANDA5));
-            andarFrames.add(atlas.findRegion(Constants.ANDA6));
+            andarFrames.add(atlas.findRegion(Constants.ANDA6));*/
             andar=new Animation(Constants.WALK_LOOP_DURATION,andarFrames,Animation.PlayMode.LOOP);
 
             Array<TextureAtlas.AtlasRegion> saltaFrames = new Array<TextureAtlas.AtlasRegion>();

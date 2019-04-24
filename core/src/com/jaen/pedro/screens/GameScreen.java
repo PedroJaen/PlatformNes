@@ -76,6 +76,7 @@ public class GameScreen  extends ScreenAdapter {
         level=wc.worldCreator();
         onScreensControls.hero=level.getHero();
         level.setHud(hud);
+        level.setViewport(viewport);
 
         //colocamos la musica del nivel
         if(!game.isMute()){

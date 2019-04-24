@@ -6,48 +6,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37b6040c-9367-4e6c-ab72-faece2eca6f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Bullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileContent/annotation-processors.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Death.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Death.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Fruit.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Fruit.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Key.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Key.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/overlays/HudOverlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/overlays/HudOverlay.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/GameScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/GameScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/ScoreScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/ScoreScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/StartScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/StartScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$AtaqueAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$AtaqueAssets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$EnemigoAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$EnemigoAssets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$HeroeAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$HeroeAssets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$ItemAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$ItemAssets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$OnscreenControlsAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$OnscreenControlsAssets.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Preferencias.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Preferencias.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Utils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/WorldCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/WorldCreator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Ammo.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Ammo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Death.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Death.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Fruit.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Fruit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Key.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/overlays/HudOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/overlays/HudOverlay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/ScoreScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/ScoreScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/StartScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Preferencias.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Preferencias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/WorldCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/WorldCreator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,29 +53,31 @@
     <session id="-245996898">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.23" value="4" />
           <entry key="project.open.time.25" value="2" />
-          <entry key="project.open.time.26" value="3" />
+          <entry key="project.open.time.26" value="4" />
           <entry key="project.open.time.27" value="3" />
           <entry key="project.open.time.28" value="2" />
+          <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.37" value="1" />
-          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.38" value="2" />
+          <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.54" value="1" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
           <entry key="gradle" value="5" />
-          <entry key="java" value="205" />
+          <entry key="java" value="218" />
           <entry key="pack" value="2" />
-          <entry key="png" value="2" />
+          <entry key="png" value="3" />
           <entry key="properties" value="2" />
           <entry key="xml" value="8" />
         </counts>
@@ -98,8 +86,8 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="Groovy" value="5" />
-          <entry key="Image" value="2" />
-          <entry key="JAVA" value="205" />
+          <entry key="Image" value="3" />
+          <entry key="JAVA" value="218" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="2" />
           <entry key="XML" value="8" />
@@ -107,15 +95,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="8682" />
-          <entry key="txt" value="465" />
+          <entry key="java" value="10634" />
+          <entry key="txt" value="513" />
           <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8682" />
-          <entry key="PLAIN_TEXT" value="465" />
+          <entry key="JAVA" value="10634" />
+          <entry key="PLAIN_TEXT" value="513" />
           <entry key="XML" value="13" />
         </counts>
       </usages-collector>
@@ -128,30 +116,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Preferencias.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
-              <folding>
-                <element signature="e#881#882#0" expanded="true" />
-                <element signature="e#920#921#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/ScoreScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -164,6 +129,8 @@
     <findStrings>
       <find>PPM</find>
       <find>KEY</find>
+      <find>24</find>
+      <find>556</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,7 +147,6 @@
       <list>
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/MenuScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/DifficultScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/overlays/OnScreensControls.java" />
@@ -189,20 +155,22 @@
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Floor.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/PlatformNesGame.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Death.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/WorldCreator.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Fruit.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Key.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Ammo.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Utils.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Hero.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/overlays/HudOverlay.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/StartScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Enemy.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Preferencias.java" />
         <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/ScoreScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/WorldCreator.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Hero.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Enemy.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Bullet.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java" />
       </list>
     </option>
   </component>
@@ -218,7 +186,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
@@ -271,6 +238,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -481,12 +449,27 @@
       <option name="project" value="LOCAL" />
       <updated>1554235724494</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="facing, enemigos se mueven, mejorado music y hud">
+      <created>1554908682654</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1554908682654</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20499243" />
@@ -498,14 +481,15 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Version Control" order="0" sideWeight="0.49924356" weight="0.3295082" />
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="TODO" order="2" />
+      <window_info anchor="bottom" id="TODO" order="2" weight="0.3295082" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50075644" side_tool="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49924356" weight="0.3295082" />
       <window_info anchor="bottom" id="Messages" order="6" weight="0.3295082" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49924356" weight="0.3295082" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.49924356" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.3295082" />
+      <window_info anchor="bottom" id="Find" order="10" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
@@ -559,7 +543,8 @@
     <MESSAGE value="nueva rama para mover el heroe, master updated" />
     <MESSAGE value="el  heroe se mueve por la pantalla" />
     <MESSAGE value="enemigos añadidos" />
-    <option name="LAST_COMMIT_MESSAGE" value="enemigos añadidos" />
+    <MESSAGE value="facing, enemigos se mueven, mejorado music y hud" />
+    <option name="LAST_COMMIT_MESSAGE" value="facing, enemigos se mueven, mejorado music y hud" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/html/src/com/jaen/pedro/GdxDefinitionSuperdev.gwt.xml">
@@ -660,9 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/assets/images/texture.atlas.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.9/1409aca6a4293a7ca8dbd60281c3211a195dd39a/gdx-1.9.9-sources.jar!/com/badlogic/gdx/graphics/g2d/TextureRegion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -705,24 +687,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3761">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/assets/images/texture.atlas.pack">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2901">
           <caret line="26" column="5" selection-start-line="26" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Enums.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -754,13 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Ammo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Key.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -768,44 +729,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Fruit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/WorldCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Hero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="133" column="22" selection-start-line="133" selection-start-column="22" selection-end-line="133" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="62" column="47" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="7" column="48" lean-forward="true" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/PlatformNesGame.gwt.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -814,30 +744,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="182" column="91" selection-start-line="182" selection-start-column="91" selection-end-line="182" selection-end-column="91" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/PlatformNesGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
           <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -852,28 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="96" column="8" selection-start-line="96" selection-start-column="8" selection-end-line="102" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1008">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#render#0;class#Level#0" />
-            <element signature="method#setAmmunition#0;class#Level#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -881,17 +769,121 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
-          <folding>
-            <element signature="e#881#882#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/ScoreScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+        <state relative-caret-position="120">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/images/texture.atlas.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="62" column="47" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Enums.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/WorldCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Ammo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1062">
+          <caret line="68" column="65" selection-start-line="68" selection-start-column="65" selection-end-line="68" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="84" column="43" selection-start-line="84" selection-start-column="43" selection-end-line="84" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Fruit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3116#3117#0" expanded="true" />
+            <element signature="e#3147#3148#0" expanded="true" />
+            <element signature="e#3196#3197#0" expanded="true" />
+            <element signature="e#3236#3237#0" expanded="true" />
+            <element signature="e#3275#3276#0" expanded="true" />
+            <element signature="e#3304#3305#0" expanded="true" />
+            <element signature="e#3354#3355#0" expanded="true" />
+            <element signature="e#3390#3391#0" expanded="true" />
+            <element signature="e#3423#3424#0" expanded="true" />
+            <element signature="e#3452#3453#0" expanded="true" />
+            <element signature="e#3497#3498#0" expanded="true" />
+            <element signature="e#3533#3534#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630">
+          <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Hero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="107" column="43" selection-start-line="107" selection-start-column="43" selection-end-line="107" selection-end-column="43" />
         </state>
       </provider>
     </entry>
