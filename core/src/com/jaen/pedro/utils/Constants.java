@@ -70,12 +70,6 @@ public class Constants {
     public static final Vector2 BUTTON_CENTER = new Vector2(15, 15);
     public static final float BUTTON_RADIUS = 32;
     public static final float ONSCREEN_CONTROLS_VIEWPORT_SIZE = 200;
-    public static final String MOVE_LEFT_BUTTON = "izquierda";
-    public static final String MOVE_RIGHT_BUTTON = "derecha";
-    public static final String SHOOT_BUTTON = "disparo";
-    public static final String JUMP_BUTTON = "salto";
-    public static final String MUSIC_ON_BUTTON = "music_on";
-    public static final String MUSIC_OFF_BUTTON = "music_off";
     public static final Vector2 MUSIC_BUTTON_CENTER = new Vector2(WORLD_SIZE-BUTTON_RADIUS, WORLD_SIZE-BUTTON_RADIUS);
 
     //heroe
@@ -109,16 +103,26 @@ public class Constants {
     //sprites
     public static final String ANDA1 = "anda1";
     public static final String ANDA2 = "anda2";
-    public static final String ANDA3 = "anda3";
     public static final String ANDA4 = "anda4";
     public static final String ANDA5 = "anda5";
-    public static final String ANDA6 = "anda6";
     public static final String SALTA1 = "salta1";
     public static final String SALTA2 = "salta2";
     public static final String SALTA3 = "salta3";
 
     public static final String CARACOL1 = "caracol1";
     public static final String CARACOL2 = "caracol2";
+    public static final String AZUL1 = "azul1";
+    public static final String AZUL2 = "azul2";
+    public static final String AZUL3 = "azul3";
+    public static final String AZUL4 = "azul4";
+    public static final String CERDO1 = "cerdo1";
+    public static final String CERDO2 = "cerdo2";
+    public static final String MURCIELAGO1 = "murcielago1";
+    public static final String MURCIELAGO2 = "murcielago2";
+    public static final String ROJO1 = "rojo1";
+    public static final String ROJO2 = "rojo2";
+    public static final String ROJO3 = "rojo3";
+    public static final String ROJO4 = "rojo4";
 
     public static final String FUEGO1 = "fuego1";
     public static final String FUEGO2 = "fuego2";
@@ -132,5 +136,16 @@ public class Constants {
     public static final String MARTILLO2 = "martillo2";
     public static final String MARTILLO3 = "martillo3";
     public static final String MARTILLO4 = "martillo4";
+    public static final String FIREBALL = "fireball";
+
+    public static final String MOVE_LEFT_BUTTON = "izquierda";
+    public static final String MOVE_RIGHT_BUTTON = "derecha";
+    public static final String SHOOT_BUTTON = "disparo";
+    public static final String JUMP_BUTTON = "salto";
+    public static final String MUSIC_ON_BUTTON = "music_on";
+    public static final String MUSIC_OFF_BUTTON = "music_off";
+    public static final String DIFFICULTY_EASY = "easy";
+    public static final String DIFFICULTY_MEDIUM = "medium";
+    public static final String DIFFICULTY_HARD = "hard";
 
 }

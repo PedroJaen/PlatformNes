@@ -49,10 +49,6 @@ public class Assets implements Disposable, AssetErrorListener {
         public final Animation andar;
         public final Animation salta;
         public final TextureAtlas.AtlasRegion stand;
-        /*
-        public final Animation damage;
-        public final TextureAtlas.AtlasRegion disparo;
-        */
 
 
         public HeroeAssets(TextureAtlas atlas){
@@ -61,12 +57,6 @@ public class Assets implements Disposable, AssetErrorListener {
             andarFrames.add(atlas.findRegion(Constants.ANDA5));
             andarFrames.add(atlas.findRegion(Constants.ANDA2));
             andarFrames.add(atlas.findRegion(Constants.ANDA4));
-            /*andarFrames.add(atlas.findRegion(Constants.ANDA1));
-            andarFrames.add(atlas.findRegion(Constants.ANDA2));
-            andarFrames.add(atlas.findRegion(Constants.ANDA3));
-            andarFrames.add(atlas.findRegion(Constants.ANDA4));
-            andarFrames.add(atlas.findRegion(Constants.ANDA5));
-            andarFrames.add(atlas.findRegion(Constants.ANDA6));*/
             andar=new Animation(Constants.WALK_LOOP_DURATION,andarFrames,Animation.PlayMode.LOOP);
 
             Array<TextureAtlas.AtlasRegion> saltaFrames = new Array<TextureAtlas.AtlasRegion>();
@@ -76,28 +66,17 @@ public class Assets implements Disposable, AssetErrorListener {
             salta=new Animation(Constants.WALK_LOOP_DURATION,saltaFrames,Animation.PlayMode.LOOP);
 
             stand=atlas.findRegion(Constants.ANDA1);
-
-            /*
-            Array<TextureAtlas.AtlasRegion> damageFrames = new Array<TextureAtlas.AtlasRegion>();
-            damageFrames.add(atlas.findRegion("damage1"));
-            damageFrames.add(atlas.findRegion("damage2"));
-            damage=new Animation(Constants.WALK_LOOP_DURATION,damageFrames,Animation.PlayMode.LOOP);
-
-            disparo=atlas.findRegion("disparo");
-            */
-
         }
     }
 
     public class EnemigoAssets{
         public final Animation caracol;
-        /*
         public final Animation azul;
+        public final TextureAtlas.AtlasRegion azulDisparo;
         public final Animation cerdo;
         public final Animation murcielago;
         public final Animation rojo;
         public final TextureAtlas.AtlasRegion rojoDisparo;
-        */
 
         public EnemigoAssets(TextureAtlas atlas){
 
@@ -106,32 +85,31 @@ public class Assets implements Disposable, AssetErrorListener {
             caracolFrames.add(atlas.findRegion(Constants.CARACOL2));
             caracol=new Animation(Constants.WALK_LOOP_DURATION,caracolFrames,Animation.PlayMode.LOOP);
 
-            /*
             Array<TextureAtlas.AtlasRegion> azulFrames = new Array<TextureAtlas.AtlasRegion>();
-            azulFrames.add(atlas.findRegion("azul1"));
-            azulFrames.add(atlas.findRegion("azul2"));
-            azulFrames.add(atlas.findRegion("azul3"));
+            azulFrames.add(atlas.findRegion(Constants.AZUL1));
+            azulFrames.add(atlas.findRegion(Constants.AZUL2));
+            azulFrames.add(atlas.findRegion(Constants.AZUL3));
             azul=new Animation(Constants.WALK_LOOP_DURATION,azulFrames,Animation.PlayMode.LOOP);
 
+            azulDisparo=atlas.findRegion(Constants.AZUL4);
+
             Array<TextureAtlas.AtlasRegion> cerdoFrames = new Array<TextureAtlas.AtlasRegion>();
-            cerdoFrames.add(atlas.findRegion("cerdo1"));
-            cerdoFrames.add(atlas.findRegion("cerdo2"));
+            cerdoFrames.add(atlas.findRegion(Constants.CERDO1));
+            cerdoFrames.add(atlas.findRegion(Constants.CERDO2));
             cerdo=new Animation(Constants.WALK_LOOP_DURATION,cerdoFrames,Animation.PlayMode.LOOP);
 
             Array<TextureAtlas.AtlasRegion> murcielagoFrames = new Array<TextureAtlas.AtlasRegion>();
-            murcielagoFrames.add(atlas.findRegion("murcielago1"));
-            murcielagoFrames.add(atlas.findRegion("murcielago2"));
+            murcielagoFrames.add(atlas.findRegion(Constants.MURCIELAGO1));
+            murcielagoFrames.add(atlas.findRegion(Constants.MURCIELAGO2));
             murcielago=new Animation(Constants.WALK_LOOP_DURATION,murcielagoFrames,Animation.PlayMode.LOOP);
 
             Array<TextureAtlas.AtlasRegion> rojoFrames = new Array<TextureAtlas.AtlasRegion>();
-            rojoFrames.add(atlas.findRegion("rojo1"));
-            rojoFrames.add(atlas.findRegion("rojo2"));
-            rojoFrames.add(atlas.findRegion("rojo3"));
+            rojoFrames.add(atlas.findRegion(Constants.ROJO1));
+            rojoFrames.add(atlas.findRegion(Constants.ROJO2));
+            rojoFrames.add(atlas.findRegion(Constants.ROJO3));
             rojo=new Animation(Constants.WALK_LOOP_DURATION,rojoFrames,Animation.PlayMode.LOOP);
 
-            rojoDisparo=atlas.findRegion("rojo5");
-            */
-
+            rojoDisparo=atlas.findRegion(Constants.ROJO4);
         }
     }
 
@@ -142,25 +120,6 @@ public class Assets implements Disposable, AssetErrorListener {
         public final TextureAtlas.AtlasRegion melon;
         public final TextureAtlas.AtlasRegion pineaple;
         public final TextureAtlas.AtlasRegion platano;
-        /*
-        public final TextureAtlas.AtlasRegion anillo;
-        public final TextureAtlas.AtlasRegion corazon1;
-        public final TextureAtlas.AtlasRegion corazon2;
-        public final TextureAtlas.AtlasRegion flor1;
-        public final TextureAtlas.AtlasRegion flor2;
-        public final TextureAtlas.AtlasRegion leche;
-        public final TextureAtlas.AtlasRegion leche2;
-        public final TextureAtlas.AtlasRegion piedra1;
-        public final TextureAtlas.AtlasRegion piedra2;
-        public final TextureAtlas.AtlasRegion piedra3;
-        public final TextureAtlas.AtlasRegion piedra4;
-        public final TextureAtlas.AtlasRegion piedra5;
-        public final TextureAtlas.AtlasRegion piedra6;
-        public final TextureAtlas.AtlasRegion piedra7;
-        public final TextureAtlas.AtlasRegion piedra8;
-        public final TextureAtlas.AtlasRegion piedra9;
-        public final TextureAtlas.AtlasRegion vasija;
-        */
 
         public ItemAssets(TextureAtlas atlas){
             Array<TextureAtlas.AtlasRegion> fuegoFrames = new Array<TextureAtlas.AtlasRegion>();
@@ -173,25 +132,6 @@ public class Assets implements Disposable, AssetErrorListener {
             melon=atlas.findRegion(Constants.MELON);
             pineaple=atlas.findRegion(Constants.PINEAPLE);
             platano=atlas.findRegion(Constants.PLATANO);
-            /*
-            anillo=atlas.findRegion("anillo");
-            corazon1=atlas.findRegion("corazon");
-            corazon2=atlas.findRegion("corazon2");
-            flor1=atlas.findRegion("flor1");
-            flor2=atlas.findRegion("flor2");
-            leche=atlas.findRegion("leche");
-            leche2=atlas.findRegion("leche2");
-            piedra1=atlas.findRegion("piedra1");
-            piedra2=atlas.findRegion("piedra2");
-            piedra3=atlas.findRegion("piedra3");
-            piedra4=atlas.findRegion("piedra4");
-            piedra5=atlas.findRegion("piedra5");
-            piedra6=atlas.findRegion("piedra6");
-            piedra7=atlas.findRegion("piedra7");
-            piedra8=atlas.findRegion("piedra8");
-            piedra9=atlas.findRegion("piedra9");
-            vasija=atlas.findRegion("vasija");
-            */
         }
     }
 
@@ -199,10 +139,8 @@ public class Assets implements Disposable, AssetErrorListener {
 
         public final TextureAtlas.AtlasRegion hacha;
         public final Animation hachaThrow;
-        /*
-        public final Animation explosion;
         public final TextureAtlas.AtlasRegion fireball;
-        */
+
         public AtaqueAssets(TextureAtlas atlas){
             hacha=atlas.findRegion(Constants.MARTILLO2);
 
@@ -212,17 +150,8 @@ public class Assets implements Disposable, AssetErrorListener {
             hacha_throwFrames.add(atlas.findRegion(Constants.MARTILLO3));
             hacha_throwFrames.add(atlas.findRegion(Constants.MARTILLO4));
             hachaThrow=new Animation(Constants.WALK_LOOP_DURATION,hacha_throwFrames,Animation.PlayMode.LOOP);
-            /*
-            Array<TextureAtlas.AtlasRegion> explosionFrames = new Array<TextureAtlas.AtlasRegion>();
-            explosionFrames.add(atlas.findRegion("explosion1"));
-            explosionFrames.add(atlas.findRegion("explosion2"));
-            explosionFrames.add(atlas.findRegion("explosion3"));
-            explosionFrames.add(atlas.findRegion("explosion4"));
-            explosionFrames.add(atlas.findRegion("explosion5"));
-            explosion=new Animation(Constants.WALK_LOOP_DURATION,explosionFrames, Animation.PlayMode.LOOP);
 
-            fireball=atlas.findRegion("fireball");
-            */
+            fireball=atlas.findRegion(Constants.FIREBALL);
         }
     }
 
@@ -234,6 +163,9 @@ public class Assets implements Disposable, AssetErrorListener {
         public final TextureAtlas.AtlasRegion jump;
         public final TextureAtlas.AtlasRegion music_on;
         public final TextureAtlas.AtlasRegion music_off;
+        public final TextureAtlas.AtlasRegion easy;
+        public final TextureAtlas.AtlasRegion medium;
+        public final TextureAtlas.AtlasRegion hard;
 
         public OnscreenControlsAssets(TextureAtlas atlas) {
             moveRight = atlas.findRegion(Constants.MOVE_RIGHT_BUTTON);
@@ -242,6 +174,9 @@ public class Assets implements Disposable, AssetErrorListener {
             jump = atlas.findRegion(Constants.JUMP_BUTTON);
             music_on = atlas.findRegion(Constants.MUSIC_ON_BUTTON);
             music_off = atlas.findRegion(Constants.MUSIC_OFF_BUTTON);
+            easy = atlas.findRegion(Constants.DIFFICULTY_EASY);
+            medium = atlas.findRegion(Constants.DIFFICULTY_MEDIUM);
+            hard = atlas.findRegion(Constants.DIFFICULTY_HARD);
         }
 
     }
