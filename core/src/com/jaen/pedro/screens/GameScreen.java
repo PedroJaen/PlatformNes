@@ -182,7 +182,6 @@ public class GameScreen  extends ScreenAdapter {
         }
 
         score+=(Constants.SCORE_KILL*level.getHero().getLives())+level.getHero().getAmmo();
-        Gdx.app.error("puntuacion",""+score);
 
         game.getPreferencias().addPuntuacion(score);
         game.getPreferencias().guardarDatos();
