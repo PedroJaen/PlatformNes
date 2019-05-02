@@ -124,6 +124,8 @@ public class DifficultScreen extends InputAdapter implements Screen {
             game.setGameScreen(Enums.Difficulty.MEDIUM);
         }else if(touch.dst(Constants.DIFICIL_LOGO_CENTER)<Constants.BUTTON_RADIUS){
             game.setGameScreen(Enums.Difficulty.HARD);
+        }else{
+            game.setMenuScreen();
         }
 
         return true;

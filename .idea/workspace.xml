@@ -6,45 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37b6040c-9367-4e6c-ab72-faece2eca6f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/overlays/GameOverOverlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/overlays/VictoryOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileContent/annotation-processors.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/PlatformNesGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/PlatformNesGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/objects/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/DifficultScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/DifficultScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/GameScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/screens/GameScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$AtaqueAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$AtaqueAssets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$EnemigoAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$EnemigoAssets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$ItemAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$ItemAssets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$OnscreenControlsAssets.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Assets$OnscreenControlsAssets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/WorldCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/classes/java/main/com/jaen/pedro/utils/WorldCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/libs/core-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/PlatformNesGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/PlatformNesGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/DifficultScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/DifficultScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Enums.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Enums.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/WorldCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/jaen/pedro/utils/WorldCreator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -131,63 +94,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/overlays/VictoryOverlay.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="65" />
+            <state relative-caret-position="2322">
+              <caret line="138" column="9" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/overlays/GameOverOverlay.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1332">
-              <caret line="208" column="18" selection-start-line="208" selection-start-column="18" selection-end-line="208" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/objects/Level.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="143" selection-start-line="143" selection-end-line="143" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#8877#8878#0" expanded="true" />
-                <element signature="e#8908#8909#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Constants.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="100" column="56" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
+            <state relative-caret-position="127">
+              <caret line="227" column="91" selection-start-line="227" selection-start-column="91" selection-end-line="227" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/PlatformNesGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
+              <folding>
+                <element signature="e#1985#1986#0" expanded="true" />
+                <element signature="e#2019#2020#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/DifficultScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1872">
+              <caret line="114" column="5" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -213,7 +160,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="moreEnemies" />
       </map>
     </option>
     <option name="RESET_MODE" value="SOFT" />
@@ -284,34 +231,6 @@
               <item name="core" type="e9137016:NonAndroidModuleNode" />
               <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
               <item name="pedro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PlatformNes" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-              <item name="pedro" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PlatformNes" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-              <item name="pedro" type="462c0819:PsiDirectoryNode" />
-              <item name="overlays" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PlatformNes" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-              <item name="pedro" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PlatformNes" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-              <item name="pedro" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -886,8 +805,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/utils/Assets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2376">
-          <caret line="134" column="56" selection-start-line="134" selection-start-column="56" selection-end-line="134" selection-end-column="56" />
+        <state relative-caret-position="2322">
+          <caret line="138" column="9" selection-start-line="138" selection-start-column="9" selection-end-line="138" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -924,8 +843,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/DifficultScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="54" />
+        <state relative-caret-position="1872">
+          <caret line="114" column="5" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -938,8 +857,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/PlatformNesGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="62" column="62" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
+        <state relative-caret-position="558">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="e#1985#1986#0" expanded="true" />
             <element signature="e#2019#2020#0" expanded="true" />
@@ -976,8 +895,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jaen/pedro/screens/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1332">
-          <caret line="208" column="18" selection-start-line="208" selection-start-column="18" selection-end-line="208" selection-end-column="18" />
+        <state relative-caret-position="127">
+          <caret line="227" column="91" selection-start-line="227" selection-start-column="91" selection-end-line="227" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
