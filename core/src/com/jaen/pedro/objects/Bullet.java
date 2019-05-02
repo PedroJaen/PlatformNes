@@ -18,19 +18,28 @@ public class Bullet {
     private Rectangle rectangle;
     private TextureRegion region;
     private long shootStartTime;
+    private boolean enemigo;
 
-    public Bullet(Vector2 position, Enums.Facing facing,Level level) {
+    public Bullet(Vector2 position, Enums.Facing facing,Level level,boolean enemigo) {
         this.position = position;
         this.facing = facing;
         this.level=level;
-        active=true;
+        this.enemigo=enemigo;
+        active=activeOrNot();
 
         shootStartTime= TimeUtils.nanoTime();
-        region= Assets.instance.ataqueAssets.hacha;
+
+        if(enemigo){
+            region=Assets.instance.ataqueAssets.fireball;
+        }else{
+            region= Assets.instance.ataqueAssets.hacha;
+        }
         rectangle=new Rectangle(position.x,position.y,region.getRegionWidth(),region.getRegionHeight());
     }
 
     public void update(float delta){
+        active=activeOrNot();
+
         switch(facing){
             case RIGHT:
                 position.x+=delta* Constants.BULLET_MOVEMENT_SPEED;
@@ -41,25 +50,31 @@ public class Bullet {
         }
         rectangle.setPosition(position);
 
-        //si le doy a enemigo
-        for(Enemy e:level.getEnemies()){
-            if(rectangle.overlaps(e.getRectangle())){
-                e.setLives(e.getLives()-1);
+        if(enemigo){
+            //si le doy al heroe
+            Hero hero=level.getHero();
+            if(rectangle.overlaps(hero.getRectangle())){
+                hero.setLives(hero.getLives()-1);
                 active=false;
+            }
+        }else{
+            //si le doy a enemigo
+            for(Enemy e:level.getEnemies()){
+                if(rectangle.overlaps(e.getRectangle())){
+                    e.setLives(e.getLives()-1);
+                    active=false;
+                }
             }
         }
 
-        final float worldWidth = level.getViewport().getWorldWidth();
-        final float cameraX = level.getViewport().getCamera().position.x;
 
-        if (position.x < cameraX - worldWidth / 2 || position.x > cameraX + worldWidth / 2) {
-            active = false;
-        }
     }
 
     public void render(SpriteBatch batch){
-        float shootTimeSeconds = Utils.secondsSince(shootStartTime);
-        region= (TextureRegion) Assets.instance.ataqueAssets.hachaThrow.getKeyFrame(shootTimeSeconds);
+        if(!enemigo){
+            float shootTimeSeconds = Utils.secondsSince(shootStartTime);
+            region= (TextureRegion) Assets.instance.ataqueAssets.hachaThrow.getKeyFrame(shootTimeSeconds);
+        }
 
         switch (facing){
             case RIGHT:
@@ -68,6 +83,17 @@ public class Bullet {
             case LEFT:
                 Utils.drawTextureRegionflipedX(batch,region,position.x,position.y);
                 break;
+        }
+    }
+
+    private boolean activeOrNot(){
+        float worldWidth = level.getViewport().getWorldWidth();
+        float cameraX = level.getViewport().getCamera().position.x;
+
+        if (position.x < cameraX - worldWidth / 2 || position.x > cameraX + worldWidth / 2) {
+            return false;
+        }else{
+            return true;
         }
     }
 

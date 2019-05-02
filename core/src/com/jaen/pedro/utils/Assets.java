@@ -78,6 +78,8 @@ public class Assets implements Disposable, AssetErrorListener {
         public final Animation rojo;
         public final TextureAtlas.AtlasRegion rojoDisparo;
 
+        public final Animation[] enemigos;
+
         public EnemigoAssets(TextureAtlas atlas){
 
             Array<TextureAtlas.AtlasRegion> caracolFrames = new Array<TextureAtlas.AtlasRegion>();
@@ -110,11 +112,13 @@ public class Assets implements Disposable, AssetErrorListener {
             rojo=new Animation(Constants.WALK_LOOP_DURATION,rojoFrames,Animation.PlayMode.LOOP);
 
             rojoDisparo=atlas.findRegion(Constants.ROJO4);
+
+            enemigos= new Animation[]{caracol, azul, cerdo, murcielago, rojo};
         }
     }
 
     public class ItemAssets{
-        public final Animation fuego;
+        //public final Animation fuego;
         public final TextureAtlas.AtlasRegion llave;
         public final TextureAtlas.AtlasRegion manzana;
         public final TextureAtlas.AtlasRegion melon;
@@ -122,10 +126,10 @@ public class Assets implements Disposable, AssetErrorListener {
         public final TextureAtlas.AtlasRegion platano;
 
         public ItemAssets(TextureAtlas atlas){
-            Array<TextureAtlas.AtlasRegion> fuegoFrames = new Array<TextureAtlas.AtlasRegion>();
+            /*Array<TextureAtlas.AtlasRegion> fuegoFrames = new Array<TextureAtlas.AtlasRegion>();
             fuegoFrames.add(atlas.findRegion(Constants.FUEGO1));
             fuegoFrames.add(atlas.findRegion(Constants.FUEGO2));
-            fuego=new Animation(Constants.WALK_LOOP_DURATION,fuegoFrames,Animation.PlayMode.LOOP);
+            fuego=new Animation(Constants.WALK_LOOP_DURATION,fuegoFrames,Animation.PlayMode.LOOP);*/
 
             llave=atlas.findRegion(Constants.LLAVE);
             manzana=atlas.findRegion(Constants.MANZANA);
@@ -142,7 +146,7 @@ public class Assets implements Disposable, AssetErrorListener {
         public final TextureAtlas.AtlasRegion fireball;
 
         public AtaqueAssets(TextureAtlas atlas){
-            hacha=atlas.findRegion(Constants.MARTILLO2);
+            hacha=atlas.findRegion(Constants.MARTILLO1);
 
             Array<TextureAtlas.AtlasRegion> hacha_throwFrames = new Array<TextureAtlas.AtlasRegion>();
             hacha_throwFrames.add(atlas.findRegion(Constants.MARTILLO1));

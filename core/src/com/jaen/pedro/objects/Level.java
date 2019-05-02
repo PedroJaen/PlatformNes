@@ -1,18 +1,22 @@
 package com.jaen.pedro.objects;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jaen.pedro.overlays.HudOverlay;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
 
-public class Level {
-    public boolean gameOver;
-    public boolean victory;
-    public int score;
+public class Level implements Disposable {
+    private boolean gameOver;
+    private boolean victory;
+    private int score;
     private Enums.Difficulty difficulty;
     private Hero hero;
     private DelayedRemovalArray<Key> keys;
@@ -25,6 +29,12 @@ public class Level {
     private boolean getKey;
     private HudOverlay hud;
     private Viewport viewport;
+    private boolean mute;
+    private Sound jump;
+    private Sound shootHero;
+    private Sound shootEnemie;
+    private Sound getItem;
+    private Sound explosion;
 
     public Level(Enums.Difficulty difficulty) {
         this.difficulty=difficulty;
@@ -34,6 +44,15 @@ public class Level {
         getKey=false;
 
         bullets=new DelayedRemovalArray<Bullet>();
+
+        if(!mute){
+            jump= Gdx.audio.newSound(Gdx.files.internal(Constants.MUSICA_SALTO));
+            shootHero= Gdx.audio.newSound(Gdx.files.internal(Constants.MUSICA_DISPARO1));
+            shootEnemie= Gdx.audio.newSound(Gdx.files.internal(Constants.MUSICA_DISPARO2));
+            getItem= Gdx.audio.newSound(Gdx.files.internal(Constants.MUSICA_OBJETO));
+            explosion= Gdx.audio.newSound(Gdx.files.internal(Constants.MUSICA_EXPLOSION));
+        }
+
     }
 
     public void update(float delta){
@@ -52,6 +71,9 @@ public class Level {
             for(Fruit f:fruits){
                 if(hero.getRectangle().overlaps(f.getRectangle())){
                     increaseScore(Constants.SCORE_FRUIT);
+                    if(!mute){
+                        getItem.play();
+                    }
                     fruits.removeValue(f,false);
                 }
             }
@@ -62,13 +84,16 @@ public class Level {
             for(Ammo a:ammunition){
                 if(hero.getRectangle().overlaps(a.getRectangle())){
                     increaseScore(Constants.SCORE_FRUIT);
+                    if(!mute){
+                        getItem.play();
+                    }
                     ammunition.removeValue(a,false);
                     hero.setAmmo(hero.getAmmo()+Constants.INITIAL_AMMO);
                 }
             }
             ammunition.end();
 
-            //si disparamos
+            //si hay disparo
             bullets.begin();
             for(Bullet b:bullets){
                 b.update(delta);
@@ -83,6 +108,9 @@ public class Level {
             for(Key k:keys){
                 if(hero.getRectangle().overlaps(k.getRectangle())){
                     increaseScore(Constants.SCORE_PICK_KEY);
+                    if(!mute){
+                        getItem.play();
+                    }
                     keys.removeValue(k,false);
                     getKey=true;
                 }
@@ -94,18 +122,24 @@ public class Level {
             for(Enemy e:enemies){
                 e.update(delta);
                 if(e.getLives()==0){
+                    if(!mute){
+                        explosion.play();
+                    }
                     increaseScore(Constants.SCORE_KILL);
                     enemies.removeValue(e,false);
                 }
             }
             enemies.end();
+
         }
     }
 
     public void render(SpriteBatch batch){
 
         //pintamos al heroe
-        hero.render(batch);
+        if(hero.getLives()>0){
+            hero.render(batch);
+        }
 
         //pintamos la llave
         if(keys.size==1){
@@ -142,8 +176,30 @@ public class Level {
 
     }
 
-    public void spawnBullet(Vector2 position, Enums.Facing facing){
-        bullets.add(new Bullet(position,facing,this));
+    @Override
+    public void dispose() {
+        if(!mute){
+            jump.dispose();
+            shootHero.dispose();
+            shootEnemie.dispose();
+            getItem.dispose();
+            explosion.dispose();
+        }
+
+    }
+
+    public void spawnBullet(Vector2 position, Enums.Facing facing, boolean enemigo){
+        Bullet bullet=new Bullet(position,facing,this,enemigo);
+        bullets.add(bullet);
+        if(bullet.isActive()){
+
+            if(!enemigo && !mute){
+                shootHero.play();
+            }
+            if(enemigo && !mute){
+                shootEnemie.play();
+            }
+        }
     }
 
     private void increaseScore(int sumar){
@@ -160,20 +216,16 @@ public class Level {
         }
     }
 
+    public void jump(){
+        jump.play();
+    }
+
     public Hero getHero() {
         return hero;
     }
 
     public void setHero(Hero hero) {
         this.hero = hero;
-    }
-
-    public Viewport getViewport() {
-        return viewport;
-    }
-
-    public void setViewport(Viewport viewport) {
-        this.viewport = viewport;
     }
 
     public DelayedRemovalArray<Fruit> getFruits() {
@@ -280,5 +332,27 @@ public class Level {
         this.bullets = bullets;
     }
 
+    public Enums.Difficulty getDifficulty() {
+        return difficulty;
+    }
 
+    public void setDifficulty(Enums.Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public boolean isMute() {
+        return mute;
+    }
+
+    public void setMute(boolean mute) {
+        this.mute = mute;
+    }
+
+    public Viewport getViewport() {
+        return viewport;
+    }
+
+    public void setViewport(Viewport viewport) {
+        this.viewport = viewport;
+    }
 }

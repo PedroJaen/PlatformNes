@@ -58,6 +58,12 @@ public class PlatformNesGame extends Game {
         music.play();
     }
 
+    public void suenaMusicaFinal(String musica) {
+        music.stop();
+        music= Gdx.audio.newMusic(Gdx.files.internal(musica));
+        music.play();
+    }
+
     @Override
     public void dispose() {
         super.dispose();

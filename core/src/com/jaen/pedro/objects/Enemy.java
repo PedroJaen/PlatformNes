@@ -1,5 +1,6 @@
 package com.jaen.pedro.objects;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
@@ -17,13 +18,17 @@ public class Enemy {
     private Vector2 position;
     private long startTime;
     private int lives;
+    private int index;
     private float width;
+    private float shootTime;
     private Enums.Facing facing;
     private Rectangle rectangle;
+    private Level level;
 
-    public Enemy(Floor floor, Enums.Difficulty difficulty) {
+    public Enemy(Floor floor, Enums.Difficulty difficulty,Level level) {
         this.floor = floor;
         this.difficulty=difficulty;
+        this.level=level;
 
         switch(difficulty){
             case EASY:
@@ -38,12 +43,17 @@ public class Enemy {
         }
 
         facing= Enums.Facing.RIGHT;
+        shootTime=0;
 
         position=new Vector2(floor.getLeft(),floor.getTop());
         startTime = TimeUtils.nanoTime();
         width=0;
 
-        region= (TextureRegion) Assets.instance.enemigoAssets.caracol.getKeyFrame(0f);
+        index=(int)(Math.random()*Assets.instance.enemigoAssets.enemigos.length);
+        region= (TextureRegion) Assets.instance.enemigoAssets.enemigos[index].getKeyFrame(0f);
+        if(region.toString().contains("murcielago")){
+            position.y+=region.getRegionHeight();
+        }
         rectangle=new Rectangle(position.x,position.y,region.getRegionWidth(),region.getRegionHeight());
     }
 
@@ -70,11 +80,38 @@ public class Enemy {
             facing= Enums.Facing.LEFT;
             position.x=floor.getLeft();
         }
+
+        if(region.toString().contains("rojo") || region.toString().contains("azul")){
+            shoot(delta);
+        }
+    }
+
+    private void shoot(float delta){
+        shootTime+=delta;
+
+        if(shootTime>Constants.ENEMY_SHOOT_TIME){
+            Vector2 bulletPosition;
+
+            if(facing==Enums.Facing.RIGHT){
+                bulletPosition=new Vector2(
+                        position.x+rectangle.getWidth(),
+                        position.y+(rectangle.getHeight()/2)
+                );
+            }else{
+                bulletPosition=new Vector2(
+                        position.x,
+                        position.y+(rectangle.getHeight()/2)
+                );
+            }
+            level.spawnBullet(bulletPosition,facing,true);
+            shootTime=0;
+        }
+
     }
 
     public void render(SpriteBatch batch){
         float elapsedTime = Utils.secondsSince(startTime);
-        region= (TextureRegion) Assets.instance.enemigoAssets.caracol.getKeyFrame(elapsedTime,true);
+        region= (TextureRegion) Assets.instance.enemigoAssets.enemigos[index].getKeyFrame(elapsedTime,true);
         width=region.getRegionWidth();
 
         switch(facing){

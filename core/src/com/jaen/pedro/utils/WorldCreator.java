@@ -50,7 +50,7 @@ public class WorldCreator {
 
             Floor f=new Floor(map,rectangle);
             floors.add(f);
-            enemies.add(new Enemy(f,difficulty));
+            enemies.add(new Enemy(f,difficulty,level));
 
         }
         level.setFloors(floors);

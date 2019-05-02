@@ -84,7 +84,9 @@ public class Hero {
 
         // Land on/fall off platforms
         if (jumpState != Enums.JumpState.JUMPING) {
-            jumpState = Enums.JumpState.FALLING;
+            if (jumpState != JumpState.RECOILING) {
+                jumpState = Enums.JumpState.FALLING;
+            }
 
             for (Floor floor : floors) {
                 if (landedOnPlatform(floor)) {
@@ -97,15 +99,17 @@ public class Hero {
         }
 
         // Move left/right
-        boolean left = Gdx.input.isKeyPressed(Input.Keys.LEFT) || leftButtonPressed;
-        boolean right = Gdx.input.isKeyPressed(Input.Keys.RIGHT) || rightButtonPressed;
+        if (jumpState != JumpState.RECOILING) {
+            boolean left = Gdx.input.isKeyPressed(Input.Keys.LEFT) || leftButtonPressed;
+            boolean right = Gdx.input.isKeyPressed(Input.Keys.RIGHT) || rightButtonPressed;
 
-        if (left && !right) {
-            moveLeft(delta);
-        } else if (right && !left) {
-            moveRight(delta);
-        } else {
-            walkState = WalkState.STANDING;
+            if (left && !right) {
+                moveLeft(delta);
+            } else if (right && !left) {
+                moveRight(delta);
+            } else {
+                walkState = WalkState.STANDING;
+            }
         }
 
         // Jump
@@ -124,6 +128,17 @@ public class Hero {
         // Shoot
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             shoot();
+        }
+
+        //collide with enemies
+        for(Enemy e:level.getEnemies()){
+            if(rectangle.overlaps(e.getRectangle())){
+                if(position.x>e.getPosition().x){
+                    recoilFromEnemy(Facing.LEFT);
+                } else {
+                    recoilFromEnemy(Facing.RIGHT);
+                }
+            }
         }
 
     }
@@ -165,7 +180,7 @@ public class Hero {
                         position.y+(rectangle.getHeight()/2)
                 );
             }
-            level.spawnBullet(bulletPosition,facing);
+            level.spawnBullet(bulletPosition,facing,false);
         }
     }
 
@@ -208,6 +223,7 @@ public class Hero {
     private void startJump() {
         jumpState = JumpState.JUMPING;
         jumpStartTime = TimeUtils.nanoTime();
+        level.jump();
         continueJump();
     }
 
@@ -224,6 +240,18 @@ public class Hero {
     private void endJump() {
         if (jumpState == JumpState.JUMPING) {
             jumpState = JumpState.FALLING;
+        }
+    }
+
+    private void recoilFromEnemy(Facing direction) {
+
+        jumpState = JumpState.RECOILING;
+        velocity.y = Constants.KNOCKBACK_VELOCITY.y;
+
+        if (direction == Facing.LEFT) {
+            velocity.x = -Constants.KNOCKBACK_VELOCITY.x;
+        } else {
+            velocity.x = Constants.KNOCKBACK_VELOCITY.x;
         }
     }
 

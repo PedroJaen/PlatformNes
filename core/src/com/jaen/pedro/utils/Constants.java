@@ -17,7 +17,6 @@ public class Constants {
     //hud
     public static final int HUD_MARGIN=20;
     public static final String LEVEL = "LEVEL";
-    public static final String DIFFICULTY = "DIFFICULTY";
     public static final String LIVES = "LIVES X ";
     public static final String AMMO = "AMMO X ";
     public static final String KEY = "KEY";
@@ -39,15 +38,26 @@ public class Constants {
     public static final Vector2 SCORES_POSITION = new Vector2(WORLD_SIZE/2,WORLD_SIZE-HUD_MARGIN);
 
     //difficultscreen
-    public static final Vector2 FACIL_POSITION=new Vector2(0,WORLD_SIZE/2);
+    public static final Vector2 FACIL_POSITION=new Vector2(0,(WORLD_SIZE/2)-32);
+    public static final Vector2 FACIL_LOGO=new Vector2(0,WORLD_SIZE/2);
+    public static final Vector2 FACIL_LOGO_CENTER=new Vector2(32,(WORLD_SIZE/2)+32);
     public static final String FACIL = "EASY";
     public static final int FACIL_INC=1;
-    public static final Vector2 MEDIO_POSITION=new Vector2(WORLD_SIZE/2,WORLD_SIZE/2);
+    public static final Vector2 MEDIO_POSITION=new Vector2(WORLD_SIZE/2,(WORLD_SIZE/2)-32);
+    public static final Vector2 MEDIO_LOGO=new Vector2((WORLD_SIZE/2)-32,WORLD_SIZE/2);
+    public static final Vector2 MEDIO_LOGO_CENTER=new Vector2((WORLD_SIZE/2),(WORLD_SIZE/2)+32);
     public static final String MEDIO = "MEDIUM";
     public static final int MEDIO_INC=2;
-    public static final Vector2 DIFICIL_POSITION=new Vector2(WORLD_SIZE,WORLD_SIZE/2);
+    public static final Vector2 DIFICIL_POSITION=new Vector2(WORLD_SIZE,(WORLD_SIZE/2)-32);
+    public static final Vector2 DIFICIL_LOGO=new Vector2(WORLD_SIZE-64,WORLD_SIZE/2);
+    public static final Vector2 DIFICIL_LOGO_CENTER=new Vector2(WORLD_SIZE-32,(WORLD_SIZE/2)+32);
     public static final String DIFICIL = "HARD";
     public static final int DIFICIL_INC=3;
+
+    //overlays
+    public static final String GAME_OVER_MESSAGE="GAME OVER";
+    public static final String VICTORY_MESSAGE="YOU WIN!";
+    public static final float LEVEL_END_DURATION = 4;
 
     //points
     public static final int SCORE_KILL=100;
@@ -59,12 +69,13 @@ public class Constants {
     public static final String MUSICA_INICIO="music/inicio.mp3";
     public static final String MUSICA_LVL1="music/lvl1.mp3";
     public static final String[] MUSICA_LVLS={MUSICA_LVL1};
-    public static final String MUSICA_FIN="music/game_over.mp3";
-    public static final String MUSICA_DISPARO1="music/game_over.mp3";
-    public static final String MUSICA_DISPARO2="music/game_over.mp3";
-    public static final String MUSICA_SALTO="music/game_over.mp3";
-    public static final String MUSICA_EXPLOSION="music/game_over.mp3";
-    public static final String MUSICA_OBJETO="music/game_over.mp3";
+    public static final String MUSICA_GAME_OVER="music/game_over.mp3";
+    public static final String MUSICA_GAME_WIN="music/game_win.mp3";
+    public static final String MUSICA_DISPARO1="music/disparo1.wav";
+    public static final String MUSICA_DISPARO2="music/disparo2.wav";
+    public static final String MUSICA_SALTO="music/salto.wav";
+    public static final String MUSICA_EXPLOSION="music/explosion.wav";
+    public static final String MUSICA_OBJETO="music/objeto.wav";
 
     // Onscreen Controls
     public static final Vector2 BUTTON_CENTER = new Vector2(15, 15);
@@ -79,13 +90,15 @@ public class Constants {
     public static final int INITIAL_AMMO=10;
     public static final float MAX_JUMP_DURATION = .15f;
     public static final float JUMP_SPEED = 200;
+    public static final Vector2 KNOCKBACK_VELOCITY = new Vector2(200, 200);
 
     //enemy
     public static final int ENEMY_LIVES=5;
     public static final float ENEMY_MOVEMENT_SPEED = 20;
+    public static final int ENEMY_SHOOT_TIME=3;
 
     //bullet
-    public static final float BULLET_MOVEMENT_SPEED = 80;
+    public static final float BULLET_MOVEMENT_SPEED = 100;
 
     //lvls
     public static final float LVL_SIZE = 300;
@@ -99,6 +112,7 @@ public class Constants {
     public static final int LVL_HEROE=8;
     public static final int LVL_AMMO=9;
     public static final int LVL_ENEMIE=10;
+    public static final int LVL_1=0;
 
     //sprites
     public static final String ANDA1 = "anda1";

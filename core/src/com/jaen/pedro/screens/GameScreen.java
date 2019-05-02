@@ -5,20 +5,25 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.objects.Level;
+import com.jaen.pedro.overlays.GameOverOverlay;
 import com.jaen.pedro.overlays.HudOverlay;
 import com.jaen.pedro.overlays.OnScreensControls;
+import com.jaen.pedro.overlays.VictoryOverlay;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
+import com.jaen.pedro.utils.Utils;
 import com.jaen.pedro.utils.WorldCreator;
 
 public class GameScreen  extends ScreenAdapter {
@@ -36,6 +41,9 @@ public class GameScreen  extends ScreenAdapter {
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     private Viewport viewport;
+    private long levelEndOverlayStartTime;
+    private VictoryOverlay victoryOverlay;
+    private GameOverOverlay gameOverOverlay;
 
 
     public GameScreen(PlatformNesGame game, Enums.Difficulty difficulty) {
@@ -49,6 +57,8 @@ public class GameScreen  extends ScreenAdapter {
         hud=new HudOverlay(batch,this);
         camera=new OrthographicCamera();
         viewport=new ExtendViewport(Constants.LVL_SIZE,Constants.LVL_SIZE,camera);
+        victoryOverlay=new VictoryOverlay(viewport);
+        gameOverOverlay=new GameOverOverlay(viewport);
         score=0;
 
         if(!game.isMute() && game.getMusic().isPlaying()){
@@ -61,7 +71,7 @@ public class GameScreen  extends ScreenAdapter {
             Gdx.input.setInputProcessor(onScreensControls);
         }
 
-        currentLevel=0;
+        currentLevel=Constants.LVL_1;
         startNewLevel(currentLevel);
     }
 
@@ -77,6 +87,7 @@ public class GameScreen  extends ScreenAdapter {
         onScreensControls.hero=level.getHero();
         level.setHud(hud);
         level.setViewport(viewport);
+        level.setMute(game.isMute());
 
         //colocamos la musica del nivel
         if(!game.isMute()){
@@ -97,7 +108,10 @@ public class GameScreen  extends ScreenAdapter {
 
         level.update(delta);
         score=level.getScore();
-        hud.update(delta,score,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey());
+        if(!level.isVictory()){
+            hud.update(delta,score,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey());
+        }
+
     }
 
     //metodo para movernos por le mapa y comprobar q va bien
@@ -135,6 +149,8 @@ public class GameScreen  extends ScreenAdapter {
 
         level.render(batch);
 
+        renderLevelEndOverlays(batch);
+
         batch.end();
 
         //pintamos el hud
@@ -144,7 +160,7 @@ public class GameScreen  extends ScreenAdapter {
             onScreensControls.render(batch);
         }
 
-        renderLevelEndOverlays(batch);
+
 
     }
 
@@ -164,13 +180,41 @@ public class GameScreen  extends ScreenAdapter {
     }
 
     private void renderLevelEndOverlays(SpriteBatch batch) {
-        if (level.gameOver) {
+        if (level.isGameOver()) {
 
-            levelFailed();
+            if (levelEndOverlayStartTime == 0) {
+                levelEndOverlayStartTime = TimeUtils.nanoTime();
+                if(!game.isMute()){
+                    game.suenaMusicaFinal(Constants.MUSICA_GAME_OVER);
+                }
+            }
 
-        } else if (level.victory) {
+            //gameOverOverlay.render(batch);
+            if (Utils.secondsSince(levelEndOverlayStartTime) > Constants.LEVEL_END_DURATION) {
+                levelEndOverlayStartTime = 0;
+                levelFailed();
+            }
 
-            levelComplete();
+
+        } else if (level.isVictory()) {
+
+            if(currentLevel+1==Constants.LEVELS.length){
+                if (levelEndOverlayStartTime == 0) {
+                    levelEndOverlayStartTime = TimeUtils.nanoTime();
+                    if(!game.isMute()){
+                        game.suenaMusicaFinal(Constants.MUSICA_GAME_WIN);
+                    }
+                }
+
+                //victoryOverlay.render(batch);
+                if (Utils.secondsSince(levelEndOverlayStartTime) > Constants.LEVEL_END_DURATION) {
+                    levelEndOverlayStartTime = 0;
+                    levelComplete();
+                }
+            }else{
+                currentLevel++;
+                startNewLevel(currentLevel);
+            }
 
         }
     }
