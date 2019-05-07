@@ -68,7 +68,8 @@ public class Constants {
     //sounds
     public static final String MUSICA_INICIO="music/inicio.mp3";
     public static final String MUSICA_LVL1="music/lvl1.mp3";
-    public static final String[] MUSICA_LVLS={MUSICA_LVL1};
+    public static final String MUSICA_LVL2="music/lvl2.mp3";
+    public static final String[] MUSICA_LVLS={MUSICA_LVL1,MUSICA_LVL2};
     public static final String MUSICA_GAME_OVER="music/game_over.mp3";
     public static final String MUSICA_GAME_WIN="music/game_win.mp3";
     public static final String MUSICA_DISPARO1="music/disparo1.wav";
@@ -103,7 +104,8 @@ public class Constants {
     //lvls
     public static final float LVL_SIZE = 300;
     public static final String LEVEL1="levels/plat_lvl1.tmx";
-    public static final String[] LEVELS={LEVEL1};
+    public static final String LEVEL2="levels/plat_lvl2.tmx";
+    public static final String[] LEVELS={LEVEL1,LEVEL2};
     public static final int LVL_GROUND=3;
     public static final int LVL_EXIT=4;
     public static final int LVL_DEATH=5;
@@ -112,9 +114,10 @@ public class Constants {
     public static final int LVL_HEROE=8;
     public static final int LVL_AMMO=9;
     public static final int LVL_ENEMIE=10;
+    public static final int LVL_WALL=11;
     public static final int LVL_1=0;
 
-    //sprites
+    //sprites heroe
     public static final String ANDA1 = "anda1";
     public static final String ANDA2 = "anda2";
     public static final String ANDA4 = "anda4";
@@ -123,6 +126,11 @@ public class Constants {
     public static final String SALTA2 = "salta2";
     public static final String SALTA3 = "salta3";
 
+    public static final String ANDA1_MAPPY="anda1_mappy";
+    public static final String ANDA2_MAPPY="anda2_mappy";
+    public static final String SALTA_MAPPY="salta_mappy";
+
+    //sprites enemie
     public static final String CARACOL1 = "caracol1";
     public static final String CARACOL2 = "caracol2";
     public static final String AZUL1 = "azul1";
@@ -138,20 +146,40 @@ public class Constants {
     public static final String ROJO3 = "rojo3";
     public static final String ROJO4 = "rojo4";
 
-    public static final String FUEGO1 = "fuego1";
-    public static final String FUEGO2 = "fuego2";
+    public static final String ROJO1_MAPPY = "rojo1_mappy";
+    public static final String ROJO2_MAPPY = "rojo2_mappy";
+    public static final String ROJO3_MAPPY = "rojo3_mappy";
+    public static final String ROSA1_MAPPY = "rosa1_mappy";
+    public static final String ROSA2_MAPPY = "rosa2_mappy";
+    public static final String ROSA3_MAPPY = "rosa3_mappy";
+
+    //sprites items
     public static final String LLAVE = "llave";
     public static final String MANZANA = "manzana";
     public static final String MELON = "melon";
     public static final String PINEAPLE = "pineaple";
     public static final String PLATANO = "platano";
 
+    public static final String BALOON1_MAPPY = "baloon1_mappy";
+    public static final String BALOON2_MAPPY = "baloon2_mappy";
+    public static final String COIN1_MAPPY = "coin1_mappy";
+    public static final String COIN2_MAPPY = "coin2_mappy";
+    public static final String COIN3_MAPPY = "coin3_mappy";
+    public static final String COIN4_MAPPY = "coin4_mappy";
+    public static final String CUADRO_MAPPY = "cuadro_mappy";
+    public static final String PC_MAPPY = "pc_mappy";
+    public static final String RADIO_MAPPY = "radio_mappy";
+    public static final String SECURITY_MAPPY = "security_mappy";
+    public static final String TV_MAPPY = "tv_mappy";
+
+    //sprites bullets
     public static final String MARTILLO1 = "martillo1";
     public static final String MARTILLO2 = "martillo2";
     public static final String MARTILLO3 = "martillo3";
     public static final String MARTILLO4 = "martillo4";
     public static final String FIREBALL = "fireball";
 
+    //sprites buttons
     public static final String MOVE_LEFT_BUTTON = "izquierda";
     public static final String MOVE_RIGHT_BUTTON = "derecha";
     public static final String SHOOT_BUTTON = "disparo";

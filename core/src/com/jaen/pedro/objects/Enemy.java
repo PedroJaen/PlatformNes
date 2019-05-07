@@ -1,6 +1,6 @@
 package com.jaen.pedro.objects;
 
-import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
@@ -14,6 +14,7 @@ import com.jaen.pedro.utils.Utils;
 public class Enemy {
     private Floor floor;
     private Enums.Difficulty difficulty;
+    private int lvlCounter;
     private TextureRegion region;
     private Vector2 position;
     private long startTime;
@@ -25,10 +26,11 @@ public class Enemy {
     private Rectangle rectangle;
     private Level level;
 
-    public Enemy(Floor floor, Enums.Difficulty difficulty,Level level) {
+    public Enemy(Floor floor, Enums.Difficulty difficulty,Level level,int lvlCounter) {
         this.floor = floor;
         this.difficulty=difficulty;
         this.level=level;
+        this.lvlCounter=lvlCounter;
 
         switch(difficulty){
             case EASY:
@@ -49,8 +51,22 @@ public class Enemy {
         startTime = TimeUtils.nanoTime();
         width=0;
 
-        index=(int)(Math.random()*Assets.instance.enemigoAssets.enemigos.length);
-        region= (TextureRegion) Assets.instance.enemigoAssets.enemigos[index].getKeyFrame(0f);
+        getAssets();
+    }
+
+    private void getAssets() {
+        Animation[] enemy=null;
+        switch(lvlCounter){
+            case 0:
+                enemy=Assets.instance.enemigoAssets.enemigos;
+                break;
+            case 1:
+                enemy=Assets.instance.enemigoAssets.enemigos_mappy;
+                break;
+        }
+
+        index=(int)(Math.random()*enemy.length);
+        region= (TextureRegion) enemy[index].getKeyFrame(0f);
         if(region.toString().contains("murcielago")){
             position.y+=region.getRegionHeight();
         }

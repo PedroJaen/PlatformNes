@@ -10,14 +10,24 @@ import com.jaen.pedro.utils.Utils;
 public class Ammo {
     TiledMap map;
     Rectangle rectangle;
+    private int lvlCount;
 
-    public Ammo(TiledMap map, Rectangle rectangle) {
+    public Ammo(TiledMap map, Rectangle rectangle,int lvlCount) {
         this.map = map;
         this.rectangle = rectangle;
+        this.lvlCount=lvlCount;
     }
 
     public void render(SpriteBatch batch){
-        TextureRegion region= Assets.instance.ataqueAssets.hacha;
+        TextureRegion region=null;
+        switch (lvlCount){
+            case 0:
+                region= Assets.instance.ataqueAssets.hacha;
+                break;
+            case 1:
+                region= Assets.instance.ataqueAssets.fireball;
+                break;
+        }
         Utils.drawTextureRegion(batch,region,rectangle.getX(),rectangle.getY());
     }
 

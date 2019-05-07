@@ -1,9 +1,6 @@
 package com.jaen.pedro.utils;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.maps.Map;
 import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
@@ -19,20 +16,19 @@ import com.jaen.pedro.objects.Hero;
 import com.jaen.pedro.objects.Key;
 import com.jaen.pedro.objects.Level;
 
-import java.util.Iterator;
-
 public class WorldCreator {
     private TiledMap map;
-    private Level level;
     private Enums.Difficulty difficulty;
+    private int lvlCounter;
 
-    public WorldCreator(TiledMap map, Enums.Difficulty difficulty) {
+    public WorldCreator(TiledMap map, Enums.Difficulty difficulty,int lvlCounter) {
         this.map = map;
         this.difficulty=difficulty;
+        this.lvlCounter=lvlCounter;
     }
 
     public Level worldCreator() {
-        level= new Level(difficulty);
+        Level level= new Level(difficulty);
 
         Array<Floor> floors=new Array<Floor>();
         //recorremos los objetos suelo
@@ -50,7 +46,7 @@ public class WorldCreator {
 
             Floor f=new Floor(map,rectangle);
             floors.add(f);
-            enemies.add(new Enemy(f,difficulty,level));
+            enemies.add(new Enemy(f,difficulty,level,lvlCounter));
 
         }
         level.setFloors(floors);
@@ -71,7 +67,7 @@ public class WorldCreator {
         for(MapObject object:map.getLayers().get(Constants.LVL_HEROE).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rectangle =((RectangleMapObject)object).getRectangle();
 
-            hero=new Hero(map,rectangle,level);
+            hero=new Hero(map,rectangle,level,lvlCounter);
 
         }
 
@@ -100,7 +96,7 @@ public class WorldCreator {
         for(MapObject object:map.getLayers().get(Constants.LVL_FRUTA).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rectangle =((RectangleMapObject)object).getRectangle();
 
-            fruits.add(new Fruit(map,rectangle));
+            fruits.add(new Fruit(map,rectangle,lvlCounter));
         }
         level.setFruits(fruits);
 
@@ -109,7 +105,7 @@ public class WorldCreator {
         for(MapObject object:map.getLayers().get(Constants.LVL_AMMO).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rectangle =((RectangleMapObject)object).getRectangle();
 
-            ammunition.add(new Ammo(map,rectangle));
+            ammunition.add(new Ammo(map,rectangle,lvlCounter));
         }
         level.setAmmunition(ammunition);
 

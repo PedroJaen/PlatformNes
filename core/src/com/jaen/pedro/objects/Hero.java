@@ -18,6 +18,7 @@ import com.jaen.pedro.utils.Utils;
 public class Hero {
     TiledMap map;
     Rectangle rectangle;
+    private int lvlCounter;
     public int lives;
     public int ammo;
     public boolean jumpButtonPressed;
@@ -37,10 +38,11 @@ public class Hero {
     private Array<Death> deaths;
 
 
-    public Hero(TiledMap map, Rectangle rectangle,Level level) {
+    public Hero(TiledMap map, Rectangle rectangle,Level level,int lvlCounter) {
         this.map = map;
         this.rectangle = rectangle;
         this.level=level;
+        this.lvlCounter=lvlCounter;
         this.spawnPosition=new Vector2(rectangle.getX(),rectangle.getY());
         this.position=new Vector2();
         this.lastFramePosition=new Vector2();
@@ -53,7 +55,7 @@ public class Hero {
         ammo=Constants.INITIAL_AMMO;
 
         //starting sprite
-        region= Assets.instance.heroeAssets.stand;
+        region= Assets.instance.heroeAssets.stands[lvlCounter];
 
         respawn();
     }
@@ -144,14 +146,28 @@ public class Hero {
     }
 
     public void render(SpriteBatch batch){
-        if(jumpState!=JumpState.GROUNDED){
-            float jumpTimeSeconds=Utils.secondsSince(jumpStartTime);
-            region= (TextureRegion) Assets.instance.heroeAssets.salta.getKeyFrame(jumpTimeSeconds);
-        }else if(walkState==WalkState.STANDING){
-            region=Assets.instance.heroeAssets.stand;
-        }else if(walkState==WalkState.WALKING){
-            float walkTimeSeconds = Utils.secondsSince(walkStartTime);
-            region=(TextureRegion) Assets.instance.heroeAssets.andar.getKeyFrame(walkTimeSeconds);
+        switch(lvlCounter){
+            case 0:
+                if(jumpState!=JumpState.GROUNDED){
+                    float jumpTimeSeconds=Utils.secondsSince(jumpStartTime);
+                    region= (TextureRegion) Assets.instance.heroeAssets.salta.getKeyFrame(jumpTimeSeconds);
+                }else if(walkState==WalkState.STANDING){
+                    region=Assets.instance.heroeAssets.stand;
+                }else if(walkState==WalkState.WALKING){
+                    float walkTimeSeconds = Utils.secondsSince(walkStartTime);
+                    region=(TextureRegion) Assets.instance.heroeAssets.andar.getKeyFrame(walkTimeSeconds);
+                }
+                break;
+            case 1:
+                if(jumpState!=JumpState.GROUNDED){
+                    region=Assets.instance.heroeAssets.salta_mappy;
+                }else if(walkState==WalkState.STANDING){
+                    region=Assets.instance.heroeAssets.stand_mappy;
+                }else if(walkState==WalkState.WALKING){
+                    float walkTimeSeconds = Utils.secondsSince(walkStartTime);
+                    region=(TextureRegion) Assets.instance.heroeAssets.andar_mappy.getKeyFrame(walkTimeSeconds);
+                }
+                break;
         }
 
         switch (facing){
@@ -180,7 +196,13 @@ public class Hero {
                         position.y+(rectangle.getHeight()/2)
                 );
             }
-            level.spawnBullet(bulletPosition,facing,false);
+
+            if(lvlCounter!=1){
+                level.spawnBullet(bulletPosition,facing,false);
+            }else{
+                level.spawnBullet(bulletPosition,facing,true);
+            }
+
         }
     }
 

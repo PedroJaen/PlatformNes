@@ -82,7 +82,7 @@ public class GameScreen  extends ScreenAdapter {
         renderer=new OrthogonalTiledMapRenderer(map,1);
 
         //obtenemos el nivel
-        WorldCreator wc=new WorldCreator(map,difficulty);
+        WorldCreator wc=new WorldCreator(map,difficulty,lvl);
         level=wc.worldCreator();
         onScreensControls.hero=level.getHero();
         level.setHud(hud);

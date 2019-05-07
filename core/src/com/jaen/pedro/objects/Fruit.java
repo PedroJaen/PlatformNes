@@ -11,22 +11,31 @@ import com.jaen.pedro.utils.Utils;
 public class Fruit {
     TiledMap map;
     Rectangle rectangle;
-    TextureRegion[] regions={Assets.instance.itemAssets.manzana,
-            Assets.instance.itemAssets.melon,
-            Assets.instance.itemAssets.pineaple,
-            Assets.instance.itemAssets.platano
-    };
+    private int lvlCounter;
     TextureRegion region;
 
-    public Fruit(TiledMap map, Rectangle rectangle) {
+    public Fruit(TiledMap map, Rectangle rectangle,int lvlCounter) {
         this.map = map;
         this.rectangle = rectangle;
+        this.lvlCounter=lvlCounter;
 
         region=getFruit();
     }
 
     private TextureRegion getFruit() {
-        int posicion=(int)(Math.random()*4);
+        TextureRegion[] regions=null;
+
+        switch(lvlCounter){
+            case 0:
+                regions=Assets.instance.itemAssets.regionsAI;
+                break;
+            case 1:
+                regions=Assets.instance.itemAssets.regionsM;
+                break;
+        }
+
+        int posicion=(int)(Math.random()*regions.length);
+
         return regions[posicion];
     }
 
