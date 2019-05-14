@@ -31,7 +31,6 @@ public class GameScreen  extends ScreenAdapter {
     Enums.Difficulty difficulty;
     PlatformNesGame game;
     HudOverlay hud;
-    Music music;
     OnScreensControls onScreensControls;
     Level level;
     int currentLevel;
@@ -72,6 +71,7 @@ public class GameScreen  extends ScreenAdapter {
         }
 
         currentLevel=Constants.LVL_1;
+        //currentLevel=1;
         startNewLevel(currentLevel);
     }
 
@@ -88,6 +88,7 @@ public class GameScreen  extends ScreenAdapter {
         level.setHud(hud);
         level.setViewport(viewport);
         level.setMute(game.isMute());
+        level.setGetKey(false);
 
         //colocamos la musica del nivel
         if(!game.isMute()){
@@ -101,8 +102,6 @@ public class GameScreen  extends ScreenAdapter {
     }
 
     public void update(float delta){
-        handleInput(delta);
-
         camera.position.set(level.getHero().getPosition(),0);
         renderer.setView(camera);
 
@@ -112,22 +111,6 @@ public class GameScreen  extends ScreenAdapter {
             hud.update(delta,score,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey());
         }
 
-    }
-
-    //metodo para movernos por le mapa y comprobar q va bien
-    private void handleInput(float delta) {
-        if(Gdx.input.isKeyPressed(Input.Keys.UP)){
-            camera.position.y+=delta*100;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
-            camera.position.x+=delta*100;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            camera.position.x-=delta*100;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.DOWN)){
-            camera.position.y-=delta*100;
-        }
     }
 
     @Override
@@ -159,9 +142,6 @@ public class GameScreen  extends ScreenAdapter {
         if (onMobile()) {
             onScreensControls.render(batch);
         }
-
-
-
     }
 
     @Override
@@ -212,10 +192,26 @@ public class GameScreen  extends ScreenAdapter {
                     levelComplete();
                 }
             }else{
-                currentLevel++;
-                startNewLevel(currentLevel);
-            }
+                if (levelEndOverlayStartTime == 0) {
+                    levelEndOverlayStartTime = TimeUtils.nanoTime();
+                    if(!game.isMute()){
+                        game.suenaMusicaFinal(Constants.MUSICA_LVL_NEXT);
+                    }
+                }
 
+                //victoryOverlay.render(batch);
+                if (Utils.secondsSince(levelEndOverlayStartTime) > Constants.LEVEL_NEXT) {
+                    levelEndOverlayStartTime = 0;
+                    score+=hud.getWorldTimer();
+
+                    hud.setWorldTimer(Constants.LEVEL_TIMER);
+                    currentLevel++;
+                    if(!game.isMute()){
+                        game.getMusic().stop();
+                    }
+                    startNewLevel(currentLevel);
+                }
+            }
         }
     }
 
@@ -225,7 +221,9 @@ public class GameScreen  extends ScreenAdapter {
             game.suenaMusica(Constants.MUSICA_INICIO);
         }
 
-        score+=(Constants.SCORE_KILL*level.getHero().getLives())+level.getHero().getAmmo();
+        score+=(Constants.SCORE_KILL*level.getHero().getLives())
+                +level.getHero().getAmmo()
+                +hud.getWorldTimer();
 
         game.getPreferencias().addPuntuacion(score);
         game.getPreferencias().guardarDatos();
@@ -254,64 +252,8 @@ public class GameScreen  extends ScreenAdapter {
         return difficulty;
     }
 
-    public void setDifficulty(Enums.Difficulty difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public PlatformNesGame getGame() {
-        return game;
-    }
-
-    public void setGame(PlatformNesGame game) {
-        this.game = game;
-    }
-
-    public HudOverlay getHud() {
-        return hud;
-    }
-
-    public void setHud(HudOverlay hud) {
-        this.hud = hud;
-    }
-
-    public Music getMusic() {
-        return music;
-    }
-
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public OnScreensControls getOnScreensControls() {
-        return onScreensControls;
-    }
-
-    public void setOnScreensControls(OnScreensControls onScreensControls) {
-        this.onScreensControls = onScreensControls;
-    }
-
-    public Level getLevel() {
-        return level;
-    }
-
-    public void setLevel(Level level) {
-        this.level = level;
-    }
-
     public int getCurrentLevel() {
         return currentLevel;
-    }
-
-    public void setCurrentLevel(int currentLevel) {
-        this.currentLevel = currentLevel;
-    }
-
-    public TmxMapLoader getMapLoader() {
-        return mapLoader;
-    }
-
-    public void setMapLoader(TmxMapLoader mapLoader) {
-        this.mapLoader = mapLoader;
     }
 
     public TiledMap getMap() {
@@ -322,35 +264,11 @@ public class GameScreen  extends ScreenAdapter {
         this.map = map;
     }
 
-    public OrthogonalTiledMapRenderer getRenderer() {
-        return renderer;
-    }
-
-    public void setRenderer(OrthogonalTiledMapRenderer renderer) {
-        this.renderer = renderer;
-    }
-
-    public OrthographicCamera getCamera() {
-        return camera;
-    }
-
-    public void setCamera(OrthographicCamera camera) {
-        this.camera = camera;
-    }
-
     public Viewport getViewport() {
         return viewport;
     }
 
     public void setViewport(Viewport viewport) {
         this.viewport = viewport;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 }

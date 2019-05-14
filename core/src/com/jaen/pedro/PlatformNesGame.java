@@ -90,8 +90,4 @@ public class PlatformNesGame extends Game {
         return music;
     }
 
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
 }

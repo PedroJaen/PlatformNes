@@ -2,7 +2,6 @@ package com.jaen.pedro.objects;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -35,9 +34,11 @@ public class Level implements Disposable {
     private Sound shootEnemie;
     private Sound getItem;
     private Sound explosion;
+    private int lvlCounter;
 
-    public Level(Enums.Difficulty difficulty) {
+    public Level(Enums.Difficulty difficulty,int lvlCounter) {
         this.difficulty=difficulty;
+        this.lvlCounter=lvlCounter;
         gameOver=false;
         victory=false;
         score=0;
@@ -189,7 +190,7 @@ public class Level implements Disposable {
     }
 
     public void spawnBullet(Vector2 position, Enums.Facing facing, boolean enemigo){
-        Bullet bullet=new Bullet(position,facing,this,enemigo);
+        Bullet bullet=new Bullet(position,facing,this,enemigo,lvlCounter);
         bullets.add(bullet);
         if(bullet.isActive()){
 
@@ -217,7 +218,10 @@ public class Level implements Disposable {
     }
 
     public void jump(){
-        jump.play();
+        if(!mute){
+            jump.play();
+        }
+
     }
 
     public Hero getHero() {
@@ -228,40 +232,20 @@ public class Level implements Disposable {
         this.hero = hero;
     }
 
-    public DelayedRemovalArray<Fruit> getFruits() {
-        return fruits;
-    }
-
     public void setFruits(DelayedRemovalArray<Fruit> fruits) {
         this.fruits = fruits;
-    }
-
-    public Array<Floor> getFloors() {
-        return floors;
     }
 
     public void setFloors(Array<Floor> floors) {
         this.floors = floors;
     }
 
-    public Exit getExit() {
-        return exit;
-    }
-
     public void setExit(Exit exit) {
         this.exit = exit;
     }
 
-    public DelayedRemovalArray<Ammo> getAmmunition() {
-        return ammunition;
-    }
-
     public void setAmmunition(DelayedRemovalArray<Ammo> ammunition) {
         this.ammunition = ammunition;
-    }
-
-    public DelayedRemovalArray<Key> getKey() {
-        return keys;
     }
 
     public void setKey(DelayedRemovalArray<Key> key) {
@@ -272,24 +256,12 @@ public class Level implements Disposable {
         return gameOver;
     }
 
-    public void setGameOver(boolean gameOver) {
-        this.gameOver = gameOver;
-    }
-
     public boolean isVictory() {
         return victory;
     }
 
-    public void setVictory(boolean victory) {
-        this.victory = victory;
-    }
-
     public int getScore() {
         return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public DelayedRemovalArray<Enemy> getEnemies() {
@@ -308,40 +280,8 @@ public class Level implements Disposable {
         this.getKey = getKey;
     }
 
-    public HudOverlay getHud() {
-        return hud;
-    }
-
     public void setHud(HudOverlay hud) {
         this.hud = hud;
-    }
-
-    public DelayedRemovalArray<Key> getKeys() {
-        return keys;
-    }
-
-    public void setKeys(DelayedRemovalArray<Key> keys) {
-        this.keys = keys;
-    }
-
-    public DelayedRemovalArray<Bullet> getBullets() {
-        return bullets;
-    }
-
-    public void setBullets(DelayedRemovalArray<Bullet> bullets) {
-        this.bullets = bullets;
-    }
-
-    public Enums.Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Enums.Difficulty difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public boolean isMute() {
-        return mute;
     }
 
     public void setMute(boolean mute) {
@@ -355,4 +295,5 @@ public class Level implements Disposable {
     public void setViewport(Viewport viewport) {
         this.viewport = viewport;
     }
+
 }

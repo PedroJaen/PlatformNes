@@ -28,7 +28,7 @@ public class WorldCreator {
     }
 
     public Level worldCreator() {
-        Level level= new Level(difficulty);
+        Level level= new Level(difficulty,lvlCounter);
 
         Array<Floor> floors=new Array<Floor>();
         //recorremos los objetos suelo
@@ -81,6 +81,8 @@ public class WorldCreator {
         }
         hero.setDeaths(deaths);
         level.setHero(hero);
+
+
 
         DelayedRemovalArray<Key> key=new DelayedRemovalArray<Key>(1);
         //recorremos el objeto llave

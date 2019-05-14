@@ -125,30 +125,6 @@ public class HudOverlay implements Disposable {
         }
     }
 
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getNlives() {
-        return nlives;
-    }
-
-    public void setNlives(int nlives) {
-        this.nlives = nlives;
-    }
-
-    public boolean isTimeUp() {
-        return timeUp;
-    }
-
-    public void setTimeUp(boolean timeUp) {
-        this.timeUp = timeUp;
-    }
-
     public Integer getWorldTimer() {
         return worldTimer;
     }

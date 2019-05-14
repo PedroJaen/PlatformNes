@@ -27,7 +27,4 @@ public class Key extends Sprite {
         return rectangle;
     }
 
-    public void setRectangle(Rectangle rectangle) {
-        this.rectangle = rectangle;
-    }
 }

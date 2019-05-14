@@ -16,8 +16,8 @@ import com.jaen.pedro.utils.Enums.*;
 import com.jaen.pedro.utils.Utils;
 
 public class Hero {
-    TiledMap map;
-    Rectangle rectangle;
+    private TiledMap map;
+    private Rectangle rectangle;
     private int lvlCounter;
     public int lives;
     public int ammo;
@@ -84,7 +84,7 @@ public class Hero {
             }
         }
 
-        // Land on/fall off platforms
+        // Land on/fall off platforms and walls
         if (jumpState != Enums.JumpState.JUMPING) {
             if (jumpState != JumpState.RECOILING) {
                 jumpState = Enums.JumpState.FALLING;
@@ -197,12 +197,7 @@ public class Hero {
                 );
             }
 
-            if(lvlCounter!=1){
-                level.spawnBullet(bulletPosition,facing,false);
-            }else{
-                level.spawnBullet(bulletPosition,facing,true);
-            }
-
+            level.spawnBullet(bulletPosition,facing,false);
         }
     }
 
@@ -265,7 +260,7 @@ public class Hero {
         }
     }
 
-    private void recoilFromEnemy(Facing direction) {
+    public void recoilFromEnemy(Facing direction) {
 
         jumpState = JumpState.RECOILING;
         velocity.y = Constants.KNOCKBACK_VELOCITY.y;
@@ -289,40 +284,12 @@ public class Hero {
         return rectangle;
     }
 
-    public void setRectangle(Rectangle rectangle) {
-        this.rectangle = rectangle;
-    }
-
     public int getLives() {
         return lives;
     }
 
     public void setLives(int lives) {
         this.lives = lives;
-    }
-
-    public boolean isJumpButtonPressed() {
-        return jumpButtonPressed;
-    }
-
-    public void setJumpButtonPressed(boolean jumpButtonPressed) {
-        this.jumpButtonPressed = jumpButtonPressed;
-    }
-
-    public boolean isLeftButtonPressed() {
-        return leftButtonPressed;
-    }
-
-    public void setLeftButtonPressed(boolean leftButtonPressed) {
-        this.leftButtonPressed = leftButtonPressed;
-    }
-
-    public boolean isRightButtonPressed() {
-        return rightButtonPressed;
-    }
-
-    public void setRightButtonPressed(boolean rightButtonPressed) {
-        this.rightButtonPressed = rightButtonPressed;
     }
 
     public int getAmmo() {
@@ -337,87 +304,8 @@ public class Hero {
         return position;
     }
 
-    public void setPosition(Vector2 position) {
-        this.position = position;
-    }
-
-    public Vector2 getSpawnPosition() {
-        return spawnPosition;
-    }
-
-    public void setSpawnPosition(Vector2 spawnPosition) {
-        this.spawnPosition = spawnPosition;
-    }
-
-    public Vector2 getLastFramePosition() {
-        return lastFramePosition;
-    }
-
-    public void setLastFramePosition(Vector2 lastFramePosition) {
-        this.lastFramePosition = lastFramePosition;
-    }
-
-    public Vector2 getVelocity() {
-        return velocity;
-    }
-
-    public void setVelocity(Vector2 velocity) {
-        this.velocity = velocity;
-    }
-
-    public Facing getFacing() {
-        return facing;
-    }
-
-    public void setFacing(Facing facing) {
-        this.facing = facing;
-    }
-
-    public JumpState getJumpState() {
-        return jumpState;
-    }
-
-    public void setJumpState(JumpState jumpState) {
-        this.jumpState = jumpState;
-    }
-
-    public WalkState getWalkState() {
-        return walkState;
-    }
-
-    public void setWalkState(WalkState walkState) {
-        this.walkState = walkState;
-    }
-
-    public TextureRegion getRegion() {
-        return region;
-    }
-
-    public void setRegion(TextureRegion region) {
-        this.region = region;
-    }
-
-    public long getWalkStartTime() {
-        return walkStartTime;
-    }
-
-    public void setWalkStartTime(long walkStartTime) {
-        this.walkStartTime = walkStartTime;
-    }
-
-    public long getJumpStartTime() {
-        return jumpStartTime;
-    }
-
-    public void setJumpStartTime(long jumpStartTime) {
-        this.jumpStartTime = jumpStartTime;
-    }
-
-    public Array<Death> getDeaths() {
-        return deaths;
-    }
-
     public void setDeaths(Array<Death> deaths) {
         this.deaths = deaths;
     }
+
 }

@@ -12,14 +12,6 @@ public class Utils {
         return MathUtils.nanoToSec * (TimeUtils.nanoTime() - timeNanos);
     }
 
-    public static void drawTextureRegion(SpriteBatch batch, TextureRegion region, Vector2 position) {
-        drawTextureRegion(batch, region, position.x, position.y);
-    }
-
-    public static void drawTextureRegion(SpriteBatch batch, TextureRegion region, Vector2 position, Vector2 offset) {
-        drawTextureRegion(batch, region, position.x - offset.x, position.y - offset.y);
-    }
-
     public static void drawTextureRegion(SpriteBatch batch, TextureRegion region, Vector2 position, Vector2 offset, float scale) {
         batch.draw(
                 region.getTexture(),

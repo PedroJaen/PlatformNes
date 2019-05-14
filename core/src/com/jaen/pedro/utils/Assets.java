@@ -75,8 +75,8 @@ public class Assets implements Disposable, AssetErrorListener {
 
             //mappy
             Array<TextureAtlas.AtlasRegion> andarFrames_mappy = new Array<TextureAtlas.AtlasRegion>();
-            andarFrames.add(atlas.findRegion(Constants.ANDA1_MAPPY));
-            andarFrames.add(atlas.findRegion(Constants.ANDA2_MAPPY));
+            andarFrames_mappy.add(atlas.findRegion(Constants.ANDA1_MAPPY));
+            andarFrames_mappy.add(atlas.findRegion(Constants.ANDA2_MAPPY));
             andar_mappy=new Animation(Constants.WALK_LOOP_DURATION,andarFrames_mappy,Animation.PlayMode.LOOP);
             salta_mappy=atlas.findRegion(Constants.SALTA_MAPPY);
             stand_mappy=atlas.findRegion(Constants.ANDA1_MAPPY);

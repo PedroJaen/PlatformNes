@@ -13,7 +13,6 @@ import com.jaen.pedro.utils.Utils;
 
 public class Enemy {
     private Floor floor;
-    private Enums.Difficulty difficulty;
     private int lvlCounter;
     private TextureRegion region;
     private Vector2 position;
@@ -25,10 +24,10 @@ public class Enemy {
     private Enums.Facing facing;
     private Rectangle rectangle;
     private Level level;
+    private Animation animation;
 
     public Enemy(Floor floor, Enums.Difficulty difficulty,Level level,int lvlCounter) {
         this.floor = floor;
-        this.difficulty=difficulty;
         this.level=level;
         this.lvlCounter=lvlCounter;
 
@@ -55,18 +54,22 @@ public class Enemy {
     }
 
     private void getAssets() {
-        Animation[] enemy=null;
+        Animation[] enemies;
         switch(lvlCounter){
             case 0:
-                enemy=Assets.instance.enemigoAssets.enemigos;
+                enemies=Assets.instance.enemigoAssets.enemigos;
                 break;
             case 1:
-                enemy=Assets.instance.enemigoAssets.enemigos_mappy;
+                enemies=Assets.instance.enemigoAssets.enemigos_mappy;
+                break;
+            default:
+                enemies=Assets.instance.enemigoAssets.enemigos;
                 break;
         }
 
-        index=(int)(Math.random()*enemy.length);
-        region= (TextureRegion) enemy[index].getKeyFrame(0f);
+        index=(int)(Math.random()*enemies.length);
+        animation=enemies[index];
+        region= (TextureRegion) animation.getKeyFrame(0f);
         if(region.toString().contains("murcielago")){
             position.y+=region.getRegionHeight();
         }
@@ -127,7 +130,7 @@ public class Enemy {
 
     public void render(SpriteBatch batch){
         float elapsedTime = Utils.secondsSince(startTime);
-        region= (TextureRegion) Assets.instance.enemigoAssets.enemigos[index].getKeyFrame(elapsedTime,true);
+        region= (TextureRegion) animation.getKeyFrame(elapsedTime,true);
         width=region.getRegionWidth();
 
         switch(facing){
@@ -152,40 +155,8 @@ public class Enemy {
         return rectangle;
     }
 
-    public void setRectangle(Rectangle rectangle) {
-        this.rectangle = rectangle;
-    }
-
-    public Floor getFloor() {
-        return floor;
-    }
-
-    public void setFloor(Floor floor) {
-        this.floor = floor;
-    }
-
-    public TextureRegion getRegion() {
-        return region;
-    }
-
-    public void setRegion(TextureRegion region) {
-        this.region = region;
-    }
-
     public Vector2 getPosition() {
         return position;
-    }
-
-    public void setPosition(Vector2 position) {
-        this.position = position;
-    }
-
-    public long getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(long startTime) {
-        this.startTime = startTime;
     }
 
     public int getLives() {
@@ -196,11 +167,4 @@ public class Enemy {
         this.lives = lives;
     }
 
-    public Enums.Facing getFacing() {
-        return facing;
-    }
-
-    public void setFacing(Enums.Facing facing) {
-        this.facing = facing;
-    }
 }

@@ -206,65 +206,79 @@ caracol2
   orig: 24, 16
   offset: 0, 0
   index: -1
-fuego1
+anda2_mappy
   rotate: false
-  xy: 123, 20
-  size: 16, 21
-  orig: 16, 21
+  xy: 123, 25
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-fuego2
+anda1_mappy
   rotate: false
-  xy: 141, 17
-  size: 16, 24
-  orig: 16, 24
+  xy: 141, 25
+  size: 15, 16
+  orig: 15, 16
   offset: 0, 0
   index: -1
 cerdo1
   rotate: false
-  xy: 159, 17
+  xy: 158, 17
   size: 15, 24
   orig: 15, 24
   offset: 0, 0
   index: -1
 cerdo2
   rotate: false
-  xy: 176, 17
+  xy: 175, 17
   size: 14, 24
   orig: 14, 24
   offset: 0, 0
   index: -1
 martillo1
   rotate: false
-  xy: 192, 26
+  xy: 191, 26
   size: 16, 15
   orig: 16, 15
   offset: 0, 0
   index: -1
 martillo3
   rotate: false
-  xy: 210, 26
+  xy: 209, 26
   size: 16, 15
   orig: 16, 15
   offset: 0, 0
   index: -1
 murcielago1
   rotate: false
-  xy: 228, 26
+  xy: 227, 26
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+radio_mappy
+  rotate: false
+  xy: 245, 26
   size: 16, 15
   orig: 16, 15
   offset: 0, 0
   index: -1
 martillo2
   rotate: false
-  xy: 246, 25
+  xy: 263, 25
   size: 15, 16
   orig: 15, 16
   offset: 0, 0
   index: -1
 martillo4
   rotate: false
-  xy: 263, 25
+  xy: 280, 25
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+rojo1_mappy
+  rotate: false
+  xy: 297, 25
   size: 15, 16
   orig: 15, 16
   offset: 0, 0
@@ -276,37 +290,107 @@ platano
   orig: 16, 14
   offset: 0, 0
   index: -1
+rojo2_mappy
+  rotate: false
+  xy: 314, 25
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+rojo3_mappy
+  rotate: false
+  xy: 331, 25
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+pc_mappy
+  rotate: false
+  xy: 347, 43
+  size: 15, 14
+  orig: 15, 14
+  offset: 0, 0
+  index: -1
+salta_mappy
+  rotate: false
+  xy: 348, 25
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
 manzana
   rotate: false
-  xy: 280, 26
+  xy: 527, 58
   size: 14, 15
   orig: 14, 15
   offset: 0, 0
   index: -1
+security_mappy
+  rotate: false
+  xy: 543, 57
+  size: 14, 16
+  orig: 14, 16
+  offset: 0, 0
+  index: -1
+tv_mappy
+  rotate: false
+  xy: 559, 58
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+cuadro_mappy
+  rotate: false
+  xy: 575, 58
+  size: 12, 15
+  orig: 12, 15
+  offset: 0, 0
+  index: -1
 melon
   rotate: false
-  xy: 296, 25
+  xy: 589, 57
   size: 12, 16
   orig: 12, 16
   offset: 0, 0
   index: -1
+rosa1_mappy
+  rotate: false
+  xy: 364, 43
+  size: 12, 14
+  orig: 12, 14
+  offset: 0, 0
+  index: -1
 pineaple
   rotate: false
-  xy: 310, 25
+  xy: 603, 57
   size: 10, 16
   orig: 10, 16
   offset: 0, 0
   index: -1
+rosa2_mappy
+  rotate: false
+  xy: 631, 75
+  size: 12, 14
+  orig: 12, 14
+  offset: 0, 0
+  index: -1
+rosa3_mappy
+  rotate: false
+  xy: 378, 43
+  size: 12, 14
+  orig: 12, 14
+  offset: 0, 0
+  index: -1
 llave
   rotate: false
-  xy: 527, 65
+  xy: 1, 1
   size: 16, 8
   orig: 16, 8
   offset: 0, 0
   index: -1
 fireball
   rotate: false
-  xy: 1, 1
+  xy: 365, 33
   size: 8, 8
   orig: 8, 8
   offset: 0, 0

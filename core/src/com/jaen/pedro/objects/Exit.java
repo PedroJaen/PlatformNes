@@ -25,7 +25,4 @@ public class Exit {
         return rectangle;
     }
 
-    public void setRectangle(Rectangle rectangle) {
-        this.rectangle = rectangle;
-    }
 }

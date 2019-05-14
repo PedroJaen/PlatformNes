@@ -19,21 +19,31 @@ public class Bullet {
     private TextureRegion region;
     private long shootStartTime;
     private boolean enemigo;
+    private int lvlCounter;
 
-    public Bullet(Vector2 position, Enums.Facing facing,Level level,boolean enemigo) {
+    public Bullet(Vector2 position, Enums.Facing facing,Level level,boolean enemigo,int lvlCounter) {
         this.position = position;
         this.facing = facing;
         this.level=level;
         this.enemigo=enemigo;
         active=activeOrNot();
+        this.lvlCounter=lvlCounter;
 
         shootStartTime= TimeUtils.nanoTime();
 
         if(enemigo){
             region=Assets.instance.ataqueAssets.fireball;
         }else{
-            region= Assets.instance.ataqueAssets.hacha;
+            switch (lvlCounter){
+                case 0:
+                    region= Assets.instance.ataqueAssets.hacha;
+                    break;
+                default:
+                    region=Assets.instance.ataqueAssets.fireball;
+                    break;
+            }
         }
+
         rectangle=new Rectangle(position.x,position.y,region.getRegionWidth(),region.getRegionHeight());
     }
 
@@ -55,6 +65,7 @@ public class Bullet {
             Hero hero=level.getHero();
             if(rectangle.overlaps(hero.getRectangle())){
                 hero.setLives(hero.getLives()-1);
+                hero.recoilFromEnemy(facing);
                 active=false;
             }
         }else{
@@ -67,11 +78,10 @@ public class Bullet {
             }
         }
 
-
     }
 
     public void render(SpriteBatch batch){
-        if(!enemigo){
+        if(!enemigo && lvlCounter==0){
             float shootTimeSeconds = Utils.secondsSince(shootStartTime);
             region= (TextureRegion) Assets.instance.ataqueAssets.hachaThrow.getKeyFrame(shootTimeSeconds);
         }
@@ -97,27 +107,8 @@ public class Bullet {
         }
     }
 
-    public Vector2 getPosition() {
-        return position;
-    }
-
-    public void setPosition(Vector2 position) {
-        this.position = position;
-    }
-
-    public Enums.Facing getFacing() {
-        return facing;
-    }
-
-    public void setFacing(Enums.Facing facing) {
-        this.facing = facing;
-    }
-
     public boolean isActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 }

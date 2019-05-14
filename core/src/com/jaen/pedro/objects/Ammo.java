@@ -35,7 +35,4 @@ public class Ammo {
         return rectangle;
     }
 
-    public void setRectangle(Rectangle rectangle) {
-        this.rectangle = rectangle;
-    }
 }

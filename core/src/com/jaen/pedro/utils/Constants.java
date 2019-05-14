@@ -58,6 +58,7 @@ public class Constants {
     public static final String GAME_OVER_MESSAGE="GAME OVER";
     public static final String VICTORY_MESSAGE="YOU WIN!";
     public static final float LEVEL_END_DURATION = 4;
+    public static final float LEVEL_NEXT = 3;
 
     //points
     public static final int SCORE_KILL=100;
@@ -69,6 +70,7 @@ public class Constants {
     public static final String MUSICA_INICIO="music/inicio.mp3";
     public static final String MUSICA_LVL1="music/lvl1.mp3";
     public static final String MUSICA_LVL2="music/lvl2.mp3";
+    public static final String MUSICA_LVL_NEXT="music/lvl_next.mp3";
     public static final String[] MUSICA_LVLS={MUSICA_LVL1,MUSICA_LVL2};
     public static final String MUSICA_GAME_OVER="music/game_over.mp3";
     public static final String MUSICA_GAME_WIN="music/game_win.mp3";
@@ -114,7 +116,6 @@ public class Constants {
     public static final int LVL_HEROE=8;
     public static final int LVL_AMMO=9;
     public static final int LVL_ENEMIE=10;
-    public static final int LVL_WALL=11;
     public static final int LVL_1=0;
 
     //sprites heroe

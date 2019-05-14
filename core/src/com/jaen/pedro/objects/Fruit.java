@@ -47,7 +47,4 @@ public class Fruit {
         return rectangle;
     }
 
-    public void setRectangle(Rectangle rectangle) {
-        this.rectangle = rectangle;
-    }
 }
