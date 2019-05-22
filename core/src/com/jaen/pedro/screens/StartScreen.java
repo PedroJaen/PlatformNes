@@ -6,13 +6,16 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
+import com.jaen.pedro.utils.Utils;
 
 public class StartScreen extends InputAdapter implements Screen {
     SpriteBatch batch;
@@ -78,11 +81,16 @@ public class StartScreen extends InputAdapter implements Screen {
         batch.setProjectionMatrix(viewport.getCamera().combined);
         batch.begin();
 
-        font.draw(batch,
+        Utils.drawTextureRegion(batch,
+                new TextureRegion(new Texture("images/inicio.png")),
+                (viewport.getWorldWidth()/2)-(Constants.WORLD_SIZE/2),
+                0);
+
+        /*font.draw(batch,
                 Constants.TITLE,
                 viewport.getWorldWidth()/2,
                 viewport.getWorldHeight()/2,
-                0, Align.center,false);
+                0, Align.center,false);*/
 
         if(showed){
             font.draw(batch,

@@ -55,8 +55,10 @@ public class Constants {
     public static final int DIFICIL_INC=3;
 
     //overlays
-    public static final String GAME_OVER_MESSAGE="GAME OVER";
     public static final String VICTORY_MESSAGE="YOU WIN!";
+    public static final Vector2 VICTORY_POSITION = new Vector2(WORLD_SIZE/2,WORLD_SIZE*9/10);
+    public static final String SCORE_MESSAGE="YOUR SCORE: ";
+    public static final Vector2 SCORE_POSITION = new Vector2(WORLD_SIZE/2,WORLD_SIZE*8/10);
     public static final float LEVEL_END_DURATION = 4;
     public static final float LEVEL_NEXT = 3;
 
@@ -71,6 +73,7 @@ public class Constants {
     public static final String MUSICA_LVL1="music/lvl1.mp3";
     public static final String MUSICA_LVL2="music/lvl2.mp3";
     public static final String MUSICA_LVL_NEXT="music/lvl_next.mp3";
+    public static final String MUSICA_SET_SCORE="music/set_score.mp3";
     public static final String[] MUSICA_LVLS={MUSICA_LVL1,MUSICA_LVL2};
     public static final String MUSICA_GAME_OVER="music/game_over.mp3";
     public static final String MUSICA_GAME_WIN="music/game_win.mp3";
@@ -85,6 +88,27 @@ public class Constants {
     public static final float BUTTON_RADIUS = 32;
     public static final float ONSCREEN_CONTROLS_VIEWPORT_SIZE = 200;
     public static final Vector2 MUSIC_BUTTON_CENTER = new Vector2(WORLD_SIZE-BUTTON_RADIUS, WORLD_SIZE-BUTTON_RADIUS);
+
+    //victoryscreen
+    public static final String[] LETRAS_SCORE={"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+    public static final Vector2 FIRST_LETTER_UP_CENTER = new Vector2(WORLD_SIZE/4,WORLD_SIZE/2);
+    public static final Vector2 FIRST_LETTER_UP_CENTER2 = new Vector2(WORLD_SIZE/4,(WORLD_SIZE/2)+32);
+    public static final Vector2 FIRST_LETTER_CENTER = new Vector2(WORLD_SIZE/4,WORLD_SIZE*4.4f/10);
+    public static final Vector2 FIRST_LETTER_DOWN_CENTER = new Vector2(WORLD_SIZE/4,WORLD_SIZE/5);
+    public static final Vector2 FIRST_LETTER_DOWN_CENTER2 = new Vector2(WORLD_SIZE/4,(WORLD_SIZE/5)+32);
+    public static final Vector2 SECOND_LETTER_UP_CENTER = new Vector2(WORLD_SIZE/2,WORLD_SIZE/2);
+    public static final Vector2 SECOND_LETTER_UP_CENTER2 = new Vector2(WORLD_SIZE/2,(WORLD_SIZE/2)+32);
+    public static final Vector2 SECOND_LETTER_CENTER = new Vector2(WORLD_SIZE/2,WORLD_SIZE*4.4f/10);
+    public static final Vector2 SECOND_LETTER_DOWN_CENTER = new Vector2(WORLD_SIZE/2,WORLD_SIZE/5);
+    public static final Vector2 SECOND_LETTER_DOWN_CENTER2 = new Vector2(WORLD_SIZE/2,(WORLD_SIZE/5)+32);
+    public static final Vector2 THIDR_LETTER_UP_CENTER = new Vector2(WORLD_SIZE*3/4,WORLD_SIZE/2);
+    public static final Vector2 THIDR_LETTER_UP_CENTER2 = new Vector2(WORLD_SIZE*3/4,(WORLD_SIZE/2)+32);
+    public static final Vector2 THIDR_LETTER_CENTER = new Vector2(WORLD_SIZE*3/4,WORLD_SIZE*4.4f/10);
+    public static final Vector2 THIDR_LETTER_DOWN_CENTER = new Vector2(WORLD_SIZE*3/4,WORLD_SIZE/5);
+    public static final Vector2 THIDR_LETTER_DOWN_CENTER2 = new Vector2(WORLD_SIZE*3/4,(WORLD_SIZE/5)+32);
+    public static final Vector2 OK_CENTER = new Vector2(WORLD_SIZE-30,WORLD_SIZE/10);
+    public static final Vector2 OK_CENTER2 = new Vector2(WORLD_SIZE-30,(WORLD_SIZE/10)+32);
+    public static final Vector2 OK_OFFSET = new Vector2(30,0);
 
     //heroe
     public static final float WALK_LOOP_DURATION = 0.25f;
@@ -131,13 +155,21 @@ public class Constants {
     public static final String ANDA2_MAPPY="anda2_mappy";
     public static final String SALTA_MAPPY="salta_mappy";
 
+    public static final String ANDA1_JACKIE="anda1-jackie";
+    public static final String ANDA2_JACKIE="anda2-jackie";
+    public static final String ANDA3_JACKIE="anda3-jackie";
+    public static final String ANDA4_JACKIE="anda4-jackie";
+    public static final String ANDA5_JACKIE="anda5-jackie";
+    public static final String ANDA6_JACKIE="anda6-jackie";
+    public static final String SALTA_JACKIE="jump-jackie";
+    public static final String STAND_JACKIE="stand-jackie";
+
     //sprites enemie
     public static final String CARACOL1 = "caracol1";
     public static final String CARACOL2 = "caracol2";
     public static final String AZUL1 = "azul1";
     public static final String AZUL2 = "azul2";
     public static final String AZUL3 = "azul3";
-    public static final String AZUL4 = "azul4";
     public static final String CERDO1 = "cerdo1";
     public static final String CERDO2 = "cerdo2";
     public static final String MURCIELAGO1 = "murcielago1";
@@ -145,7 +177,6 @@ public class Constants {
     public static final String ROJO1 = "rojo1";
     public static final String ROJO2 = "rojo2";
     public static final String ROJO3 = "rojo3";
-    public static final String ROJO4 = "rojo4";
 
     public static final String ROJO1_MAPPY = "rojo1_mappy";
     public static final String ROJO2_MAPPY = "rojo2_mappy";
@@ -154,6 +185,40 @@ public class Constants {
     public static final String ROSA2_MAPPY = "rosa2_mappy";
     public static final String ROSA3_MAPPY = "rosa3_mappy";
 
+    public static final String BOOTDEMON1 = "bootdemon1-jackie";
+    public static final String BOOTDEMON2 = "bootdemon2-jackie";
+    public static final String CALAVERA1 = "calavera1-jackie";
+    public static final String CALAVERA2 = "calavera2-jackie";
+    public static final String DEMONIO1 = "demonio1-jackie";
+    public static final String DEMONIO2 = "demonio2-jackie";
+    public static final String DEMONIO3 = "demonio3-jackie";
+    public static final String FIREDEMON1 = "firedemon1-jackie";
+    public static final String FIREDEMON2 = "firedemon2-jackie";
+    public static final String FUTBOLISTA1 = "futbolista1-jackie";
+    public static final String FUTBOLISTA2 = "futbolista2-jackie";
+    public static final String ICEDEMON1 = "icedemon1-jackie";
+    public static final String ICEDEMON2 = "icedemon2-jackie";
+    public static final String LUCHADOR1 = "luchador1-jackie";
+    public static final String LUCHADOR2 = "luchador2-jackie";
+    public static final String LUCHADOR3 = "luchador3-jackie";
+    public static final String LUCHADOR4 = "luchador4-jackie";
+    public static final String PAJARO2 = "pajaro2-jackie";
+    public static final String PAJARO1 = "rojpajaro1-jackieo3";
+    public static final String PINCHO1 = "pincho1-jackie";
+    public static final String PINCHO2 = "pincho2-jackie";
+    public static final String PINCHO3 = "pincho3-jackie";
+    public static final String PINCHO4 = "pincho4-jackie";
+    public static final String SNOWMAN1 = "snowman1-jackie";
+    public static final String SNOWMAN2 = "snowman2-jackie";
+    public static final String TAZON1 = "tazon1-jackie";
+    public static final String TAZON2 = "tazon2-jackie";
+    public static final String TIGER1 = "tiger1-jackie";
+    public static final String TIGER2 = "tiger2-jackie";
+    public static final String TUCAN1 = "tucan1-jackie";
+    public static final String TUCAN2 = "tucan2-jackie";
+    public static final String VASIJA1 = "vasija1-jackie";
+    public static final String VASIJA2 = "vasija2-jackie";
+
     //sprites items
     public static final String LLAVE = "llave";
     public static final String MANZANA = "manzana";
@@ -161,17 +226,17 @@ public class Constants {
     public static final String PINEAPLE = "pineaple";
     public static final String PLATANO = "platano";
 
-    public static final String BALOON1_MAPPY = "baloon1_mappy";
-    public static final String BALOON2_MAPPY = "baloon2_mappy";
-    public static final String COIN1_MAPPY = "coin1_mappy";
-    public static final String COIN2_MAPPY = "coin2_mappy";
-    public static final String COIN3_MAPPY = "coin3_mappy";
-    public static final String COIN4_MAPPY = "coin4_mappy";
     public static final String CUADRO_MAPPY = "cuadro_mappy";
     public static final String PC_MAPPY = "pc_mappy";
     public static final String RADIO_MAPPY = "radio_mappy";
     public static final String SECURITY_MAPPY = "security_mappy";
     public static final String TV_MAPPY = "tv_mappy";
+
+    public static final String CAMPANA = "campana-jackie";
+    public static final String CUENCO = "cuenco-jackie";
+    public static final String ESFERA = "esfera-jackie";
+    public static final String PELOTA = "pelota-jackie";
+    public static final String SNOWBALL = "snowball-jackie";
 
     //sprites bullets
     public static final String MARTILLO1 = "martillo1";
@@ -180,11 +245,22 @@ public class Constants {
     public static final String MARTILLO4 = "martillo4";
     public static final String FIREBALL = "fireball";
 
+    public static final String HAYUKEN = "bullet-jackie";
+    public static final String FIREBALL_JACKIE1 = "fireball1-jackie";
+    public static final String FIREBALL_JACKIE2 = "fireball2-jackie";
+    public static final String FLECHA = "flecha-jackie";
+    public static final String ICING1 = "icing1-jackie";
+    public static final String ICING2 = "icing2-jackie";
+    public static final String NUNCHAKU1 = "nunchaku1-jackie";
+    public static final String NUNCHAKU2 = "nunchaku2-jackie";
+
     //sprites buttons
     public static final String MOVE_LEFT_BUTTON = "izquierda";
     public static final String MOVE_RIGHT_BUTTON = "derecha";
     public static final String SHOOT_BUTTON = "disparo";
     public static final String JUMP_BUTTON = "salto";
+    public static final String DOWN_BUTTON = "abajo";
+    public static final String OK_BUTTON = "ok";
     public static final String MUSIC_ON_BUTTON = "music_on";
     public static final String MUSIC_OFF_BUTTON = "music_off";
     public static final String DIFFICULTY_EASY = "easy";

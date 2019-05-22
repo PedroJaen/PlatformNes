@@ -51,9 +51,6 @@ public class Hero {
     }
 
     private void init(){
-        lives= Constants.INITIAL_LIVES;
-        ammo=Constants.INITIAL_AMMO;
-
         //starting sprite
         region= Assets.instance.heroeAssets.stands[lvlCounter];
 

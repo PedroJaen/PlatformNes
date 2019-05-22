@@ -52,6 +52,26 @@ public class Utils {
                 false);
     }
 
+    public static void drawTextureRegion(SpriteBatch batch, TextureRegion region, float x, float y, float scale) {
+        batch.draw(
+                region.getTexture(),
+                x,
+                y,
+                0,
+                0,
+                region.getRegionWidth(),
+                region.getRegionHeight(),
+                scale,
+                scale,
+                0,
+                region.getRegionX(),
+                region.getRegionY(),
+                region.getRegionWidth(),
+                region.getRegionHeight(),
+                false,
+                false);
+    }
+
     public static void drawTextureRegionflipedX(SpriteBatch batch, TextureRegion region, float x, float y) {
         batch.draw(
                 region.getTexture(),

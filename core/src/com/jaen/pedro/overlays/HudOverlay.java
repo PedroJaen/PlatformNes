@@ -48,6 +48,7 @@ public class HudOverlay implements Disposable {
         worldTimer = Constants.LEVEL_TIMER;
         timeCount = 0;
         difficulty=gameScreen.getDifficulty();
+        score=gameScreen.getScore();
         timeUp=false;
         keyAdded=false;
 
@@ -91,7 +92,7 @@ public class HudOverlay implements Disposable {
     }
 
     public void update(float delta, int score,int nlives,int ammo,boolean key){
-        scoreLabel.setText(score+"");
+        scoreLabel.setText(String.format("%06d", score));
         lives.setText(Constants.LIVES+nlives);
         ammos.setText(Constants.AMMO+ammo);
         timeCount+=delta;
@@ -104,6 +105,10 @@ public class HudOverlay implements Disposable {
 
         if(key){
             addkey();
+        }else{
+            if(keyAdded){
+                keyGetted.remove();
+            }
         }
 
     }
@@ -122,6 +127,7 @@ public class HudOverlay implements Disposable {
             table.add(keyGetted).expandX().padTop(Constants.HUD_MARGIN/2);
 
             stage.addActor(table);
+
         }
     }
 
@@ -131,5 +137,9 @@ public class HudOverlay implements Disposable {
 
     public void setWorldTimer(Integer worldTimer) {
         this.worldTimer = worldTimer;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

@@ -2,10 +2,7 @@ package com.jaen.pedro.screens;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,10 +14,8 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.objects.Level;
-import com.jaen.pedro.overlays.GameOverOverlay;
 import com.jaen.pedro.overlays.HudOverlay;
 import com.jaen.pedro.overlays.OnScreensControls;
-import com.jaen.pedro.overlays.VictoryOverlay;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
 import com.jaen.pedro.utils.Utils;
@@ -35,15 +30,14 @@ public class GameScreen  extends ScreenAdapter {
     Level level;
     int currentLevel;
     private int score;
+    private int ammo;
+    private int lives;
     private TmxMapLoader mapLoader;
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     private Viewport viewport;
     private long levelEndOverlayStartTime;
-    private VictoryOverlay victoryOverlay;
-    private GameOverOverlay gameOverOverlay;
-
 
     public GameScreen(PlatformNesGame game, Enums.Difficulty difficulty) {
         this.game=game;
@@ -56,9 +50,9 @@ public class GameScreen  extends ScreenAdapter {
         hud=new HudOverlay(batch,this);
         camera=new OrthographicCamera();
         viewport=new ExtendViewport(Constants.LVL_SIZE,Constants.LVL_SIZE,camera);
-        victoryOverlay=new VictoryOverlay(viewport);
-        gameOverOverlay=new GameOverOverlay(viewport);
         score=0;
+        ammo=Constants.INITIAL_AMMO;
+        lives= Constants.INITIAL_LIVES;
 
         if(!game.isMute() && game.getMusic().isPlaying()){
             game.getMusic().stop();
@@ -82,9 +76,10 @@ public class GameScreen  extends ScreenAdapter {
         renderer=new OrthogonalTiledMapRenderer(map,1);
 
         //obtenemos el nivel
-        WorldCreator wc=new WorldCreator(map,difficulty,lvl);
+        WorldCreator wc=new WorldCreator(map,difficulty,lvl,ammo,lives);
         level=wc.worldCreator();
         onScreensControls.hero=level.getHero();
+        level.setScore(score);
         level.setHud(hud);
         level.setViewport(viewport);
         level.setMute(game.isMute());
@@ -110,7 +105,6 @@ public class GameScreen  extends ScreenAdapter {
         if(!level.isVictory()){
             hud.update(delta,score,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey());
         }
-
     }
 
     @Override
@@ -202,14 +196,29 @@ public class GameScreen  extends ScreenAdapter {
                 //victoryOverlay.render(batch);
                 if (Utils.secondsSince(levelEndOverlayStartTime) > Constants.LEVEL_NEXT) {
                     levelEndOverlayStartTime = 0;
-                    score+=hud.getWorldTimer();
+                    int previusScore=score;
+                    score=(Constants.SCORE_KILL*level.getHero().getLives())
+                            +level.getHero().getAmmo()
+                            +level.getScore()
+                            +hud.getWorldTimer();
 
                     hud.setWorldTimer(Constants.LEVEL_TIMER);
                     currentLevel++;
+                    ammo=level.getHero().getAmmo();
+                    lives=level.getHero().getLives();
                     if(!game.isMute()){
                         game.getMusic().stop();
                     }
                     startNewLevel(currentLevel);
+                    //aumentar vidas
+                    Gdx.app.error("gamescreen","score"+score);
+                    Gdx.app.error("gamescreen","previusScore"+previusScore);
+                    if(score-previusScore>=10000){
+                        Gdx.app.error("gamescreen","score"+score);
+                        Gdx.app.error("gamescreen","previusScore"+previusScore);
+                        level.aumentaVidas(score,previusScore);
+                    }
+
                 }
             }
         }
@@ -221,13 +230,12 @@ public class GameScreen  extends ScreenAdapter {
             game.suenaMusica(Constants.MUSICA_INICIO);
         }
 
-        score+=(Constants.SCORE_KILL*level.getHero().getLives())
+        score=(Constants.SCORE_KILL*level.getHero().getLives())
                 +level.getHero().getAmmo()
+                +level.getScore()
                 +hud.getWorldTimer();
 
-        game.getPreferencias().addPuntuacion(score);
-        game.getPreferencias().guardarDatos();
-        game.setMenuScreen();
+        game.setVictoryScreen(score);
     }
 
     public void levelFailed() {
@@ -264,11 +272,7 @@ public class GameScreen  extends ScreenAdapter {
         this.map = map;
     }
 
-    public Viewport getViewport() {
-        return viewport;
-    }
-
-    public void setViewport(Viewport viewport) {
-        this.viewport = viewport;
+    public int getScore() {
+        return score;
     }
 }

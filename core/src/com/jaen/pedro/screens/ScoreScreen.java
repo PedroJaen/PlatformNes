@@ -13,6 +13,7 @@ import com.jaen.pedro.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class ScoreScreen extends InputAdapter implements Screen {
@@ -21,7 +22,7 @@ public class ScoreScreen extends InputAdapter implements Screen {
     FitViewport viewport;
     BitmapFont font;
     BitmapFont lilFont;
-    TreeSet<Long> puntuaciones;
+    TreeMap<Long,String> puntuaciones;
 
     public ScoreScreen(PlatformNesGame game) {
         this.game = game;
@@ -67,16 +68,18 @@ public class ScoreScreen extends InputAdapter implements Screen {
                 0, Align.center,false);
 
         int contador=1;
-        Iterator<Long> it=puntuaciones.descendingIterator();
+        Iterator<Long> it=puntuaciones.keySet().iterator();
         for(float i=(Constants.WORLD_SIZE/2)+140;contador<6;i-=70f, contador++){
 
             long score=0;
+            String letras="AAA";
             if(it.hasNext()){
                 score=it.next();
+                letras=puntuaciones.get(score);
             }
 
             lilFont.draw(batch,
-                    contador+" - "+score,
+                    contador+" - "+score+"  "+letras,
                     Constants.SCORES_POSITION.x,
                     i,
                     0, Align.center,false);

@@ -20,11 +20,15 @@ public class WorldCreator {
     private TiledMap map;
     private Enums.Difficulty difficulty;
     private int lvlCounter;
+    private int ammo;
+    private int lives;
 
-    public WorldCreator(TiledMap map, Enums.Difficulty difficulty,int lvlCounter) {
+    public WorldCreator(TiledMap map, Enums.Difficulty difficulty,int lvlCounter,int ammo,int lives) {
         this.map = map;
         this.difficulty=difficulty;
         this.lvlCounter=lvlCounter;
+        this.ammo=ammo;
+        this.lives=lives;
     }
 
     public Level worldCreator() {
@@ -68,6 +72,8 @@ public class WorldCreator {
             Rectangle rectangle =((RectangleMapObject)object).getRectangle();
 
             hero=new Hero(map,rectangle,level,lvlCounter);
+            hero.setAmmo(ammo);
+            hero.setLives(lives);
 
         }
 

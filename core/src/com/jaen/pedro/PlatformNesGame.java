@@ -9,6 +9,7 @@ import com.jaen.pedro.screens.GameScreen;
 import com.jaen.pedro.screens.MenuScreen;
 import com.jaen.pedro.screens.ScoreScreen;
 import com.jaen.pedro.screens.StartScreen;
+import com.jaen.pedro.screens.VictoryScreen;
 import com.jaen.pedro.utils.Assets;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
@@ -51,6 +52,10 @@ public class PlatformNesGame extends Game {
 	public void setGameScreen(Enums.Difficulty difficulty){
 		setScreen(new GameScreen(this,difficulty));
 	}
+
+	public void setVictoryScreen(int score){
+        setScreen(new VictoryScreen(this,score));
+    }
 
     public void suenaMusica(String musica) {
         music= Gdx.audio.newMusic(Gdx.files.internal(musica));

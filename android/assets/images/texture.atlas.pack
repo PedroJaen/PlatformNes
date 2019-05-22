@@ -3,395 +3,773 @@ texture.atlas.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+abajo
+  rotate: false
+  xy: 1, 175
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
 derecha
   rotate: false
-  xy: 1, 43
+  xy: 1, 93
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 disparo
   rotate: false
-  xy: 83, 43
+  xy: 83, 175
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 izquierda
   rotate: false
-  xy: 165, 43
+  xy: 1, 11
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+ok
+  rotate: false
+  xy: 83, 93
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 salto
   rotate: false
-  xy: 247, 43
+  xy: 165, 175
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 easy
   rotate: false
-  xy: 329, 59
+  xy: 83, 27
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 hard
   rotate: false
-  xy: 395, 59
+  xy: 165, 109
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 medium
   rotate: false
-  xy: 461, 59
+  xy: 247, 191
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
+tiger1-jackie
+  rotate: false
+  xy: 313, 208
+  size: 56, 47
+  orig: 56, 47
+  offset: 0, 0
+  index: -1
+tiger2-jackie
+  rotate: false
+  xy: 371, 207
+  size: 54, 48
+  orig: 54, 48
+  offset: 0, 0
+  index: -1
 music_off
   rotate: false
-  xy: 527, 75
+  xy: 427, 207
   size: 50, 48
   orig: 50, 48
   offset: 0, 0
   index: -1
 music_on
   rotate: false
-  xy: 579, 75
+  xy: 479, 207
   size: 50, 48
   orig: 50, 48
   offset: 0, 0
   index: -1
-azul4
+vasija1-jackie
   rotate: false
-  xy: 1, 11
-  size: 40, 30
-  orig: 40, 30
+  xy: 531, 207
+  size: 33, 48
+  orig: 33, 48
   offset: 0, 0
   index: -1
-rojo4
+vasija2-jackie
   rotate: false
-  xy: 631, 91
-  size: 29, 32
-  orig: 29, 32
+  xy: 566, 207
+  size: 33, 48
+  orig: 33, 48
+  offset: 0, 0
+  index: -1
+bootdemon2-jackie
+  rotate: false
+  xy: 149, 27
+  size: 24, 64
+  orig: 24, 64
+  offset: 0, 0
+  index: -1
+luchador1-jackie
+  rotate: false
+  xy: 601, 212
+  size: 31, 43
+  orig: 31, 43
+  offset: 0, 0
+  index: -1
+luchador3-jackie
+  rotate: false
+  xy: 634, 212
+  size: 31, 43
+  orig: 31, 43
+  offset: 0, 0
+  index: -1
+luchador2-jackie
+  rotate: false
+  xy: 667, 213
+  size: 31, 42
+  orig: 31, 42
+  offset: 0, 0
+  index: -1
+luchador4-jackie
+  rotate: false
+  xy: 700, 213
+  size: 31, 42
+  orig: 31, 42
+  offset: 0, 0
+  index: -1
+snowman2-jackie
+  rotate: false
+  xy: 733, 214
+  size: 29, 41
+  orig: 29, 41
+  offset: 0, 0
+  index: -1
+snowman1-jackie
+  rotate: false
+  xy: 764, 213
+  size: 25, 42
+  orig: 25, 42
+  offset: 0, 0
+  index: -1
+anda1-jackie
+  rotate: false
+  xy: 791, 207
+  size: 24, 48
+  orig: 24, 48
+  offset: 0, 0
+  index: -1
+demonio2-jackie
+  rotate: false
+  xy: 817, 207
+  size: 24, 48
+  orig: 24, 48
+  offset: 0, 0
+  index: -1
+demonio3-jackie
+  rotate: false
+  xy: 843, 207
+  size: 24, 48
+  orig: 24, 48
+  offset: 0, 0
+  index: -1
+jump-jackie
+  rotate: false
+  xy: 869, 207
+  size: 24, 48
+  orig: 24, 48
+  offset: 0, 0
+  index: -1
+anda2-jackie
+  rotate: false
+  xy: 895, 208
+  size: 24, 47
+  orig: 24, 47
+  offset: 0, 0
+  index: -1
+anda5-jackie
+  rotate: false
+  xy: 921, 208
+  size: 24, 47
+  orig: 24, 47
+  offset: 0, 0
+  index: -1
+anda6-jackie
+  rotate: false
+  xy: 947, 208
+  size: 24, 47
+  orig: 24, 47
+  offset: 0, 0
+  index: -1
+bootdemon1-jackie
+  rotate: false
+  xy: 973, 208
+  size: 24, 47
+  orig: 24, 47
+  offset: 0, 0
+  index: -1
+demonio1-jackie
+  rotate: false
+  xy: 999, 210
+  size: 24, 45
+  orig: 24, 45
+  offset: 0, 0
+  index: -1
+firedemon1-jackie
+  rotate: false
+  xy: 999, 164
+  size: 24, 44
+  orig: 24, 44
+  offset: 0, 0
+  index: -1
+caracol1
+  rotate: false
+  xy: 83, 1
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+snowball-jackie
+  rotate: false
+  xy: 109, 1
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+anda4-jackie
+  rotate: false
+  xy: 231, 125
+  size: 23, 48
+  orig: 23, 48
+  offset: 0, 0
+  index: -1
+cerdo1
+  rotate: false
+  xy: 135, 1
+  size: 15, 24
+  orig: 15, 24
+  offset: 0, 0
+  index: -1
+tazon1-jackie
+  rotate: false
+  xy: 313, 180
+  size: 40, 26
+  orig: 40, 26
+  offset: 0, 0
+  index: -1
+anda3-jackie
+  rotate: false
+  xy: 175, 60
+  size: 23, 47
+  orig: 23, 47
+  offset: 0, 0
+  index: -1
+stand-jackie
+  rotate: false
+  xy: 200, 59
+  size: 22, 48
+  orig: 22, 48
+  offset: 0, 0
+  index: -1
+futbolista1-jackie
+  rotate: false
+  xy: 175, 26
+  size: 23, 32
+  orig: 23, 32
+  offset: 0, 0
+  index: -1
+cerdo2
+  rotate: false
+  xy: 152, 1
+  size: 14, 24
+  orig: 14, 24
+  offset: 0, 0
+  index: -1
+nunchaku1-jackie
+  rotate: false
+  xy: 168, 1
+  size: 22, 23
+  orig: 22, 23
   offset: 0, 0
   index: -1
 azul1
   rotate: false
-  xy: 662, 92
+  xy: 200, 26
   size: 28, 31
   orig: 28, 31
+  offset: 0, 0
+  index: -1
+nunchaku2-jackie
+  rotate: false
+  xy: 192, 1
+  size: 22, 23
+  orig: 22, 23
+  offset: 0, 0
+  index: -1
+icedemon2-jackie
+  rotate: false
+  xy: 256, 145
+  size: 24, 44
+  orig: 24, 44
+  offset: 0, 0
+  index: -1
+firedemon2-jackie
+  rotate: false
+  xy: 282, 146
+  size: 24, 43
+  orig: 24, 43
+  offset: 0, 0
+  index: -1
+pincho1-jackie
+  rotate: false
+  xy: 308, 146
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+icedemon1-jackie
+  rotate: false
+  xy: 224, 64
+  size: 24, 43
+  orig: 24, 43
+  offset: 0, 0
+  index: -1
+platano
+  rotate: false
+  xy: 231, 109
+  size: 16, 14
+  orig: 16, 14
+  offset: 0, 0
+  index: -1
+azul2
+  rotate: false
+  xy: 230, 30
+  size: 27, 32
+  orig: 27, 32
+  offset: 0, 0
+  index: -1
+anda1
+  rotate: false
+  xy: 342, 146
+  size: 16, 32
+  orig: 16, 32
   offset: 0, 0
   index: -1
 azul3
   rotate: false
-  xy: 692, 92
+  xy: 256, 112
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
+pincho2-jackie
+  rotate: false
+  xy: 286, 112
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+pincho3-jackie
+  rotate: false
+  xy: 320, 112
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+pincho4-jackie
+  rotate: false
+  xy: 250, 78
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
 rojo1
   rotate: false
-  xy: 722, 92
+  xy: 284, 79
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
 rojo3
   rotate: false
-  xy: 752, 92
+  xy: 314, 79
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
-azul2
-  rotate: false
-  xy: 782, 91
-  size: 27, 32
-  orig: 27, 32
-  offset: 0, 0
-  index: -1
-rojo2
-  rotate: false
-  xy: 811, 91
-  size: 27, 32
-  orig: 27, 32
-  offset: 0, 0
-  index: -1
-anda3
-  rotate: false
-  xy: 840, 92
-  size: 20, 31
-  orig: 20, 31
-  offset: 0, 0
-  index: -1
-anda6
-  rotate: false
-  xy: 862, 92
-  size: 19, 31
-  orig: 19, 31
-  offset: 0, 0
-  index: -1
-salta1
-  rotate: false
-  xy: 883, 91
-  size: 19, 32
-  orig: 19, 32
-  offset: 0, 0
-  index: -1
-salta2
-  rotate: false
-  xy: 904, 91
-  size: 19, 32
-  orig: 19, 32
-  offset: 0, 0
-  index: -1
-salta3
-  rotate: false
-  xy: 925, 91
-  size: 19, 32
-  orig: 19, 32
-  offset: 0, 0
-  index: -1
-anda1
-  rotate: false
-  xy: 946, 91
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-anda4
-  rotate: false
-  xy: 964, 91
-  size: 16, 32
-  orig: 16, 32
-  offset: 0, 0
-  index: -1
-caracol1
-  rotate: false
-  xy: 43, 17
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-anda2
-  rotate: false
-  xy: 982, 92
-  size: 16, 31
-  orig: 16, 31
-  offset: 0, 0
-  index: -1
-anda5
-  rotate: false
-  xy: 1000, 92
-  size: 16, 31
-  orig: 16, 31
-  offset: 0, 0
-  index: -1
-murcielago2
-  rotate: false
-  xy: 69, 26
-  size: 26, 15
-  orig: 26, 15
-  offset: 0, 0
-  index: -1
-caracol2
-  rotate: false
-  xy: 97, 25
-  size: 24, 16
-  orig: 24, 16
-  offset: 0, 0
-  index: -1
-anda2_mappy
-  rotate: false
-  xy: 123, 25
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-anda1_mappy
-  rotate: false
-  xy: 141, 25
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
-cerdo1
-  rotate: false
-  xy: 158, 17
-  size: 15, 24
-  orig: 15, 24
-  offset: 0, 0
-  index: -1
-cerdo2
-  rotate: false
-  xy: 175, 17
-  size: 14, 24
-  orig: 14, 24
-  offset: 0, 0
-  index: -1
-martillo1
-  rotate: false
-  xy: 191, 26
-  size: 16, 15
-  orig: 16, 15
-  offset: 0, 0
-  index: -1
-martillo3
-  rotate: false
-  xy: 209, 26
-  size: 16, 15
-  orig: 16, 15
-  offset: 0, 0
-  index: -1
-murcielago1
-  rotate: false
-  xy: 227, 26
-  size: 16, 15
-  orig: 16, 15
-  offset: 0, 0
-  index: -1
-radio_mappy
-  rotate: false
-  xy: 245, 26
-  size: 16, 15
-  orig: 16, 15
-  offset: 0, 0
-  index: -1
-martillo2
-  rotate: false
-  xy: 263, 25
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
-martillo4
-  rotate: false
-  xy: 280, 25
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
-rojo1_mappy
-  rotate: false
-  xy: 297, 25
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
-platano
-  rotate: false
-  xy: 329, 43
-  size: 16, 14
-  orig: 16, 14
-  offset: 0, 0
-  index: -1
-rojo2_mappy
-  rotate: false
-  xy: 314, 25
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
-rojo3_mappy
-  rotate: false
-  xy: 331, 25
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
-pc_mappy
-  rotate: false
-  xy: 347, 43
-  size: 15, 14
-  orig: 15, 14
-  offset: 0, 0
-  index: -1
-salta_mappy
-  rotate: false
-  xy: 348, 25
-  size: 15, 16
-  orig: 15, 16
-  offset: 0, 0
-  index: -1
-manzana
-  rotate: false
-  xy: 527, 58
-  size: 14, 15
-  orig: 14, 15
-  offset: 0, 0
-  index: -1
-security_mappy
-  rotate: false
-  xy: 543, 57
-  size: 14, 16
-  orig: 14, 16
-  offset: 0, 0
-  index: -1
-tv_mappy
-  rotate: false
-  xy: 559, 58
-  size: 14, 15
-  orig: 14, 15
-  offset: 0, 0
-  index: -1
-cuadro_mappy
-  rotate: false
-  xy: 575, 58
-  size: 12, 15
-  orig: 12, 15
-  offset: 0, 0
-  index: -1
-melon
-  rotate: false
-  xy: 589, 57
-  size: 12, 16
-  orig: 12, 16
-  offset: 0, 0
-  index: -1
-rosa1_mappy
-  rotate: false
-  xy: 364, 43
-  size: 12, 14
-  orig: 12, 14
-  offset: 0, 0
-  index: -1
-pineaple
-  rotate: false
-  xy: 603, 57
-  size: 10, 16
-  orig: 10, 16
-  offset: 0, 0
-  index: -1
-rosa2_mappy
-  rotate: false
-  xy: 631, 75
-  size: 12, 14
-  orig: 12, 14
-  offset: 0, 0
-  index: -1
-rosa3_mappy
-  rotate: false
-  xy: 378, 43
-  size: 12, 14
-  orig: 12, 14
-  offset: 0, 0
-  index: -1
-llave
+fireball1-jackie
   rotate: false
   xy: 1, 1
   size: 16, 8
   orig: 16, 8
   offset: 0, 0
   index: -1
+fireball2-jackie
+  rotate: false
+  xy: 19, 1
+  size: 16, 8
+  orig: 16, 8
+  offset: 0, 0
+  index: -1
+llave
+  rotate: false
+  xy: 37, 1
+  size: 16, 8
+  orig: 16, 8
+  offset: 0, 0
+  index: -1
+rojo2
+  rotate: false
+  xy: 259, 44
+  size: 27, 32
+  orig: 27, 32
+  offset: 0, 0
+  index: -1
+tazon2-jackie
+  rotate: false
+  xy: 288, 51
+  size: 32, 26
+  orig: 32, 26
+  offset: 0, 0
+  index: -1
+anda3
+  rotate: false
+  xy: 322, 46
+  size: 20, 31
+  orig: 20, 31
+  offset: 0, 0
+  index: -1
+calavera2-jackie
+  rotate: false
+  xy: 288, 33
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+anda4
+  rotate: false
+  xy: 344, 78
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+anda2
+  rotate: false
+  xy: 344, 45
+  size: 16, 31
+  orig: 16, 31
+  offset: 0, 0
+  index: -1
+salta1
+  rotate: false
+  xy: 354, 112
+  size: 19, 32
+  orig: 19, 32
+  offset: 0, 0
+  index: -1
+salta2
+  rotate: false
+  xy: 362, 78
+  size: 19, 32
+  orig: 19, 32
+  offset: 0, 0
+  index: -1
+anda6
+  rotate: false
+  xy: 362, 45
+  size: 19, 31
+  orig: 19, 31
+  offset: 0, 0
+  index: -1
+murcielago2
+  rotate: false
+  xy: 259, 27
+  size: 26, 15
+  orig: 26, 15
+  offset: 0, 0
+  index: -1
+calavera1-jackie
+  rotate: false
+  xy: 601, 194
+  size: 31, 16
+  orig: 31, 16
+  offset: 0, 0
+  index: -1
+caracol2
+  rotate: false
+  xy: 634, 194
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+tucan1-jackie
+  rotate: false
+  xy: 216, 3
+  size: 24, 21
+  orig: 24, 21
+  offset: 0, 0
+  index: -1
+bullet-jackie
+  rotate: false
+  xy: 242, 8
+  size: 15, 20
+  orig: 15, 20
+  offset: 0, 0
+  index: -1
+tucan2-jackie
+  rotate: false
+  xy: 259, 6
+  size: 24, 19
+  orig: 24, 19
+  offset: 0, 0
+  index: -1
+security_mappy
+  rotate: false
+  xy: 355, 190
+  size: 14, 16
+  orig: 14, 16
+  offset: 0, 0
+  index: -1
+pajaro1-jackie
+  rotate: false
+  xy: 371, 189
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+pajaro2-jackie
+  rotate: false
+  xy: 397, 189
+  size: 24, 16
+  orig: 24, 16
+  offset: 0, 0
+  index: -1
+futbolista2-jackie
+  rotate: false
+  xy: 423, 174
+  size: 22, 31
+  orig: 22, 31
+  offset: 0, 0
+  index: -1
+salta3
+  rotate: false
+  xy: 447, 173
+  size: 19, 32
+  orig: 19, 32
+  offset: 0, 0
+  index: -1
+anda5
+  rotate: false
+  xy: 468, 174
+  size: 16, 31
+  orig: 16, 31
+  offset: 0, 0
+  index: -1
+anda2_mappy
+  rotate: false
+  xy: 486, 189
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+campana-jackie
+  rotate: false
+  xy: 504, 189
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+esfera-jackie
+  rotate: false
+  xy: 522, 189
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+anda1_mappy
+  rotate: false
+  xy: 540, 189
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+martillo1
+  rotate: false
+  xy: 557, 190
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+flecha-jackie
+  rotate: false
+  xy: 575, 199
+  size: 24, 6
+  orig: 24, 6
+  offset: 0, 0
+  index: -1
+martillo2
+  rotate: false
+  xy: 360, 146
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+martillo3
+  rotate: false
+  xy: 486, 172
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+murcielago1
+  rotate: false
+  xy: 504, 172
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+radio_mappy
+  rotate: false
+  xy: 522, 172
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+martillo4
+  rotate: false
+  xy: 540, 171
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+rojo1_mappy
+  rotate: false
+  xy: 557, 172
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+cuenco-jackie
+  rotate: false
+  xy: 322, 33
+  size: 16, 11
+  orig: 16, 11
+  offset: 0, 0
+  index: -1
 fireball
   rotate: false
-  xy: 365, 33
+  xy: 165, 99
   size: 8, 8
   orig: 8, 8
+  offset: 0, 0
+  index: -1
+icing1-jackie
+  rotate: false
+  xy: 55, 2
+  size: 16, 7
+  orig: 16, 7
+  offset: 0, 0
+  index: -1
+icing2-jackie
+  rotate: false
+  xy: 575, 190
+  size: 16, 7
+  orig: 16, 7
+  offset: 0, 0
+  index: -1
+rojo2_mappy
+  rotate: false
+  xy: 574, 172
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+melon
+  rotate: false
+  xy: 660, 194
+  size: 12, 16
+  orig: 12, 16
+  offset: 0, 0
+  index: -1
+rojo3_mappy
+  rotate: false
+  xy: 674, 195
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+salta_mappy
+  rotate: false
+  xy: 691, 195
+  size: 15, 16
+  orig: 15, 16
+  offset: 0, 0
+  index: -1
+manzana
+  rotate: false
+  xy: 708, 196
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+cuadro_mappy
+  rotate: false
+  xy: 724, 196
+  size: 12, 15
+  orig: 12, 15
+  offset: 0, 0
+  index: -1
+pc_mappy
+  rotate: false
+  xy: 738, 198
+  size: 15, 14
+  orig: 15, 14
+  offset: 0, 0
+  index: -1
+tv_mappy
+  rotate: false
+  xy: 340, 28
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+rosa1_mappy
+  rotate: false
+  xy: 356, 29
+  size: 12, 14
+  orig: 12, 14
+  offset: 0, 0
+  index: -1
+rosa2_mappy
+  rotate: false
+  xy: 370, 29
+  size: 12, 14
+  orig: 12, 14
+  offset: 0, 0
+  index: -1
+pineaple
+  rotate: false
+  xy: 285, 9
+  size: 10, 16
+  orig: 10, 16
+  offset: 0, 0
+  index: -1
+rosa3_mappy
+  rotate: false
+  xy: 297, 17
+  size: 12, 14
+  orig: 12, 14
+  offset: 0, 0
+  index: -1
+pelota-jackie
+  rotate: false
+  xy: 311, 19
+  size: 12, 12
+  orig: 12, 12
   offset: 0, 0
   index: -1

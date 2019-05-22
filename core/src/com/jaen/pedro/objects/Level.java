@@ -41,7 +41,6 @@ public class Level implements Disposable {
         this.lvlCounter=lvlCounter;
         gameOver=false;
         victory=false;
-        score=0;
         getKey=false;
 
         bullets=new DelayedRemovalArray<Bullet>();
@@ -65,6 +64,8 @@ public class Level implements Disposable {
         }
 
         if(!gameOver && !victory){
+            int previusScore=score;
+
             hero.update(delta,floors);
 
             //si obtenemos fruta
@@ -72,6 +73,14 @@ public class Level implements Disposable {
             for(Fruit f:fruits){
                 if(hero.getRectangle().overlaps(f.getRectangle())){
                     increaseScore(Constants.SCORE_FRUIT);
+
+                    //aumentar vidas
+                    if(score-previusScore>=10000){
+                        Gdx.app.error("gamescreen","score"+score);
+                        Gdx.app.error("gamescreen","previusScore"+previusScore);
+                        aumentaVidas(score,previusScore);
+                    }
+
                     if(!mute){
                         getItem.play();
                     }
@@ -85,6 +94,14 @@ public class Level implements Disposable {
             for(Ammo a:ammunition){
                 if(hero.getRectangle().overlaps(a.getRectangle())){
                     increaseScore(Constants.SCORE_FRUIT);
+
+                    //aumentar vidas
+                    if(score-previusScore>=10000){
+                        Gdx.app.error("gamescreen","score"+score);
+                        Gdx.app.error("gamescreen","previusScore"+previusScore);
+                        aumentaVidas(score,previusScore);
+                    }
+
                     if(!mute){
                         getItem.play();
                     }
@@ -109,6 +126,14 @@ public class Level implements Disposable {
             for(Key k:keys){
                 if(hero.getRectangle().overlaps(k.getRectangle())){
                     increaseScore(Constants.SCORE_PICK_KEY);
+
+                    //aumentar vidas
+                    if(score-previusScore>=10000){
+                        Gdx.app.error("gamescreen","score"+score);
+                        Gdx.app.error("gamescreen","previusScore"+previusScore);
+                        aumentaVidas(score,previusScore);
+                    }
+
                     if(!mute){
                         getItem.play();
                     }
@@ -127,13 +152,21 @@ public class Level implements Disposable {
                         explosion.play();
                     }
                     increaseScore(Constants.SCORE_KILL);
+
+                    //aumentar vidas
+                    if(score-previusScore>=10000){
+                        Gdx.app.error("gamescreen","score"+score);
+                        Gdx.app.error("gamescreen","previusScore"+previusScore);
+                        aumentaVidas(score,previusScore);
+                    }
+
                     enemies.removeValue(e,false);
                 }
             }
             enemies.end();
-
         }
     }
+
 
     public void render(SpriteBatch batch){
 
@@ -224,6 +257,11 @@ public class Level implements Disposable {
 
     }
 
+    public void aumentaVidas(int score, int previusScore) {
+        int nLives=(score-previusScore)/10000;
+        hero.setLives(hero.getLives()+nLives);
+    }
+
     public Hero getHero() {
         return hero;
     }
@@ -262,6 +300,10 @@ public class Level implements Disposable {
 
     public int getScore() {
         return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public DelayedRemovalArray<Enemy> getEnemies() {

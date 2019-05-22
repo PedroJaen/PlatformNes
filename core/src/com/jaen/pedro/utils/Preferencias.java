@@ -6,16 +6,17 @@ import com.badlogic.gdx.Preferences;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Preferencias {
     private Preferences prefs;
     private boolean mute;
-    private TreeSet<Long> puntuaciones;
+    private TreeMap<Long,String> puntuaciones;
 
     public Preferencias() {
         prefs = Gdx.app.getPreferences(Constants.PREFERENCES);
-        this.puntuaciones=new TreeSet<Long>();
+        this.puntuaciones=new TreeMap<Long,String>(java.util.Collections.reverseOrder());
 
         cargaPuntuaciones();
         cargaMute();
@@ -23,12 +24,16 @@ public class Preferencias {
 
     public void guardarDatos(){
         int contador=0;
-        Iterator<Long> it=puntuaciones.iterator();
+        Iterator<Long> it=puntuaciones.keySet().iterator();
         while(contador<5){
             if(it.hasNext()){
-                prefs.putLong("puntuacion"+contador, it.next());
+                long puntuacion=it.next();
+                String letras=puntuaciones.get(puntuacion);
+                prefs.putLong("puntuacion"+contador, puntuacion);
+                prefs.putString("letras"+contador,letras);
             }else{
                 prefs.putLong("puntuacion"+contador, 0);
+                prefs.putString("letras"+contador,"AAA");
             }
             contador++;
         }
@@ -45,17 +50,19 @@ public class Preferencias {
         this.mute = mute;
     }
 
-    public void addPuntuacion(long score){
-        puntuaciones.add(score);
+    public void addPuntuacion(long score,String letras){
+        puntuaciones.put(score,letras);
     }
 
-    public TreeSet<Long> getPuntuaciones() {
+    public TreeMap<Long,String> getPuntuaciones() {
         return puntuaciones;
     }
 
     public void cargaPuntuaciones(){
         for(int i=0;i<5;i++){
-            puntuaciones.add(prefs.getLong("puntuacion"+i));
+            puntuaciones.put(
+                    prefs.getLong("puntuacion"+i),
+                    prefs.getString("letras"+i));
         }
     }
 
