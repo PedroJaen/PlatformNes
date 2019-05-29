@@ -222,8 +222,8 @@ public class Level implements Disposable {
 
     }
 
-    public void spawnBullet(Vector2 position, Enums.Facing facing, boolean enemigo){
-        Bullet bullet=new Bullet(position,facing,this,enemigo,lvlCounter);
+    public void spawnBullet(Vector2 position, Enums.Facing facing, boolean enemigo, String nombre){
+        Bullet bullet=new Bullet(position,facing,this,enemigo,lvlCounter,nombre);
         bullets.add(bullet);
         if(bullet.isActive()){
 

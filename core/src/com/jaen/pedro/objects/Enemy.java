@@ -62,6 +62,9 @@ public class Enemy {
             case 1:
                 enemies=Assets.instance.enemigoAssets.enemigos_mappy;
                 break;
+            case 2:
+                enemies=Assets.instance.enemigoAssets.enemigos_jackie;
+                break;
             default:
                 enemies=Assets.instance.enemigoAssets.enemigos;
                 break;
@@ -70,7 +73,8 @@ public class Enemy {
         index=(int)(Math.random()*enemies.length);
         animation=enemies[index];
         region= (TextureRegion) animation.getKeyFrame(0f);
-        if(region.toString().contains("murcielago")){
+        if(region.toString().contains("murcielago") || region.toString().contains("calavera")
+                || region.toString().contains("pajaro") || region.toString().contains("tucan")){
             position.y+=region.getRegionHeight();
         }
         rectangle=new Rectangle(position.x,position.y,region.getRegionWidth(),region.getRegionHeight());
@@ -100,7 +104,9 @@ public class Enemy {
             position.x=floor.getLeft();
         }
 
-        if(region.toString().contains("rojo") || region.toString().contains("azul")){
+        if(region.toString().contains("rojo") || region.toString().contains("azul")
+                || region.toString().contains("icedemon") || region.toString().contains("tazon")
+                || region.toString().contains("vasija") || region.toString().contains("firedemon")){
             shoot(delta);
         }
     }
@@ -122,7 +128,7 @@ public class Enemy {
                         position.y+(rectangle.getHeight()/2)
                 );
             }
-            level.spawnBullet(bulletPosition,facing,true);
+            level.spawnBullet(bulletPosition,facing,true,region.toString());
             shootTime=0;
         }
 

@@ -27,6 +27,9 @@ public class Ammo {
             case 1:
                 region= Assets.instance.ataqueAssets.fireball;
                 break;
+            case 2:
+                region= Assets.instance.ataqueAssets.hayujen;
+                break;
         }
         Utils.drawTextureRegion(batch,region,rectangle.getX(),rectangle.getY());
     }

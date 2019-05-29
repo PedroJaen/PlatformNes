@@ -8,7 +8,6 @@ public class Constants {
     public static final float WORLD_SIZE = 460;
     public static final Color BACKGROUND_COLOR = Color.BLACK;
     public static final String FONT_FILE = "font/header.fnt";
-    public static final String TITLE = "PlatformNes";
     public static final float FONT_SCALE = 1f;
     public static final String TEXTURE_ATLAS = "images/texture.atlas.pack";
     public static final String PREFERENCES = "preferences";
@@ -72,9 +71,10 @@ public class Constants {
     public static final String MUSICA_INICIO="music/inicio.mp3";
     public static final String MUSICA_LVL1="music/lvl1.mp3";
     public static final String MUSICA_LVL2="music/lvl2.mp3";
+    public static final String MUSICA_LVL3="music/lvl3.mp3";
     public static final String MUSICA_LVL_NEXT="music/lvl_next.mp3";
     public static final String MUSICA_SET_SCORE="music/set_score.mp3";
-    public static final String[] MUSICA_LVLS={MUSICA_LVL1,MUSICA_LVL2};
+    public static final String[] MUSICA_LVLS={MUSICA_LVL1,MUSICA_LVL2,MUSICA_LVL3};
     public static final String MUSICA_GAME_OVER="music/game_over.mp3";
     public static final String MUSICA_GAME_WIN="music/game_win.mp3";
     public static final String MUSICA_DISPARO1="music/disparo1.wav";
@@ -131,7 +131,8 @@ public class Constants {
     public static final float LVL_SIZE = 300;
     public static final String LEVEL1="levels/plat_lvl1.tmx";
     public static final String LEVEL2="levels/plat_lvl2.tmx";
-    public static final String[] LEVELS={LEVEL1,LEVEL2};
+    public static final String LEVEL3="levels/plat_lvl3.tmx";
+    public static final String[] LEVELS={LEVEL1,LEVEL2,LEVEL3};
     public static final int LVL_GROUND=3;
     public static final int LVL_EXIT=4;
     public static final int LVL_DEATH=5;
@@ -155,14 +156,14 @@ public class Constants {
     public static final String ANDA2_MAPPY="anda2_mappy";
     public static final String SALTA_MAPPY="salta_mappy";
 
-    public static final String ANDA1_JACKIE="anda1-jackie";
-    public static final String ANDA2_JACKIE="anda2-jackie";
-    public static final String ANDA3_JACKIE="anda3-jackie";
-    public static final String ANDA4_JACKIE="anda4-jackie";
-    public static final String ANDA5_JACKIE="anda5-jackie";
-    public static final String ANDA6_JACKIE="anda6-jackie";
-    public static final String SALTA_JACKIE="jump-jackie";
-    public static final String STAND_JACKIE="stand-jackie";
+    public static final String ANDA1_JACKIE="anda1_jackie";
+    public static final String ANDA2_JACKIE="anda2_jackie";
+    public static final String ANDA3_JACKIE="anda3_jackie";
+    public static final String ANDA4_JACKIE="anda4_jackie";
+    public static final String ANDA5_JACKIE="anda5_jackie";
+    public static final String ANDA6_JACKIE="anda6_jackie";
+    public static final String SALTA_JACKIE="jump_jackie";
+    public static final String STAND_JACKIE="stand_jackie";
 
     //sprites enemie
     public static final String CARACOL1 = "caracol1";
@@ -185,39 +186,39 @@ public class Constants {
     public static final String ROSA2_MAPPY = "rosa2_mappy";
     public static final String ROSA3_MAPPY = "rosa3_mappy";
 
-    public static final String BOOTDEMON1 = "bootdemon1-jackie";
-    public static final String BOOTDEMON2 = "bootdemon2-jackie";
-    public static final String CALAVERA1 = "calavera1-jackie";
-    public static final String CALAVERA2 = "calavera2-jackie";
-    public static final String DEMONIO1 = "demonio1-jackie";
-    public static final String DEMONIO2 = "demonio2-jackie";
-    public static final String DEMONIO3 = "demonio3-jackie";
-    public static final String FIREDEMON1 = "firedemon1-jackie";
-    public static final String FIREDEMON2 = "firedemon2-jackie";
-    public static final String FUTBOLISTA1 = "futbolista1-jackie";
-    public static final String FUTBOLISTA2 = "futbolista2-jackie";
-    public static final String ICEDEMON1 = "icedemon1-jackie";
-    public static final String ICEDEMON2 = "icedemon2-jackie";
-    public static final String LUCHADOR1 = "luchador1-jackie";
-    public static final String LUCHADOR2 = "luchador2-jackie";
-    public static final String LUCHADOR3 = "luchador3-jackie";
-    public static final String LUCHADOR4 = "luchador4-jackie";
-    public static final String PAJARO2 = "pajaro2-jackie";
-    public static final String PAJARO1 = "rojpajaro1-jackieo3";
-    public static final String PINCHO1 = "pincho1-jackie";
-    public static final String PINCHO2 = "pincho2-jackie";
-    public static final String PINCHO3 = "pincho3-jackie";
-    public static final String PINCHO4 = "pincho4-jackie";
-    public static final String SNOWMAN1 = "snowman1-jackie";
-    public static final String SNOWMAN2 = "snowman2-jackie";
-    public static final String TAZON1 = "tazon1-jackie";
-    public static final String TAZON2 = "tazon2-jackie";
-    public static final String TIGER1 = "tiger1-jackie";
-    public static final String TIGER2 = "tiger2-jackie";
-    public static final String TUCAN1 = "tucan1-jackie";
-    public static final String TUCAN2 = "tucan2-jackie";
-    public static final String VASIJA1 = "vasija1-jackie";
-    public static final String VASIJA2 = "vasija2-jackie";
+    public static final String BOOTDEMON1 = "bootdemon1_jackie";
+    public static final String BOOTDEMON2 = "bootdemon2_jackie";
+    public static final String CALAVERA1 = "calavera1_jackie";
+    public static final String CALAVERA2 = "calavera2_jackie";
+    public static final String DEMONIO1 = "demonio1_jackie";
+    public static final String DEMONIO2 = "demonio2_jackie";
+    public static final String DEMONIO3 = "demonio3_jackie";
+    public static final String FIREDEMON1 = "firedemon1_jackie";
+    public static final String FIREDEMON2 = "firedemon2_jackie";
+    public static final String FUTBOLISTA1 = "futbolista1_jackie";
+    public static final String FUTBOLISTA2 = "futbolista2_jackie";
+    public static final String ICEDEMON1 = "icedemon1_jackie";
+    public static final String ICEDEMON2 = "icedemon2_jackie";
+    public static final String LUCHADOR1 = "luchador1_jackie";
+    public static final String LUCHADOR2 = "luchador2_jackie";
+    public static final String LUCHADOR3 = "luchador3_jackie";
+    public static final String LUCHADOR4 = "luchador4_jackie";
+    public static final String PAJARO2 = "pajaro2_jackie";
+    public static final String PAJARO1 = "pajaro1_jackie";
+    public static final String PINCHO1 = "pincho1_jackie";
+    public static final String PINCHO2 = "pincho2_jackie";
+    public static final String PINCHO3 = "pincho3_jackie";
+    public static final String PINCHO4 = "pincho4_jackie";
+    public static final String SNOWMAN1 = "snowman1_jackie";
+    public static final String SNOWMAN2 = "snowman2_jackie";
+    public static final String TAZON1 = "tazon1_jackie";
+    public static final String TAZON2 = "tazon2_jackie";
+    public static final String TIGER1 = "tiger1_jackie";
+    public static final String TIGER2 = "tiger2_jackie";
+    public static final String TUCAN1 = "tucan1_jackie";
+    public static final String TUCAN2 = "tucan2_jackie";
+    public static final String VASIJA1 = "vasija1_jackie";
+    public static final String VASIJA2 = "vasija2_jackie";
 
     //sprites items
     public static final String LLAVE = "llave";
@@ -232,11 +233,11 @@ public class Constants {
     public static final String SECURITY_MAPPY = "security_mappy";
     public static final String TV_MAPPY = "tv_mappy";
 
-    public static final String CAMPANA = "campana-jackie";
-    public static final String CUENCO = "cuenco-jackie";
-    public static final String ESFERA = "esfera-jackie";
-    public static final String PELOTA = "pelota-jackie";
-    public static final String SNOWBALL = "snowball-jackie";
+    public static final String CAMPANA = "campana_jackie";
+    public static final String CUENCO = "cuenco_jackie";
+    public static final String ESFERA = "esfera_jackie";
+    public static final String PELOTA = "pelota_jackie";
+    public static final String SNOWBALL = "snowball_jackie";
 
     //sprites bullets
     public static final String MARTILLO1 = "martillo1";
@@ -245,14 +246,14 @@ public class Constants {
     public static final String MARTILLO4 = "martillo4";
     public static final String FIREBALL = "fireball";
 
-    public static final String HAYUKEN = "bullet-jackie";
-    public static final String FIREBALL_JACKIE1 = "fireball1-jackie";
-    public static final String FIREBALL_JACKIE2 = "fireball2-jackie";
-    public static final String FLECHA = "flecha-jackie";
-    public static final String ICING1 = "icing1-jackie";
-    public static final String ICING2 = "icing2-jackie";
-    public static final String NUNCHAKU1 = "nunchaku1-jackie";
-    public static final String NUNCHAKU2 = "nunchaku2-jackie";
+    public static final String HAYUKEN = "bullet_jackie";
+    public static final String FIREBALL_JACKIE1 = "fireball1_jackie";
+    public static final String FIREBALL_JACKIE2 = "fireball2_jackie";
+    public static final String FLECHA = "flecha_jackie";
+    public static final String ICING1 = "icing1_jackie";
+    public static final String ICING2 = "icing2_jackie";
+    public static final String NUNCHAKU1 = "nunchaku1_jackie";
+    public static final String NUNCHAKU2 = "nunchaku2_jackie";
 
     //sprites buttons
     public static final String MOVE_LEFT_BUTTON = "izquierda";

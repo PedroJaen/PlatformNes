@@ -20,23 +20,38 @@ public class Bullet {
     private long shootStartTime;
     private boolean enemigo;
     private int lvlCounter;
+    private String nombre;
 
-    public Bullet(Vector2 position, Enums.Facing facing,Level level,boolean enemigo,int lvlCounter) {
+    public Bullet(Vector2 position, Enums.Facing facing,Level level,boolean enemigo,int lvlCounter,String nombre) {
         this.position = position;
         this.facing = facing;
         this.level=level;
         this.enemigo=enemigo;
         active=activeOrNot();
         this.lvlCounter=lvlCounter;
+        this.nombre=nombre;
 
         shootStartTime= TimeUtils.nanoTime();
 
         if(enemigo){
-            region=Assets.instance.ataqueAssets.fireball;
+            if(nombre.contains("firedemon")){
+                region= (TextureRegion) Assets.instance.ataqueAssets.fire.getKeyFrame(0);
+            }else if(nombre.contains("icedemon")){
+                region= (TextureRegion) Assets.instance.ataqueAssets.icing.getKeyFrame(0);
+            }else if(nombre.contains("tazon")){
+                region= Assets.instance.ataqueAssets.flecha;
+            }else if(nombre.contains("vasija")){
+                region= (TextureRegion) Assets.instance.ataqueAssets.nunchaku.getKeyFrame(0);
+            }else {
+                region=Assets.instance.ataqueAssets.fireball;
+            }
         }else{
             switch (lvlCounter){
                 case 0:
                     region= Assets.instance.ataqueAssets.hacha;
+                    break;
+                case 2:
+                    region= Assets.instance.ataqueAssets.hayujen;
                     break;
                 default:
                     region=Assets.instance.ataqueAssets.fireball;
@@ -44,7 +59,9 @@ public class Bullet {
             }
         }
 
-        rectangle=new Rectangle(position.x,position.y,region.getRegionWidth(),region.getRegionHeight());
+        this.position.y-=region.getRegionHeight()/2;
+
+        rectangle=new Rectangle(this.position.x,this.position.y,region.getRegionWidth(),region.getRegionHeight());
     }
 
     public void update(float delta){
@@ -81,9 +98,15 @@ public class Bullet {
     }
 
     public void render(SpriteBatch batch){
+        float shootTimeSeconds = Utils.secondsSince(shootStartTime);
         if(!enemigo && lvlCounter==0){
-            float shootTimeSeconds = Utils.secondsSince(shootStartTime);
             region= (TextureRegion) Assets.instance.ataqueAssets.hachaThrow.getKeyFrame(shootTimeSeconds);
+        }else if(nombre.contains("firedemon")){
+            region= (TextureRegion) Assets.instance.ataqueAssets.fire.getKeyFrame(shootTimeSeconds);
+        }else if(nombre.contains("icedemon")){
+            region= (TextureRegion) Assets.instance.ataqueAssets.icing.getKeyFrame(shootTimeSeconds);
+        }else if(nombre.contains("vasija")){
+            region= (TextureRegion) Assets.instance.ataqueAssets.nunchaku.getKeyFrame(shootTimeSeconds);
         }
 
         switch (facing){

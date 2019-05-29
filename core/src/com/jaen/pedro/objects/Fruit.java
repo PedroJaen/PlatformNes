@@ -32,6 +32,9 @@ public class Fruit {
             case 1:
                 regions=Assets.instance.itemAssets.regionsM;
                 break;
+            case 2:
+                regions=Assets.instance.itemAssets.regionsJ;
+                break;
         }
 
         int posicion=(int)(Math.random()*regions.length);

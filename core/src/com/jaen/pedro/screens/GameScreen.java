@@ -65,7 +65,7 @@ public class GameScreen  extends ScreenAdapter {
         }
 
         currentLevel=Constants.LVL_1;
-        //currentLevel=1;
+        //currentLevel=2;
         startNewLevel(currentLevel);
     }
 

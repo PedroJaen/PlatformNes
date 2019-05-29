@@ -53,7 +53,8 @@ public class Hero {
     private void init(){
         //starting sprite
         region= Assets.instance.heroeAssets.stands[lvlCounter];
-
+        rectangle.setHeight(region.getRegionHeight());
+        rectangle.setWidth(region.getRegionWidth());
         respawn();
     }
 
@@ -165,6 +166,16 @@ public class Hero {
                     region=(TextureRegion) Assets.instance.heroeAssets.andar_mappy.getKeyFrame(walkTimeSeconds);
                 }
                 break;
+            case 2:
+                if(jumpState!=JumpState.GROUNDED){
+                    region=Assets.instance.heroeAssets.salta_jackie;
+                }else if(walkState==WalkState.STANDING){
+                    region=Assets.instance.heroeAssets.stand_jackie;
+                }else if(walkState==WalkState.WALKING){
+                    float walkTimeSeconds = Utils.secondsSince(walkStartTime);
+                    region=(TextureRegion) Assets.instance.heroeAssets.andar_jackie.getKeyFrame(walkTimeSeconds);
+                }
+                break;
         }
 
         switch (facing){
@@ -194,7 +205,7 @@ public class Hero {
                 );
             }
 
-            level.spawnBullet(bulletPosition,facing,false);
+            level.spawnBullet(bulletPosition,facing,false,region.toString());
         }
     }
 

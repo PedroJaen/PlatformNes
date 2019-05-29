@@ -87,12 +87,12 @@ public class Assets implements Disposable, AssetErrorListener {
 
             //jackie
             Array<TextureAtlas.AtlasRegion> andarFrames_jackie = new Array<TextureAtlas.AtlasRegion>();
-            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA1_JACKIE));
-            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA2_JACKIE));
-            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA3_JACKIE));
-            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA4_JACKIE));
-            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA5_JACKIE));
             andarFrames_jackie.add(atlas.findRegion(Constants.ANDA6_JACKIE));
+            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA5_JACKIE));
+            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA4_JACKIE));
+            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA3_JACKIE));
+            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA2_JACKIE));
+            andarFrames_jackie.add(atlas.findRegion(Constants.ANDA1_JACKIE));
             andar_jackie=new Animation(Constants.WALK_LOOP_DURATION,andarFrames_jackie,Animation.PlayMode.LOOP);
             salta_jackie=atlas.findRegion(Constants.SALTA_JACKIE);
             stand_jackie=atlas.findRegion(Constants.STAND_JACKIE);
