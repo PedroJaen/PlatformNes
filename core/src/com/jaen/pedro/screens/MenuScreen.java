@@ -47,7 +47,6 @@ public class MenuScreen extends InputAdapter implements Screen {
                 Constants.BACKGROUND_COLOR.b,
                 Constants.BACKGROUND_COLOR.a);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         //pintamos las letras
         batch.setProjectionMatrix(viewport.getCamera().combined);
@@ -63,6 +62,12 @@ public class MenuScreen extends InputAdapter implements Screen {
                 Constants.MENU_SCORES,
                 Constants.SCORES_BUTTON.x,
                 Constants.SCORES_BUTTON.y,
+                0, Align.center,false);
+
+        font.draw(batch,
+                Constants.MENU_INSTRUCTION,
+                Constants.INSTRUCTIONS_BUTTON.x,
+                Constants.INSTRUCTIONS_BUTTON.y,
                 0, Align.center,false);
 
         pintaBotonMusica(batch);
@@ -132,6 +137,8 @@ public class MenuScreen extends InputAdapter implements Screen {
             game.setDifficultyScreen();
         }else if(touch.dst(Constants.SCORES_BUTTON)<Constants.BUTTON_RADIUS){
             game.setScoreScreen();
+        }else if(touch.dst(Constants.INSTRUCTIONS_BUTTON)<Constants.BUTTON_RADIUS){
+            game.setInstructionScreen();
         }else if(touch.dst(Constants.MUSIC_BUTTON_CENTER)<Constants.BUTTON_RADIUS){
             game.setMute(!game.isMute());
             suenaMusica();

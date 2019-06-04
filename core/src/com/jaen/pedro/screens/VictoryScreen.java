@@ -75,7 +75,6 @@ public class VictoryScreen extends InputAdapter implements Screen {
                 Constants.BACKGROUND_COLOR.b,
                 Constants.BACKGROUND_COLOR.a);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         //pintamos las letras
         batch.setProjectionMatrix(viewport.getCamera().combined);

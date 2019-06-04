@@ -27,9 +27,25 @@ public class Constants {
 
     //menuscreen
     public static final String MENU_JUGAR="PLAY";
-    public static final Vector2 JUGAR_BUTTON = new Vector2(WORLD_SIZE*0.25f,WORLD_SIZE/2);
+    public static final Vector2 JUGAR_BUTTON = new Vector2(WORLD_SIZE/2,WORLD_SIZE*0.75f);
     public static final String MENU_SCORES="SCORES";
-    public static final Vector2 SCORES_BUTTON = new Vector2(WORLD_SIZE*0.75f,WORLD_SIZE/2);
+    public static final Vector2 SCORES_BUTTON = new Vector2(WORLD_SIZE/2,WORLD_SIZE*0.5f);
+    public static final String MENU_INSTRUCTION="INSTRUCTIONS";
+    public static final Vector2 INSTRUCTIONS_BUTTON = new Vector2(WORLD_SIZE/2,WORLD_SIZE*0.25f);
+
+    //instructionscreen
+    public static final String INSTRUCTION_1="* OBTAIN THE KEY TO OPEN THE";
+    public static final String INSTRUCTION_2="   CASTLE'S DOOR";
+    public static final String INSTRUCTION_3="* ARRIVE TO THE CASTLE WITH THE KEY";
+    public static final String INSTRUCTION_4="   TO PASS TO THE NEXT LEVEL";
+    public static final String INSTRUCTION_5="* THE NUMBER OF LIVES OF THE ENEMY";
+    public static final String INSTRUCTION_6="   DEPENDS ON THE DIFFICULTY";
+    public static final String INSTRUCTION_7="* YOU CHOOSE TO KILL ENEMIES OR";
+    public static final String INSTRUCTION_8="   AVOID THEM AND RESERVE AMMO";
+    public static final String[] INSTRUCTIONS={INSTRUCTION_1,INSTRUCTION_2,INSTRUCTION_3,INSTRUCTION_4,
+            INSTRUCTION_5,INSTRUCTION_6,INSTRUCTION_7,INSTRUCTION_8};
+    public static final Vector2 INSTRUCTIONS_POSSITION = new Vector2(0,WORLD_SIZE*0.75f);
+    public static final Vector2 INSTRUCTIONS_TITLE_POSSITION = new Vector2(WORLD_SIZE/2,WORLD_SIZE*0.9f);
 
     //scorescreen
     public static final float FONT_LIL_SCALE = 0.8f;

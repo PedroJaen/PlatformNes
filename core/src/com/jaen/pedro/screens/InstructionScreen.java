@@ -11,20 +11,13 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.utils.Constants;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.TreeMap;
-import java.util.TreeSet;
+public class InstructionScreen extends InputAdapter implements Screen {
+    private PlatformNesGame game;
+    private SpriteBatch batch;
+    private FitViewport viewport;
+    private BitmapFont font;
 
-public class ScoreScreen extends InputAdapter implements Screen {
-    PlatformNesGame game;
-    SpriteBatch batch;
-    FitViewport viewport;
-    BitmapFont font;
-    BitmapFont lilFont;
-    TreeMap<Long,String> puntuaciones;
-
-    public ScoreScreen(PlatformNesGame game) {
+    public InstructionScreen(PlatformNesGame game) {
         this.game = game;
     }
 
@@ -38,12 +31,6 @@ public class ScoreScreen extends InputAdapter implements Screen {
         font=new BitmapFont();
         font = new BitmapFont(Gdx.files.internal(Constants.FONT_FILE));
         font.getData().setScale(Constants.FONT_SCALE);
-        lilFont=new BitmapFont();
-        lilFont = new BitmapFont(Gdx.files.internal(Constants.FONT_FILE));
-        lilFont.getData().setScale(Constants.FONT_LIL_SCALE);
-
-        game.getPreferencias().cargaPuntuaciones();
-        puntuaciones=game.getPreferencias().getPuntuaciones();
     }
 
     @Override
@@ -61,27 +48,21 @@ public class ScoreScreen extends InputAdapter implements Screen {
         batch.begin();
 
         font.draw(batch,
-                Constants.SCORES,
-                Constants.SCORES_POSITION.x,
-                Constants.SCORES_POSITION.y,
+                Constants.MENU_INSTRUCTION,
+                Constants.INSTRUCTIONS_TITLE_POSSITION.x,
+                Constants.INSTRUCTIONS_TITLE_POSSITION.y,
                 0, Align.center,false);
 
-        int contador=1;
-        Iterator<Long> it=puntuaciones.keySet().iterator();
-        for(float i=(Constants.WORLD_SIZE/2)+140;contador<6;i-=70f, contador++){
+        float position=Constants.INSTRUCTIONS_POSSITION.y;
+        for(int i=0;i<Constants.INSTRUCTIONS.length;i++){
 
-            long score=0;
-            String letras="AAA";
-            if(it.hasNext()){
-                score=it.next();
-                letras=puntuaciones.get(score);
-            }
+            font.draw(batch,
+                    Constants.INSTRUCTIONS[i],
+                    Constants.INSTRUCTIONS_POSSITION.x,
+                    position,
+                    0, Align.left,false);
 
-            lilFont.draw(batch,
-                    contador+" - "+score+"  "+letras,
-                    Constants.SCORES_POSITION.x,
-                    i,
-                    0, Align.center,false);
+            position-=30;
         }
 
         batch.end();
@@ -111,17 +92,10 @@ public class ScoreScreen extends InputAdapter implements Screen {
     public void dispose() {
         batch.dispose();
         font.dispose();
-        lilFont.dispose();
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        game.setMenuScreen();
-        return true;
-    }
-
-    @Override
-    public boolean keyDown(int keycode) {
         game.setMenuScreen();
         return true;
     }

@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jaen.pedro.PlatformNesGame;
 import com.jaen.pedro.objects.Level;
+import com.jaen.pedro.objects.Score;
 import com.jaen.pedro.overlays.HudOverlay;
 import com.jaen.pedro.overlays.OnScreensControls;
 import com.jaen.pedro.utils.Constants;
@@ -29,7 +30,7 @@ public class GameScreen  extends ScreenAdapter {
     OnScreensControls onScreensControls;
     Level level;
     int currentLevel;
-    private int score;
+    private Score score;
     private int ammo;
     private int lives;
     private TmxMapLoader mapLoader;
@@ -47,10 +48,10 @@ public class GameScreen  extends ScreenAdapter {
     @Override
     public void show() {
         batch = new SpriteBatch();
+        score=new Score();
         hud=new HudOverlay(batch,this);
         camera=new OrthographicCamera();
         viewport=new ExtendViewport(Constants.LVL_SIZE,Constants.LVL_SIZE,camera);
-        score=0;
         ammo=Constants.INITIAL_AMMO;
         lives= Constants.INITIAL_LIVES;
 
@@ -85,6 +86,8 @@ public class GameScreen  extends ScreenAdapter {
         level.setMute(game.isMute());
         level.setGetKey(false);
 
+        score.setHeroe(level.getHero());
+
         //colocamos la musica del nivel
         if(!game.isMute()){
             game.suenaMusica(Constants.MUSICA_LVLS[lvl]);
@@ -101,9 +104,8 @@ public class GameScreen  extends ScreenAdapter {
         renderer.setView(camera);
 
         level.update(delta);
-        score=level.getScore();
         if(!level.isVictory()){
-            hud.update(delta,score,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey());
+            hud.update(delta,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey());
         }
     }
 
@@ -180,7 +182,6 @@ public class GameScreen  extends ScreenAdapter {
                     }
                 }
 
-                //victoryOverlay.render(batch);
                 if (Utils.secondsSince(levelEndOverlayStartTime) > Constants.LEVEL_END_DURATION) {
                     levelEndOverlayStartTime = 0;
                     levelComplete();
@@ -193,14 +194,11 @@ public class GameScreen  extends ScreenAdapter {
                     }
                 }
 
-                //victoryOverlay.render(batch);
                 if (Utils.secondsSince(levelEndOverlayStartTime) > Constants.LEVEL_NEXT) {
                     levelEndOverlayStartTime = 0;
-                    int previusScore=score;
-                    score=(Constants.SCORE_KILL*level.getHero().getLives())
+                    /*score.increAseScore(Constants.SCORE_KILL*level.getHero().getLives()
                             +level.getHero().getAmmo()
-                            +level.getScore()
-                            +hud.getWorldTimer();
+                            +hud.getWorldTimer());*/
 
                     hud.setWorldTimer(Constants.LEVEL_TIMER);
                     currentLevel++;
@@ -210,14 +208,6 @@ public class GameScreen  extends ScreenAdapter {
                         game.getMusic().stop();
                     }
                     startNewLevel(currentLevel);
-                    //aumentar vidas
-                    Gdx.app.error("gamescreen","score"+score);
-                    Gdx.app.error("gamescreen","previusScore"+previusScore);
-                    if(score-previusScore>=10000){
-                        Gdx.app.error("gamescreen","score"+score);
-                        Gdx.app.error("gamescreen","previusScore"+previusScore);
-                        level.aumentaVidas(score,previusScore);
-                    }
 
                 }
             }
@@ -230,12 +220,11 @@ public class GameScreen  extends ScreenAdapter {
             game.suenaMusica(Constants.MUSICA_INICIO);
         }
 
-        score=(Constants.SCORE_KILL*level.getHero().getLives())
+        score.increAseScore(Constants.SCORE_KILL*level.getHero().getLives()
                 +level.getHero().getAmmo()
-                +level.getScore()
-                +hud.getWorldTimer();
+                +hud.getWorldTimer());
 
-        game.setVictoryScreen(score);
+        game.setVictoryScreen(score.getScore());
     }
 
     public void levelFailed() {
@@ -272,7 +261,7 @@ public class GameScreen  extends ScreenAdapter {
         this.map = map;
     }
 
-    public int getScore() {
+    public Score getScore() {
         return score;
     }
 }

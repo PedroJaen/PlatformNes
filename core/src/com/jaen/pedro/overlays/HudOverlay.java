@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.jaen.pedro.objects.Score;
 import com.jaen.pedro.screens.GameScreen;
 import com.jaen.pedro.utils.Constants;
 import com.jaen.pedro.utils.Enums;
@@ -23,7 +24,7 @@ public class HudOverlay implements Disposable {
     private Integer worldTimer;
     private boolean timeUp; // true when the world timer reaches 0
     private float timeCount;
-    private int score;
+    private Score score;
     private int nlives;
     private Enums.Difficulty difficulty;
     private GameScreen gameScreen;
@@ -66,7 +67,7 @@ public class HudOverlay implements Disposable {
 
         //define our labels using the String, and a Label style consisting of a font and color
         countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        scoreLabel =new Label(String.format("%06d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        scoreLabel =new Label(String.format("%06d", score.getScore()), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         levelLabel = new Label(gameScreen.getCurrentLevel()+1+"", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label(Constants.LEVEL, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
@@ -91,8 +92,8 @@ public class HudOverlay implements Disposable {
         stage.addActor(table);
     }
 
-    public void update(float delta, int score,int nlives,int ammo,boolean key){
-        scoreLabel.setText(String.format("%06d", score));
+    public void update(float delta, int nlives, int ammo, boolean key){
+        scoreLabel.setText(String.format("%06d", score.getScore()));
         lives.setText(Constants.LIVES+nlives);
         ammos.setText(Constants.AMMO+ammo);
         timeCount+=delta;
@@ -139,7 +140,4 @@ public class HudOverlay implements Disposable {
         this.worldTimer = worldTimer;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
 }

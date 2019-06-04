@@ -6,6 +6,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.jaen.pedro.screens.DifficultScreen;
 import com.jaen.pedro.screens.GameScreen;
+import com.jaen.pedro.screens.InstructionScreen;
 import com.jaen.pedro.screens.MenuScreen;
 import com.jaen.pedro.screens.ScoreScreen;
 import com.jaen.pedro.screens.StartScreen;
@@ -52,6 +53,10 @@ public class PlatformNesGame extends Game {
 	public void setGameScreen(Enums.Difficulty difficulty){
 		setScreen(new GameScreen(this,difficulty));
 	}
+
+    public void setInstructionScreen(){
+        setScreen(new InstructionScreen(this));
+    }
 
 	public void setVictoryScreen(int score){
         setScreen(new VictoryScreen(this,score));

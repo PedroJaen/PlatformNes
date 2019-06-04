@@ -15,7 +15,7 @@ import com.jaen.pedro.utils.Enums;
 public class Level implements Disposable {
     private boolean gameOver;
     private boolean victory;
-    private int score;
+    private Score score;
     private Enums.Difficulty difficulty;
     private Hero hero;
     private DelayedRemovalArray<Key> keys;
@@ -64,7 +64,6 @@ public class Level implements Disposable {
         }
 
         if(!gameOver && !victory){
-            int previusScore=score;
 
             hero.update(delta,floors);
 
@@ -73,13 +72,6 @@ public class Level implements Disposable {
             for(Fruit f:fruits){
                 if(hero.getRectangle().overlaps(f.getRectangle())){
                     increaseScore(Constants.SCORE_FRUIT);
-
-                    //aumentar vidas
-                    if(score-previusScore>=10000){
-                        Gdx.app.error("gamescreen","score"+score);
-                        Gdx.app.error("gamescreen","previusScore"+previusScore);
-                        aumentaVidas(score,previusScore);
-                    }
 
                     if(!mute){
                         getItem.play();
@@ -94,13 +86,6 @@ public class Level implements Disposable {
             for(Ammo a:ammunition){
                 if(hero.getRectangle().overlaps(a.getRectangle())){
                     increaseScore(Constants.SCORE_FRUIT);
-
-                    //aumentar vidas
-                    if(score-previusScore>=10000){
-                        Gdx.app.error("gamescreen","score"+score);
-                        Gdx.app.error("gamescreen","previusScore"+previusScore);
-                        aumentaVidas(score,previusScore);
-                    }
 
                     if(!mute){
                         getItem.play();
@@ -127,13 +112,6 @@ public class Level implements Disposable {
                 if(hero.getRectangle().overlaps(k.getRectangle())){
                     increaseScore(Constants.SCORE_PICK_KEY);
 
-                    //aumentar vidas
-                    if(score-previusScore>=10000){
-                        Gdx.app.error("gamescreen","score"+score);
-                        Gdx.app.error("gamescreen","previusScore"+previusScore);
-                        aumentaVidas(score,previusScore);
-                    }
-
                     if(!mute){
                         getItem.play();
                     }
@@ -152,13 +130,6 @@ public class Level implements Disposable {
                         explosion.play();
                     }
                     increaseScore(Constants.SCORE_KILL);
-
-                    //aumentar vidas
-                    if(score-previusScore>=10000){
-                        Gdx.app.error("gamescreen","score"+score);
-                        Gdx.app.error("gamescreen","previusScore"+previusScore);
-                        aumentaVidas(score,previusScore);
-                    }
 
                     enemies.removeValue(e,false);
                 }
@@ -239,13 +210,13 @@ public class Level implements Disposable {
     private void increaseScore(int sumar){
         switch(difficulty){
             case EASY:
-                score+=sumar+Constants.FACIL_INC;
+                score.increAseScore(sumar*Constants.FACIL_INC);
                 break;
             case MEDIUM:
-                score+=sumar+Constants.MEDIO_INC;
+                score.increAseScore(sumar*Constants.MEDIO_INC);
                 break;
             case HARD:
-                score+=sumar+Constants.DIFICIL_INC;
+                score.increAseScore(sumar*Constants.DIFICIL_INC);
                 break;
         }
     }
@@ -255,11 +226,6 @@ public class Level implements Disposable {
             jump.play();
         }
 
-    }
-
-    public void aumentaVidas(int score, int previusScore) {
-        int nLives=(score-previusScore)/10000;
-        hero.setLives(hero.getLives()+nLives);
     }
 
     public Hero getHero() {
@@ -298,11 +264,7 @@ public class Level implements Disposable {
         return victory;
     }
 
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
+    public void setScore(Score score) {
         this.score = score;
     }
 
