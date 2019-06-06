@@ -59,7 +59,6 @@ public class Level implements Disposable {
         if(hero.getLives()<=0 || hud.getWorldTimer()<=0){
             gameOver=true;
         }else if(hero.getRectangle().overlaps(exit.getRectangle()) && getKey){
-            increaseScore(Constants.SCORE_EXIT);
             victory=true;
         }
 
@@ -194,9 +193,16 @@ public class Level implements Disposable {
     }
 
     public void spawnBullet(Vector2 position, Enums.Facing facing, boolean enemigo, String nombre){
-        Bullet bullet=new Bullet(position,facing,this,enemigo,lvlCounter,nombre);
-        bullets.add(bullet);
-        if(bullet.isActive()){
+        Bullet bullet=null;
+        float worldWidth = viewport.getWorldWidth();
+        float cameraX = viewport.getCamera().position.x;
+
+        if (!(position.x < cameraX - worldWidth / 2) || !(position.x > cameraX + worldWidth / 2)) {
+            bullet=new Bullet(position,facing,this,enemigo,lvlCounter,nombre);
+            bullets.add(bullet);
+        }
+
+        if(bullet!=null && bullet.isActive()){
 
             if(!enemigo && !mute){
                 shootHero.play();
@@ -207,7 +213,7 @@ public class Level implements Disposable {
         }
     }
 
-    private void increaseScore(int sumar){
+    public void increaseScore(int sumar){
         switch(difficulty){
             case EASY:
                 score.increAseScore(sumar*Constants.FACIL_INC);

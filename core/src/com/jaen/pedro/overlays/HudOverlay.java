@@ -26,6 +26,7 @@ public class HudOverlay implements Disposable {
     private float timeCount;
     private Score score;
     private int nlives;
+    private int currentLvl;
     private Enums.Difficulty difficulty;
     private GameScreen gameScreen;
     private int ammo;
@@ -69,7 +70,7 @@ public class HudOverlay implements Disposable {
         countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         scoreLabel =new Label(String.format("%06d", score.getScore()), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        levelLabel = new Label(gameScreen.getCurrentLevel()+1+"", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        levelLabel = new Label(currentLvl+1+"", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label(Constants.LEVEL, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         difficultyLabel = new Label(difficulty+" ", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         lives = new Label(Constants.LIVES+nlives, new Label.LabelStyle(new BitmapFont(), Color.WHITE));
@@ -92,10 +93,11 @@ public class HudOverlay implements Disposable {
         stage.addActor(table);
     }
 
-    public void update(float delta, int nlives, int ammo, boolean key){
+    public void update(float delta, int nlives, int ammo, boolean key,int currentLvl){
         scoreLabel.setText(String.format("%06d", score.getScore()));
         lives.setText(Constants.LIVES+nlives);
         ammos.setText(Constants.AMMO+ammo);
+        levelLabel.setText(currentLvl+1+"");
         timeCount+=delta;
 
         if(timeCount>=1){
@@ -109,6 +111,7 @@ public class HudOverlay implements Disposable {
         }else{
             if(keyAdded){
                 keyGetted.remove();
+                keyAdded=false;
             }
         }
 

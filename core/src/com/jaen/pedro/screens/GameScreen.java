@@ -49,6 +49,7 @@ public class GameScreen  extends ScreenAdapter {
     public void show() {
         batch = new SpriteBatch();
         score=new Score();
+        currentLevel=Constants.LVL_1;
         hud=new HudOverlay(batch,this);
         camera=new OrthographicCamera();
         viewport=new ExtendViewport(Constants.LVL_SIZE,Constants.LVL_SIZE,camera);
@@ -65,8 +66,6 @@ public class GameScreen  extends ScreenAdapter {
             Gdx.input.setInputProcessor(onScreensControls);
         }
 
-        currentLevel=Constants.LVL_1;
-        //currentLevel=2;
         startNewLevel(currentLevel);
     }
 
@@ -105,7 +104,7 @@ public class GameScreen  extends ScreenAdapter {
 
         level.update(delta);
         if(!level.isVictory()){
-            hud.update(delta,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey());
+            hud.update(delta,level.getHero().getLives(),level.getHero().getAmmo(),level.isGetKey(),currentLevel);
         }
     }
 
@@ -196,9 +195,7 @@ public class GameScreen  extends ScreenAdapter {
 
                 if (Utils.secondsSince(levelEndOverlayStartTime) > Constants.LEVEL_NEXT) {
                     levelEndOverlayStartTime = 0;
-                    /*score.increAseScore(Constants.SCORE_KILL*level.getHero().getLives()
-                            +level.getHero().getAmmo()
-                            +hud.getWorldTimer());*/
+                    level.increaseScore(hud.getWorldTimer());
 
                     hud.setWorldTimer(Constants.LEVEL_TIMER);
                     currentLevel++;
@@ -220,6 +217,7 @@ public class GameScreen  extends ScreenAdapter {
             game.suenaMusica(Constants.MUSICA_INICIO);
         }
 
+        level.increaseScore(Constants.SCORE_EXIT);
         score.increAseScore(Constants.SCORE_KILL*level.getHero().getLives()
                 +level.getHero().getAmmo()
                 +hud.getWorldTimer());

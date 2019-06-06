@@ -30,8 +30,10 @@ public class Constants {
     public static final Vector2 JUGAR_BUTTON = new Vector2(WORLD_SIZE/2,WORLD_SIZE*0.75f);
     public static final String MENU_SCORES="SCORES";
     public static final Vector2 SCORES_BUTTON = new Vector2(WORLD_SIZE/2,WORLD_SIZE*0.5f);
+    public static final float SCORES_RADIUS = 50;
     public static final String MENU_INSTRUCTION="INSTRUCTIONS";
     public static final Vector2 INSTRUCTIONS_BUTTON = new Vector2(WORLD_SIZE/2,WORLD_SIZE*0.25f);
+    public static final float INSTRUCTION_RADIUS = 70;
 
     //instructionscreen
     public static final String INSTRUCTION_1="* OBTAIN THE KEY TO OPEN THE";
@@ -82,6 +84,7 @@ public class Constants {
     public static final int SCORE_FRUIT=50;
     public static final int SCORE_PICK_KEY=200;
     public static final int SCORE_EXIT=300;
+    public static final int SCORE_LIVE=10000;
 
     //sounds
     public static final String MUSICA_INICIO="music/inicio.mp3";

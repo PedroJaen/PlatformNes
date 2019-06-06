@@ -135,9 +135,9 @@ public class MenuScreen extends InputAdapter implements Screen {
 
         if(touch.dst(Constants.JUGAR_BUTTON)<Constants.BUTTON_RADIUS){
             game.setDifficultyScreen();
-        }else if(touch.dst(Constants.SCORES_BUTTON)<Constants.BUTTON_RADIUS){
+        }else if(touch.dst(Constants.SCORES_BUTTON)<Constants.SCORES_RADIUS){
             game.setScoreScreen();
-        }else if(touch.dst(Constants.INSTRUCTIONS_BUTTON)<Constants.BUTTON_RADIUS){
+        }else if(touch.dst(Constants.INSTRUCTIONS_BUTTON)<Constants.INSTRUCTION_RADIUS){
             game.setInstructionScreen();
         }else if(touch.dst(Constants.MUSIC_BUTTON_CENTER)<Constants.BUTTON_RADIUS){
             game.setMute(!game.isMute());
