@@ -80,11 +80,11 @@ public class Constants {
     public static final float LEVEL_NEXT = 3;
 
     //points
-    public static final int SCORE_KILL=100;
     public static final int SCORE_FRUIT=50;
+    public static final int SCORE_KILL=100;
     public static final int SCORE_PICK_KEY=200;
     public static final int SCORE_EXIT=300;
-    public static final int SCORE_LIVE=10000;
+    public static final int SCORE_LIVE=5000;
 
     //sounds
     public static final String MUSICA_INICIO="music/inicio.mp3";
@@ -107,6 +107,10 @@ public class Constants {
     public static final float BUTTON_RADIUS = 32;
     public static final float ONSCREEN_CONTROLS_VIEWPORT_SIZE = 200;
     public static final Vector2 MUSIC_BUTTON_CENTER = new Vector2(WORLD_SIZE-BUTTON_RADIUS, WORLD_SIZE-BUTTON_RADIUS);
+    public static final Vector2 LEFT_BUTTON_CENTER = new Vector2(BUTTON_RADIUS * 3 / 4, BUTTON_RADIUS * 3 / 4);
+    public static final Vector2 RIGHT_BUTTON_CENTER = new Vector2(3*LEFT_BUTTON_CENTER.x, BUTTON_RADIUS * 3 / 4);
+    public static final Vector2 SHOOT_BUTTON_CENTER = new Vector2(BUTTON_RADIUS, BUTTON_RADIUS * 3 / 4);
+    public static final Vector2 JUMP_BUTTON_CENTER = new Vector2(2.5f*SHOOT_BUTTON_CENTER.x, BUTTON_RADIUS * 3 / 4);
 
     //victoryscreen
     public static final String[] LETRAS_SCORE={"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
@@ -139,7 +143,7 @@ public class Constants {
     public static final Vector2 KNOCKBACK_VELOCITY = new Vector2(200, 200);
 
     //enemy
-    public static final int ENEMY_LIVES=5;
+    public static final int ENEMY_LIVES=3;
     public static final float ENEMY_MOVEMENT_SPEED = 20;
     public static final int ENEMY_SHOOT_TIME=3;
 

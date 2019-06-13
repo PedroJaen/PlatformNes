@@ -36,16 +36,10 @@ public class OnScreensControls extends InputAdapter {
     }
 
     public void recalculateButtonPositions() {
-        moveLeftCenter.set(Constants.BUTTON_RADIUS * 3 / 4, Constants.BUTTON_RADIUS * 3 / 4);
-        moveRightCenter.set(Constants.BUTTON_RADIUS * 2, Constants.BUTTON_RADIUS * 3 / 4);
-        shootCenter.set(
-                viewport.getWorldWidth() - Constants.BUTTON_RADIUS * 2f,
-                Constants.BUTTON_RADIUS * 3 / 4
-        );
-        jumpCenter.set(
-                viewport.getWorldWidth() - Constants.BUTTON_RADIUS * 3 / 4,
-                Constants.BUTTON_RADIUS * 3 / 4
-        );
+        moveLeftCenter.set(Constants.LEFT_BUTTON_CENTER);
+        moveRightCenter.set(Constants.RIGHT_BUTTON_CENTER);
+        shootCenter.set(viewport.getWorldWidth()-Constants.SHOOT_BUTTON_CENTER.x,Constants.SHOOT_BUTTON_CENTER.y);
+        jumpCenter.set(viewport.getWorldWidth()-Constants.JUMP_BUTTON_CENTER.x,Constants.JUMP_BUTTON_CENTER.y);
     }
 
     public void render(SpriteBatch batch){
